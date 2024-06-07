@@ -28,8 +28,8 @@
       
     </main>
     <footer>
-        <a href="#" id="connexion">Connexion</a>
-        <a href="#" id="contacte">Contacte</a>
+        <a href="../ECF-Arcadia/HTML/connexion.htm" id="connexion">Connexion</a>
+        <a href="../ECF-Arcadia/HTML/contact.htm" id="contacte">Contacte</a>
         <!-- Avis des visiteurs -->
         <div id="avis">
             <h3>Avis des visiteurs</h3>

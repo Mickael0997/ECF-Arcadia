@@ -1,7 +1,8 @@
 
 // Fonction évènements affichage des avis clients
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {   
+});
 
 // Animation pour les avis des visiteurs
 
@@ -26,33 +27,13 @@ let avisIndex = 0;
 // Fonction qui reinitialise les avis    
 
 function afficherAvis() {
-        avisList.innerHTML = '';
-        const avisItem = document.createElement('li');
-        avisItem.textContent = `${avis[avisIndex].message} - ${avis[avisIndex].etoiles} étoiles`;
-        avisList.appendChild(avisItem);
-        avisIndex = (avisIndex + 1) % avis.length;
-    }
+    avisList.innerHTML = '';
+    const avisItem = document.createElement('li');
+    avisItem.textContent = `${avis[avisIndex].message} - ${avis[avisIndex].etoiles} étoiles`;
+    avisList.appendChild(avisItem);
+    avisIndex = (avisIndex + 1) % avis.length;
+}
 
 // Créé une animation et affiche un nouvel avis toutes les 3 secondes
 
-    setInterval(afficherAvis, 3000); // Change l'avis toutes les 3 secondes
-
-/*
-   // Formulaire de connexion
-   const connexionBtn = document.getElementById("connexion");
-
-   connexionBtn.addEventListener('click', () => {
-     let fenetre = window.open("connexion.htm", 'Connexion', 'width=500, height=500');
-   
-   
-   });*/
-
-    // Formulaire de contact
-    const button = document.getElementById("contacte");
-
-    button.addEventListener('click', () => {
-      let fenetre = window.open("contact.htm", 'Contacte', 'width=500, height=500');
-      
-    
-    });
-});
+setInterval(afficherAvis, 3000);
