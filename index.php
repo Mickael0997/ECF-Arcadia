@@ -28,7 +28,7 @@
       
     </main>
     <footer>
-        <a href="#" id="connexion">Connexion</a>
+        <a href="HTML/connexion.htm" id="connexion">Connexion</a>
         <a href="#" id="contacte">Contacte</a>
         <!-- Avis des visiteurs -->
         <div id="avis">
