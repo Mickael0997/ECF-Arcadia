@@ -17,14 +17,14 @@ $employe = $result->fetch_assoc();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tableau de bord</title>
-    <link rel="stylesheet" href="/CSS/styles.css">
+    <link rel="stylesheet" href="../CSS/styles.css">
 </head>
 <body>
     <header>
         <h1>Bienvenue, <?php echo htmlspecialchars($employe['prenom']); ?> !</h1>
         <nav>
             <ul>
-                <li><a href="./logout.php">Déconnexion</a></li>
+                <li><a href="logout.php">Déconnexion</a></li>
             </ul>
         </nav>
     </header>

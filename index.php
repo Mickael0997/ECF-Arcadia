@@ -14,12 +14,11 @@
         <nav>
             <img src="ASSETS/LogoArcadia2.png" alt="Logo du Zoo" class="logo">
             <ul>
-                
-                <li><a href="#">Le Parc</a></li>
-                <li><a href="#">Les Animaux et leurs Habitats</a></li>
-                <li><a href="#">Les Activités</a></li>
-                <li><a href="#">La Billetterie</a></li>
-                <li><a href="#">Leurs Souvenirs</a></li>
+                <li><a href="../ECF-Arcadia/HTML/parc.htm">Le Parc</a></li>
+                <li><a href="../ECF-Arcadia/HTML/animaux.htm">Les Animaux et leurs Habitats</a></li>
+                <li><a href="../ECF-Arcadia/HTML/activites.htm">Les Activités</a></li>
+                <li><a href="../ECF-Arcadia/HTML/billeterie.htm">La Billetterie</a></li>
+                <li><a href="../ECF-Arcadia/HTML/souvenirs.htm">Leurs Souvenirs</a></li>
             </ul>  
         </nav>
         </header>
@@ -28,7 +27,7 @@
       
     </main>
     <footer>
-        <a href="../ECF-Arcadia/HTML/connexion.htm" id="connexion">Connexion</a>
+        <a href="PHP/login.php" id="connexion">Connexion</a>
         <a href="../ECF-Arcadia/HTML/contact.htm" id="contacte">Contacte</a>
         <!-- Avis des visiteurs -->
         <div id="avis">
