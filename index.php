@@ -2,40 +2,66 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+<!--pour adapter le format à l'écran utilisé-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le Zoo D'Arcadia</title>
+<!---Stylisation des caractères--->    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/styles.css">
-
+ <!-- Titre de l'onglet-->    
+    <title>Le Zoo D'Arcadia</title>
+   
 </head>
-<body>
-
-    <header>
-            
-        <nav>
-            <img src="ASSETS/LogoArcadia2.png" alt="Logo du Zoo" class="logo">
-            <ul>
+<body>            
+    <header> 
+            <img src="ASSETS/LogoArcadia2.png" alt="Logo du Zoo D'Arcadia" id="logo">               
+        <div class="navbar">                                        
+            <ul class="links">
                 <li><a href="../ECF-Arcadia/HTML/parc.htm">Le Parc</a></li>
                 <li><a href="../ECF-Arcadia/HTML/animaux.htm">Les Animaux et leurs Habitats</a></li>
                 <li><a href="../ECF-Arcadia/HTML/activites.htm">Les Activités</a></li>
                 <li><a href="../ECF-Arcadia/HTML/billeterie.htm">La Billetterie</a></li>
-                <li><a href="../ECF-Arcadia/HTML/souvenirs.htm">Leurs Souvenirs</a></li>
+                <li><a href="../ECF-Arcadia/HTML/souvenirs.htm">Leurs Souvenirs</a></li>                
             </ul>  
-        </nav>
-        </header>
-  
-    <main>
-      
-    </main>
-    <footer>
-        <a href="PHP/login.php" id="connexion">Connexion</a>
-        <a href="../ECF-Arcadia/HTML/contact.htm" id="contacte">Contacte</a>
-        <!-- Avis des visiteurs -->
-        <div id="avis">
-            <h3>Avis des visiteurs</h3>
-            <ul id="avis-list"></ul>
+            <div class="buttons">
+            <a href="HTML/contact.htm" class="action-button" id="contacte">Contacte</a>
+            <a href="PHP/login.php" class="action-button connexion" id="connexion">Connexion</a>
+            </div>
+            <div class="burger-menu-button">
+            <i class="fas fa-bars"></i>
+            </div>
         </div>
-        
-    </footer>
-    <script src="JAVASCRIPT/scripts.js"></script>
-</body>
+                        <!--- RESPONSIVE --->
+        <div class="burger-menu">
+            <ul class="links">
+                <li><a href="../ECF-Arcadia/HTML/parc.htm">Le Parc</a></li>
+                <li><a href="../ECF-Arcadia/HTML/animaux.htm">Les Animaux</a></li>
+                <li><a href="../ECF-Arcadia/HTML/activites.htm">Les Activités</a></li>
+                <li><a href="../ECF-Arcadia/HTML/billeterie.htm">La Billetterie</a></li>
+                <li><a href="../ECF-Arcadia/HTML/souvenirs.htm">Leurs Souvenirs</a></li>                
+                <div class="divider"></div>
+                <div class="buttons-burger-menu">
+                    <a href="HTML/contact.htm" class="action-button" id="contacte">Contacte</a>
+                    <a href="PHP/login.php" class="action-button connexion" id="connexion">Connexion</a>
+                </div>
+            </ul>
+        </div>     
+    </header> 
+    <main> 
+             
+    </main>
+    <!-- Avis des visiteurs -->
+            <div class="avis", id="avis">
+            <h3>Avis des visiteurs : <br></h3>
+            <ul id="avis-list"></ul>
+            </div>  
+         
+    
+<script src="./JAVASCRIPT/scripts.js"></script>
+<footer>
+      
+</footer>  
+</body> 
 </html>

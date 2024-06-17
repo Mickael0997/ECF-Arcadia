@@ -34,6 +34,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="../CSS/styles.css">
 </head>
 <body>
+    <header>
+        <a href="../index.php" id="logo-link">
+        <img src="../ASSETS/LogoArcadia2.png" alt="Logo du Zoo Écologique" id="logo">
+    </header>  
     <div class="login-container">
         <h2>Connexion</h2>
         <?php if (isset($error)) { echo "<p class='error'>$error</p>"; } ?>

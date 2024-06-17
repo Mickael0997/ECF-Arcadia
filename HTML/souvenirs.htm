@@ -1,4 +1,68 @@
-<section id="souvenirs">
-    <h2>Leurs Souvenirs</h2>
-    <p>Commentaires de visiteurs avec une photo souvenir.</p>
-</section>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+<!--pour adapter le format à l'écran utilisé-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!---Stylisation des caractères--->    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/styles.css">
+ <!-- Titre de l'onglet-->    
+    <title>Le Zoo D'Arcadia</title>   
+</head>
+<body class="souvenirs">            
+    <header>     
+        <a href="../index.php" id="logo-link">
+        <img src="../ASSETS/LogoArcadia2.png" alt="Logo du Zoo Écologique" id="logo">
+        </a>               
+        <div class="navbar">                                        
+            <ul class="links">
+                <li><a href="parc.htm">Le Parc</a></li>
+                <li><a href="animaux.htm">Les Animaux et leurs Habitats</a></li>
+                <li><a href="activites.htm">Les Activités</a></li>
+                <li><a href="billeterie.htm">La Billetterie</a></li>
+                <li><a href="#">Leurs Souvenirs</a></li>                
+            </ul>  
+            <div class="buttons">
+            <a href="contact.htm" class="action-button" id="contacte">Contacte</a>
+            <a href="../PHP/login.php" class="action-button connexion" id="connexion">Connexion</a>
+            </div>
+            <div class="burger-menu-button">
+            <i class="fas fa-bars"></i>
+            </div>
+        </div>
+                        <!--- RESPONSIVE --->
+        <div class="burger-menu">
+            <ul class="links">
+                <li><a href="parc.htm">Le Parc</a></li>
+                <li><a href="animaux.htm">Les Animaux</a></li>
+                <li><a href="activites.htm">Les Activités</a></li>
+                <li><a href="billeterie.htm">La Billetterie</a></li>
+                <li><a href="#">Leurs Souvenirs</a></li>                
+                <div class="divider"></div>
+                <div class="buttons-burger-menu">
+                    <a href="contact.htm" class="action-button" id="contacte">Contacte</a>
+                    <a href="../PHP/login.php" class="action-button connexion" id="connexion">Connexion</a>
+                </div>
+            </ul>
+        </div>     
+</header> 
+<main> 
+    <section id="souvenirs">
+        <h2>Leurs Souvenirs</h2>
+        <p>Commentaires de visiteurs avec une photo souvenir.</p>
+    </section>         
+</main>
+<footer>      
+</footer>  
+<script src="../JAVASCRIPT/scripts.js"></script>
+</body> 
+</html>
+
+
+
+
+

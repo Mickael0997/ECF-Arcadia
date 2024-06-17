@@ -1,3 +1,15 @@
+// Fonctions burger menu button open
+
+const burgerMenuButton = document.querySelector('.burger-menu-button')
+const burgerMenuButtonIcon = document.querySelector('.burger-menu-button i')
+const burgerMenu = document.querySelector('.burger-menu')
+
+// Ouverture au click
+burgerMenuButton.onclick = function(){
+    burgerMenu.classList.toggle('open');
+    const isOpen = burgerMenu.classList.contains('open');
+    burgerMenuButtonIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'
+}
 
 // Fonction évènements affichage des avis clients
 
@@ -8,16 +20,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 const avisList = document.getElementById('avis-list');
 const avis = [
-        { message: "Super expérience, les enfants ont adoré !", etoiles: 5 },
-        { message: "Beau parc mais un peu cher.", etoiles: 3 },
-        { message: "Très éducatif et bien entretenu.", etoiles: 4 },
-        { message: "Nous reviendrons avec plaisir !", etoiles: 5 },
-        { message: "Personnel très sympathique.", etoiles: 4 },
-        { message: "Bonne variété d'animaux.", etoiles: 4 },
-        { message: "Activités intéressantes pour les petits.", etoiles: 5 },
-        { message: "Parc très propre et bien organisé.", etoiles: 4 },
-        { message: "Excellente journée en famille.", etoiles: 5 },
-        { message: "Prix de la restauration un peu élevé.", etoiles: 3 }
+        { message: "Super expérience, les enfants ont adoré !", "⭐": 5 },
+        { message: "Beau parc mais un peu cher.", "⭐": 3 },
+        { message: "Très éducatif et bien entretenu.", "⭐": 4 },
+        { message: "Nous reviendrons avec plaisir !", "⭐": 5 },
+        { message: "Personnel très sympathique.", "⭐": 4 },
+        { message: "Bonne variété d'animaux.", "⭐": 4 },
+        { message: "Activités intéressantes pour les petits.", "⭐": 5 },
+        { message: "Parc très propre et bien organisé.", "⭐": 4 },
+        { message: "Excellente journée en famille.", "⭐": 5 },
+        { message: "Prix de la restauration un peu élevé.", "⭐": 3 }
     ];
 
 // Initialisation et affichage de l'avis actuelle
@@ -29,7 +41,7 @@ let avisIndex = 0;
 function afficherAvis() {
     avisList.innerHTML = '';
     const avisItem = document.createElement('li');
-    avisItem.textContent = `${avis[avisIndex].message} - ${avis[avisIndex].etoiles} étoiles`;
+    avisItem.textContent = `${avis[avisIndex].message} - ${avis[avisIndex]["⭐"]} étoiles`;
     avisList.appendChild(avisItem);
     avisIndex = (avisIndex + 1) % avis.length;
 }

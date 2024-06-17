@@ -43,5 +43,9 @@ $employe = $result->fetch_assoc();
             <button type="submit">Soumettre</button>
         </form>
     </main>
+    <footer>
+    <a href="../index.php" id="logo-link">
+        <img src="../ASSETS/LogoArcadia2.png" alt="Logo du Zoo Écologique" id="logo">
+    </footer>
 </body>
 </html>
