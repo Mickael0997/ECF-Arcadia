@@ -41,10 +41,12 @@ let avisIndex = 0;
 function afficherAvis() {
     avisList.innerHTML = '';
     const avisItem = document.createElement('li');
-    avisItem.textContent = `${avis[avisIndex].message} - ${avis[avisIndex]["⭐"]} étoiles`;
+    const stars = '⭐'.repeat(avis[avisIndex]["⭐"]);
+    avisItem.textContent = `${avis[avisIndex].message} - ${stars}`;
     avisList.appendChild(avisItem);
     avisIndex = (avisIndex + 1) % avis.length;
 }
+
 
 // Créé une animation et affiche un nouvel avis toutes les 3 secondes
 

@@ -19,14 +19,13 @@
             <img src="ASSETS/LogoArcadia2.png" alt="Logo du Zoo D'Arcadia" id="logo">               
         <div class="navbar">                                        
             <ul class="links">
-                <li><a href="../ECF-Arcadia/HTML/parc.htm">Le Parc</a></li>
-                <li><a href="../ECF-Arcadia/HTML/animaux.htm">Les Animaux et leurs Habitats</a></li>
-                <li><a href="../ECF-Arcadia/HTML/activites.htm">Les Activités</a></li>
-                <li><a href="../ECF-Arcadia/HTML/billeterie.htm">La Billetterie</a></li>
-                <li><a href="../ECF-Arcadia/HTML/souvenirs.htm">Leurs Souvenirs</a></li>                
+                <li><a href="../ECF-Arcadia/HTML/parc.htm">Le Zoo</a></li>
+                <li><a href="../ECF-Arcadia/HTML/animaux.htm">Les Animaux</a></li>
+                <li><a href="../ECF-Arcadia/HTML/habitats.htm">Leurs Habitats</a></li>
+                <li><a href="../ECF-Arcadia/HTML/activites.htm">Les Activités</a></li>                
             </ul>  
             <div class="buttons">
-            <a href="HTML/contact.htm" class="action-button" id="contacte">Contacte</a>
+            <a href="HTML/contact.htm" class="action-button" id="contacte">Contacts</a>
             <a href="PHP/login.php" class="action-button connexion" id="connexion">Connexion</a>
             </div>
             <div class="burger-menu-button">
@@ -36,14 +35,13 @@
                         <!--- RESPONSIVE --->
         <div class="burger-menu">
             <ul class="links">
-                <li><a href="../ECF-Arcadia/HTML/parc.htm">Le Parc</a></li>
+                <li><a href="../ECF-Arcadia/HTML/parc.htm">Le Zoo</a></li>
                 <li><a href="../ECF-Arcadia/HTML/animaux.htm">Les Animaux</a></li>
-                <li><a href="../ECF-Arcadia/HTML/activites.htm">Les Activités</a></li>
-                <li><a href="../ECF-Arcadia/HTML/billeterie.htm">La Billetterie</a></li>
-                <li><a href="../ECF-Arcadia/HTML/souvenirs.htm">Leurs Souvenirs</a></li>                
+                <li><a href="../ECF-Arcadia/HTML/habitats.htm">Leurs Habitats</a></li>
+                <li><a href="../ECF-Arcadia/HTML/activites.htm">Les Activités</a></li>             
                 <div class="divider"></div>
                 <div class="buttons-burger-menu">
-                    <a href="HTML/contact.htm" class="action-button" id="contacte">Contacte</a>
+                    <a href="HTML/contact.htm" class="action-button" id="contacte">Contacts</a>
                     <a href="PHP/login.php" class="action-button connexion" id="connexion">Connexion</a>
                 </div>
             </ul>
@@ -61,7 +59,11 @@
     
 <script src="./JAVASCRIPT/scripts.js"></script>
 <footer>
-      
+    <div class="footextindex">
+        <p>© 2024 Le Zoo D'Arcadia</p>
+        <p>Site réalisé dans le cadre d'un ECF pour destination STUDI</p>
+        <p>Diverses sources proviennent d'un générateur IA et de la région de Brocéliande en Bretagne</p>
+      </div>
 </footer>  
 </body> 
 </html>

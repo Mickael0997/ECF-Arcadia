@@ -13,68 +13,13 @@ body {
         background-image: url(../ASSETS/pexels-pixabay-33045.jpg);
         background-size: cover;
         background-repeat: no-repeat;
+        background-attachment: fixed;
         height: 100vh;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
         font-family: 'Poppins', sans-serif;
     }
-
-.parc{
-    background-image: url(../ASSETS/beau-ciel-plein-etoiles-trona-californie.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-.animaux{
-    background-image: url(../ASSETS/lionpandagorille.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-.activity{
-    background-image: url(../ASSETS/fdactivite.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-
-}
-
-.billeterie{
-    background-image: url(../ASSETS/fdbilleterie.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-.souvenirs{
-    background-image: url(../ASSETS/fdsouvenirs.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
 
 /*Mise en forme du logo img*/
 img {
@@ -92,7 +37,8 @@ li{
 a{
     text-decoration: none;
     color: rgb(255, 255, 255);
-    font-size: 20px;
+    font-size: 25px;
+    text-shadow: 0 0 3px black, 0 0 5px white;
 }
 
 /*Application du Hover*/
@@ -106,7 +52,7 @@ header{
     align-items: center;
     position: relative;
     padding: 0 2rem;
-    background-color: rgba(52, 243, 61, 0.671) (0,0,0,0.255);
+    background-color: rgba(0, 0, 0, 0.466)
 }
 
 /*Mise en forme de la navbar*/
@@ -123,11 +69,11 @@ header{
 /*Mise en forme de la liste*/
 .navbar .links{
     display: flex;
-    gap: 2rem;
+    gap: 8rem;
+    padding: 4rem;
 }
 
 /*Mise en forme du burger menu*/
-
 .navbar .burger-menu-button{
     color: white;
     font-size: 1.5rem;
@@ -147,7 +93,7 @@ header{
     color: black;
     border: 1px solid greenyellow;
     padding: 0.5rem 1.2rem;
-    border-radius: 5px;
+    border-radius: 20px;
     outline: none;
     font-size: 0.9rem;
     font-weight: bold;
@@ -183,10 +129,78 @@ header{
     border: 1px solid;
     border-radius: 20px;
     background-color: green;
-    display: flex;
+    display: block;
     width: max-content; 
 }
 
+.avis ul{
+    margin-bottom: 1rem;
+    padding: 0rem; 
+}
+
+
+/*Mise en formes des pages*/
+
+.index{
+    background-image: url(../ASSETS/beau-ciel-plein-etoiles-trona-californie.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 160vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.parc{
+    background-image: url(../ASSETS/beau-ciel-plein-etoiles-trona-californie.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 160vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.animaux{
+    background-image: url(../ASSETS/lionpandagorille.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 160vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.habitats{
+    background-image: url(../ASSETS/fdbilleterie.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 160vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.activity{
+    background-image: url(../ASSETS/fdsouvenirs.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 160vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
 /*---------------------Burger Menu-----------------*/
 
@@ -242,11 +256,105 @@ header{
     align-items: center;
     gap: 10px;
 }
+
+/*---------------------MAIN-----------------*/
+
+/*Mise en forme des textes*/
+
+h2{
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 0 0 3px black, 0 0 5px white;
+}
+
+main{
+    color: rgb(250, 250, 249);
+    font-size: 1.2rem;
+    display: contents;
+}
+
+main > p{
+
+    padding: 1rem;
+    word-break: break-word;
+    word-spacing: 10px;
+}
+
+/*Alignement de l'image à gauche*/
+img.alignementLeft{
+    float: left;
+    margin: 0 15px 0 0;
+    height: 400px;
+    width: 400px;
+    padding: 1rem;
+    border-radius: 200px;
+}
+
+/*Alignement de l'image à droite*/
+img.alignementRight{
+    float: right;
+    margin: 0 0 0 15px;
+    height: 400px;
+    width: 400px;
+    padding: 1rem;
+    border-radius: 200px;
+}
+
+/*/*Alignement du texte à gauche*/
+.alinetexteLeft{
+    display: contents;
+    padding: 1rem;
+    word-break: break-word;
+    word-spacing: 10px;
+    text-shadow: 0 0 3px black, 0 0 5px white;
+}
+
+/*Alignement du texte à droite*/
+.alinetexteRight{
+    display: contents;
+    padding: 1rem;
+    word-break: break-word;
+    word-spacing: 10px;
+    color: white;
+    text-align: center;
+    padding: 15rem;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+/*---------------------FOOTER-----------------*/
+
+.footext{
+    color: white;
+    text-align: center;
+    padding: 15rem;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.footextindex{
+    color: rgb(7, 7, 7);
+    text-align: center;
+    margin-top: 40rem;
+    clear: both;
+    position: relative;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 0 0 3px black, 0 0 5px white;
+     
+}
+
 /*---------------------RESPONSIVE-----------------*/
 /*Les @Medias*/
 
 /*Mise en forme des éléments de la liste en fonction de la taille de l'écran*/
 @media (max-width: 1004px) {
+    
     header {
         background: none;
     }
@@ -262,9 +370,9 @@ header{
 
     .burger-menu{
         display: block;
-
     }
 }
+
 @media (max-width: 576px) {
 
     .burger-menu{
@@ -272,5 +380,93 @@ header{
         align-items: center;
         width: auto;
         font-size: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    img.alignementLeft{
+        float: center;
+    }
+}
+
+@media (max-width: 576px) {
+
+    img.alignementRight{
+        float: center;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .alinetexteRight{
+        display: contents;
+        align-items: center;
+        width: auto;
+        padding: 1rem;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .alinetexteLeft{
+        display: contents;
+        align-items: center;
+        width: auto;
+        padding: 1rem;
+        font-size: 15px;
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    .footext{
+        display: contents;
+        align-items: center;
+        width: auto;
+        padding: 1rem;
+        font-size: 15px;
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    .footextindex{
+        display: inline-block;
+        align-items: center;
+        width: auto;
+        padding: 1rem;
+        font-size: 15px;
+        color: rgb(7, 7, 7);
+        text-align: center;
+        margin-top: 40rem;
+        clear: both;
+        position: relative;
+        font-family: 'Poppins', sans-serif;
+        text-shadow: 0 0 3px black, 0 0 5px white;
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    .avis{
+        align-items: center;
+        width: auto;
+        padding: 0rem;
+        font-size: 13px;
+        color: aliceblue;
+        position: relative; /* Position fixe par rapport à la fenêtre de visualisation */
+        left: 1%; /* Aligné à droite */
+        top: 50%; /* Centré verticalement */
+        transform: translateY(-50%); /* Décale le titre vers le haut de sa propre hauteur pour le centrer parfaitement */    
+        border: 1px solid;
+        border-radius: 15px;
+        background-color: green;
+        display: block;
+        width: max-content; 
     }
 }
