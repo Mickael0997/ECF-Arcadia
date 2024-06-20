@@ -47,14 +47,35 @@
             </ul>
         </div>     
     </header> 
-    <main> 
-             
-    </main>
-    <!-- Avis des visiteurs -->
+    <main>
+             <!-- Avis des visiteurs -->
+<!--- Création d'une fenêtre  popup --->
+<button id="open-popup-btn" class="openpopup"> Avis</button>  
+<div id="popup" class="popup">
+    <!-- Utilisation de &times; pour afficher une croix-->
+        <span id="close-popup-btn" class="closepopup" >&times;</span>
             <div class="avis", id="avis">
-            <h3>Avis des visiteurs : <br></h3>
-            <ul id="avis-list"></ul>
-            </div>  
+                <!--<h3 class="avis">Avis Clients :</h3>-->
+                <ul id="avis-list"></ul>
+            </div>
+        </div>
+        </div>
+        
+    <h1>Bienvenue au Zoo D'Arcadia</h1>
+      <img class="alignementLeft" src="./ASSETS/leparc.jpg" alt="Le zoo" id="Le zoo">
+    <div>
+        <p class="alinetexteLeft">Le Zoo D'Arcadia est un parc zoologique situé en Bretagne, plus précisément dans la région de Brocéliande.<br></p> 
+    </div>
+    <div>
+        <p>Il est ouvert toute l'année et propose de nombreuses activités pour les petits et les grands.<br></p>
+    </div> 
+    <div>
+        <p>Venez découvrir nos animaux et leurs habitats naturels.</p>       
+    </div>
+
+
+    </main>
+
          
     
 <script src="./JAVASCRIPT/scripts.js"></script>

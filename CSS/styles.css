@@ -82,7 +82,7 @@ header{
 }
 
 /*Mise en forme des boutons*/
-.buttons {
+.buttons{
     display: flex;
     gap: 10px;
 }
@@ -101,7 +101,7 @@ header{
 }
 
 /*Mise en place du survole pour le bouton contacte */
-.action-button:hover {
+.action-button:hover{
     color: white;
     border: 1px solid white;
 }
@@ -118,26 +118,6 @@ header{
     background-color: white;
     color: black;
 }
-
-/*Mise en forme du texte avis*/
-.avis{
-    color: aliceblue;
-    position: relative; /* Position fixe par rapport à la fenêtre de visualisation */
-    right: 0; /* Aligné à droite */
-    top: 50%; /* Centré verticalement */
-    transform: translateY(-50%); /* Décale le titre vers le haut de sa propre hauteur pour le centrer parfaitement */    
-    border: 1px solid;
-    border-radius: 20px;
-    background-color: green;
-    display: block;
-    width: max-content; 
-}
-
-.avis ul{
-    margin-bottom: 1rem;
-    padding: 0rem; 
-}
-
 
 /*Mise en formes des pages*/
 
@@ -223,6 +203,7 @@ header{
 .burger-menu.open{
     height: 260px;
 }
+
 /*Mise en forme de la liste du burger menu*/
 .burger-menu li{
     padding: 0,7rem;
@@ -259,8 +240,67 @@ header{
 
 /*---------------------MAIN-----------------*/
 
-/*Mise en forme des textes*/
+/*Pointeur pour ouvrir la popup*/
+.openpopup{
+    cursor: pointer;
+    position: relative;
+    left: 110rem;
+    bottom: 7rem;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    font-size: 15px;
+    width: 4rem;
+}
 
+.closepopup{
+    top: 160px;
+    left: 25px;
+    color: white;
+    position: relative;
+}
+
+/*Mise en place d'une fenêtre POPUP*/
+.popup {
+    display: none; /* Invisible par défaut */
+    position: fixed; /* Reste en place même lorsque l'utilisateur fait défiler la page */
+    z-index: 1; /* Se situe au-dessus de tout le reste sur la page */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largeur complète */
+    height: 100%; /* Hauteur complète */
+    overflow: auto; /* Permet de faire défiler si nécessaire */
+    background-color: rgb(0,0,0); /* Couleur d'arrière-plan */
+    background-color: rgba(0,0,0,0.4); /* Arrière-plan noir avec opacité */
+    cursor: pointer;
+}
+
+/*Mise en forme du texte avis*/
+.avis{
+    color: rgb(255, 255, 255);
+    position: relative; /* Position fixe par rapport à la fenêtre de visualisation */
+    left: 3rem; /* Aligné à droite */
+    top: 19%; /* Centré verticalement */
+    transform: translateY(-50%); /* Décale le titre vers le haut de sa propre hauteur pour le centrer parfaitement */
+    width: max-content;
+    font-size: 14px; 
+}
+
+/*Mise en forme de la liste des avis*/
+#avis-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+/*Mise en forme de chaque avis*/
+#avis-list li {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/*Mise en forme des textes*/
 h2{
     color: white;
     font-size: 2rem;
@@ -304,13 +344,34 @@ img.alignementRight{
     border-radius: 200px;
 }
 
-/*/*Alignement du texte à gauche*/
-.alinetexteLeft{
+/*Alignement du texte au centre*/
+img.alignementCenter{
+    float: center;
+    margin-left: 40%;
+    height: 400px;
+    width: 400px;
+    padding: 1rem;
+    border-radius: 200px;;
+}
+
+/*Alignement du texte à gauche Up*/
+.alinetexteLeftU{
     display: contents;
     padding: 1rem;
     word-break: break-word;
-    word-spacing: 10px;
+    word-spacing: 15px;
     text-shadow: 0 0 3px black, 0 0 5px white;
+    line-height: 2rem;
+}
+
+/*Alignement du texte à gauche Down*/
+.alinetexteLeftD{
+    display: contents;
+    padding: 1rem;
+    word-break: break-word;
+    word-spacing: 15px;
+    text-shadow: 0 0 3px black, 0 0 5px white;
+    line-height: 2rem;
 }
 
 /*Alignement du texte à droite*/
@@ -318,17 +379,16 @@ img.alignementRight{
     display: contents;
     padding: 1rem;
     word-break: break-word;
-    word-spacing: 10px;
-    color: white;
-    text-align: center;
-    padding: 15rem;
-    font-size: 1rem;
-    font-family: 'Poppins', sans-serif;
+    word-spacing: 15px;
+    text-shadow: 0 0 3px black, 0 0 5px white;
+    margin: 20px;
+    line-height: 2rem;
+    
 }
 
 /*---------------------FOOTER-----------------*/
 
-.footext{
+.footparc{
     color: white;
     text-align: center;
     padding: 15rem;
@@ -337,7 +397,7 @@ img.alignementRight{
 
 }
 
-.footextindex{
+.footindex{
     color: rgb(7, 7, 7);
     text-align: center;
     margin-top: 40rem;
@@ -410,7 +470,18 @@ img.alignementRight{
 
 @media (max-width: 576px) {
 
-    .alinetexteLeft{
+    .alinetexteLeftU{
+        display: contents;
+        align-items: center;
+        width: auto;
+        padding: 1rem;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .alinetexteLeftD{
         display: contents;
         align-items: center;
         width: auto;
@@ -422,7 +493,7 @@ img.alignementRight{
 
 @media (max-width: 576px) {
 
-    .footext{
+    .footparc{
         display: contents;
         align-items: center;
         width: auto;
@@ -454,19 +525,40 @@ img.alignementRight{
 @media (max-width: 576px) {
 
     .avis{
-        align-items: center;
-        width: auto;
         padding: 0rem;
-        font-size: 13px;
-        color: aliceblue;
+        font-size: 12px;
+        color: white;
         position: relative; /* Position fixe par rapport à la fenêtre de visualisation */
-        left: 1%; /* Aligné à droite */
-        top: 50%; /* Centré verticalement */
-        transform: translateY(-50%); /* Décale le titre vers le haut de sa propre hauteur pour le centrer parfaitement */    
-        border: 1px solid;
-        border-radius: 15px;
-        background-color: green;
-        display: block;
+        left: 8%; /* Aligné à droite */
+        top: 17%; /* Centré verticalement */
+        transform: translateY(-50%); /* Décale le titre vers le haut de sa propre hauteur pour le centrer parfaitement */
         width: max-content; 
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    .openpopup{
+        cursor: pointer;
+        left: 24rem;
+        bottom: 56rem;
+        border: 2px solid #fffefe;
+        border-radius: 10px;
+        width: 3rem;
+        color: white;
+        background-color: black;
+        font-size: 15px;
+        position: absolute;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .closepopup{
+        top: 145px;
+        left: 20px;
+        color: white;
+        position: relative;
     }
 }

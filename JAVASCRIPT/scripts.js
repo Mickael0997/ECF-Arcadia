@@ -1,3 +1,6 @@
+
+
+
 // Fonctions burger menu button open
 
 const burgerMenuButton = document.querySelector('.burger-menu-button')
@@ -11,7 +14,36 @@ burgerMenuButton.onclick = function(){
     burgerMenuButtonIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'
 }
 
-// Fonction évènements affichage des avis clients
+
+
+
+// Fonctions de la fenêtre POPUP 
+
+const popup = document.getElementById('popup');
+const btn = document.getElementById("open-popup-btn");
+const span = document.getElementById("close-popup-btn");
+
+// Lorsque l'utilisateur clique sur le bouton, ouvre le popup
+btn.onclick = function() {
+    popup.style.display = "block";
+}
+
+// Lorsque l'utilisateur clique sur (x), ferme le popup
+span.onclick = function() {
+    popup.style.display = "none";
+}
+
+// Lorsque l'utilisateur clique n'importe où en dehors du popup, ferme le popup
+window.onclick = function(event) {
+    if (event.target == popup) {
+        popup.style.display = "none";
+    }
+}
+
+
+
+
+// Fonctions évènements affichage des avis clients
 
 document.addEventListener('DOMContentLoaded', function() {   
 });
@@ -51,3 +83,6 @@ function afficherAvis() {
 // Créé une animation et affiche un nouvel avis toutes les 3 secondes
 
 setInterval(afficherAvis, 3000);
+
+
+
