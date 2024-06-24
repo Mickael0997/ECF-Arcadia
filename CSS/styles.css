@@ -2,7 +2,6 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -10,22 +9,20 @@
 
 /*Mise en forme de l'image background*/
 body {
-        background-image: url(../ASSETS/pexels-pixabay-33045.jpg);
+        background-image: url(../ASSETS/beau-ciel-plein-etoiles-trona-californie.jpg);
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
         height: 100vh;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
+        text-shadow: 0 0 11px #184d00, 0 0 11px #000;
     }
 
 /*Mise en forme du logo img*/
 img {
-    width: 200px;
-    height: 200px;
+    object-fit: cover;
+    shape-outside: margin-box;
 }
+
 /*Mise en forme de la liste*/
 li{
     list-style-type: none;
@@ -38,7 +35,6 @@ a{
     text-decoration: none;
     color: rgb(255, 255, 255);
     font-size: 25px;
-    text-shadow: 0 0 3px black, 0 0 5px white;
 }
 
 /*Application du Hover*/
@@ -133,19 +129,6 @@ header{
     font-family: 'Poppins', sans-serif;
 }
 
-
-.parc{
-    background-image: url(../ASSETS/beau-ciel-plein-etoiles-trona-californie.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 160vh;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
 .animaux{
     background-image: url(../ASSETS/lionpandagorille.png);
     background-size: cover;
@@ -214,12 +197,14 @@ header{
 
 /*Mise en forme de divider*/
 .divider{
+    display: inline-block;
     height: 1px;
     background-color: white;
     width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    margin-bottom: 10rem;
+    margin-top: 10rem;
 }
 
 /*Mise en forme des buttons*/
@@ -240,6 +225,15 @@ header{
 
 /*---------------------MAIN-----------------*/
 
+.titreindex{
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+    font-family: 'Poppins', sans-serif;
+}
+
 /*Pointeur pour ouvrir la popup*/
 .openpopup{
     cursor: pointer;
@@ -258,6 +252,142 @@ header{
     left: 25px;
     color: white;
     position: relative;
+}
+
+.containerJungle{
+    max-width: 620px;
+    padding: 3rem;
+    border-radius: 90px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: right;
+    display: flex;
+    box-sizing: border-box;
+    position: absolute;
+    right: 75%;
+    line-height: 3rem;
+}
+
+.containerSavane{
+    max-width: 525px;
+    padding: 2rem;
+    border-radius: 90px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: right;
+    display: flex;
+    position: absolute;
+    left: 75%;
+    line-height: 3rem;
+}
+.containerMarais{
+    max-width: 525px;
+    padding: 2rem;
+    border-radius: 90px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: right;
+    display: flex;
+    position: absolute;
+    left: 38%;
+    line-height: 3rem;
+}
+
+
+
+.soustitreIhab{
+    margin: 10px;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.soustitreIact{
+    margin: 10px;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.indexactiv{
+    shape-outside: margin-box;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 15px #ecdcdc;
+    justify-content: space-between;
+    display: flex;
+    padding: 1rem;
+    max-width: 750px;
+    border-radius: 60px;
+    position: relative;
+    left: 40%;
+    margin-bottom: 3rem;
+}
+
+.container p{
+    line-height: 1.4;
+}
+
+.container-imageJ{
+    width: 300px;
+    height: 300px;
+    object-fit: fill;
+    border-radius: 150px;
+    float: left;
+    shape-outside: margin-box;
+}
+
+.container-imageM{
+    width: 300px;
+    height: 300px;
+    object-fit: fill;
+    border-radius: 150px;
+    float: left;
+    shape-outside: margin-box;
+    margin-top: 15px;
+}
+
+.container-imageS{
+    width: 300px;
+    height: 300px;
+    object-fit: fill;
+    border-radius: 150px;
+    float: left;
+    shape-outside: margin-box;
+    margin-top: 15px;
+}
+
+
+.container-imInd{
+    width: 300px;
+    height: 300px;
+    object-fit: fill;
+    border-radius: 150px;
+    float: left;
+    shape-outside: margin-box;
+
+}
+
+/*Mise en forme des textes*/
+
+.habitat-titre{
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 30rem;
+    margin-bottom: -10rem;
+    font-family: 'Poppins', sans-serif;
+}
+.activite-titre{
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 50rem;
+    margin-bottom: -5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.ecologie-titre{
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 15rem;
+    margin-bottom: -5rem;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 /*Mise en place d'une fenêtre POPUP*/
@@ -300,16 +430,6 @@ header{
     border-radius: 5px;
 }
 
-/*Mise en forme des textes*/
-h2{
-    color: white;
-    font-size: 2rem;
-    text-align: center;
-    margin-top: 6rem;
-    margin-bottom: 6rem;
-    font-family: 'Poppins', sans-serif;
-    text-shadow: 0 0 3px black, 0 0 5px white;
-}
 
 main{
     color: rgb(250, 250, 249);
@@ -328,30 +448,30 @@ main > p{
 img.alignementLeft{
     float: left;
     margin: 0 15px 0 0;
-    height: 400px;
+    height: 500px;
     width: 400px;
     padding: 1rem;
-    border-radius: 200px;
+    border-radius: 100px;
 }
 
 /*Alignement de l'image à droite*/
 img.alignementRight{
     float: right;
     margin: 0 0 0 15px;
-    height: 400px;
+    height: 500px;
     width: 400px;
     padding: 1rem;
-    border-radius: 200px;
+    border-radius: 100px;
 }
 
 /*Alignement du texte au centre*/
 img.alignementCenter{
     float: center;
     margin-left: 40%;
-    height: 400px;
+    height: 500px;
     width: 400px;
     padding: 1rem;
-    border-radius: 200px;;
+    border-radius: 100px;
 }
 
 /*Alignement du texte à gauche Up*/
@@ -360,8 +480,21 @@ img.alignementCenter{
     padding: 1rem;
     word-break: break-word;
     word-spacing: 15px;
-    text-shadow: 0 0 3px black, 0 0 5px white;
     line-height: 2rem;
+    font-size: 20px;
+}
+
+/*Alignement du texte index Up*/
+.texteindexLeftU{
+    display: flex;
+    padding: 3rem;
+    word-break: break-word;
+    word-spacing: 15px;
+    line-height: 2rem;
+    text-indent: 6rem;
+    font-size: 20px;
+    margin-right: 10%;
+    text-align: justify;
 }
 
 /*Alignement du texte à gauche Down*/
@@ -370,8 +503,20 @@ img.alignementCenter{
     padding: 1rem;
     word-break: break-word;
     word-spacing: 15px;
-    text-shadow: 0 0 3px black, 0 0 5px white;
     line-height: 2rem;
+}
+
+/*Alignement du texte Center*/
+.texteindexCenter{
+    display: flex;
+    padding: 3rem;
+    word-break: break-word;
+    word-spacing: 15px;
+    line-height: 2rem;
+    text-indent: 6rem;
+    font-size: 20px;
+    margin-right: 10%;
+    text-align: justify;
 }
 
 /*Alignement du texte à droite*/
@@ -380,10 +525,8 @@ img.alignementCenter{
     padding: 1rem;
     word-break: break-word;
     word-spacing: 15px;
-    text-shadow: 0 0 3px black, 0 0 5px white;
     margin: 20px;
-    line-height: 2rem;
-    
+    line-height: 2rem;  
 }
 
 /*---------------------FOOTER-----------------*/
@@ -394,7 +537,6 @@ img.alignementCenter{
     padding: 15rem;
     font-size: 1rem;
     font-family: 'Poppins', sans-serif;
-
 }
 
 .footindex{
@@ -405,8 +547,6 @@ img.alignementCenter{
     position: relative;
     font-size: 20px;
     font-family: 'Poppins', sans-serif;
-    text-shadow: 0 0 3px black, 0 0 5px white;
-     
 }
 
 /*---------------------RESPONSIVE-----------------*/
@@ -445,15 +585,33 @@ img.alignementCenter{
 
 @media (max-width: 576px) {
 
+    .container-image{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 576px) {
+
     img.alignementLeft{
-        float: center;
+        width: 330px;
+        height: 200px;
+        display: flex;
+        margin-left: 100px;
+        right: 30px;
+        position: relative;
     }
 }
 
 @media (max-width: 576px) {
 
     img.alignementRight{
-        float: center;
+        width: 330px;
+        height: 200px;
+        display: flex;
+        margin-left: 100px;
+        right: 30px;
+        position: relative;
     }
 }
 
@@ -490,6 +648,40 @@ img.alignementCenter{
     }
 }
 
+@media (max-width: 576px) {
+
+    .texteindexCenter{
+        display: flex;
+        width: auto;
+        padding: 1rem;
+        font-size: 15px;
+        text-align: left;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .texteindexLeftU{
+        display: flex;
+        width: auto;
+        padding: 1rem;
+        font-size: 15px;
+        text-align: left;
+    }
+}
+
+@media (max-width:576px){
+    .divider{
+        display: inline-block;
+        height: 1px;
+        background-color: white;
+        width: 65%;
+        margin-left: 5rem;
+        margin-right: 5rem;
+        margin-bottom: 5rem;
+        margin-top: 5rem;
+    }
+}
 
 @media (max-width: 576px) {
 
@@ -517,7 +709,6 @@ img.alignementCenter{
         clear: both;
         position: relative;
         font-family: 'Poppins', sans-serif;
-        text-shadow: 0 0 3px black, 0 0 5px white;
     }
 }
 
