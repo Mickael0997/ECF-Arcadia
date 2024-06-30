@@ -16,7 +16,6 @@ burgerMenuButton.onclick = function(){
 
 
 
-
 // Fonctions de la fenêtre POPUP 
 
 const popup = document.getElementById('popup');

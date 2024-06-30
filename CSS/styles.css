@@ -17,6 +17,7 @@ body {
         text-shadow: 0 0 11px #184d00, 0 0 11px #000;
     }
 
+
 /*Mise en forme du logo img*/
 img {
     object-fit: cover;
@@ -37,6 +38,12 @@ a{
     font-size: 25px;
 }
 
+.ref{
+    text-decoration: none;
+    color:rgb(219, 84, 84);
+    font-size: 20px;
+    outline: none;
+}
 /*Application du Hover*/
 a:hover{
     color: #cdf80b;
@@ -141,17 +148,7 @@ header{
     font-family: 'Poppins', sans-serif;
 }
 
-.habitats{
-    background-image: url(../ASSETS/fdbilleterie.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 160vh;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+
 
 .activity{
     background-image: url(../ASSETS/fdsouvenirs.jpg);
@@ -182,18 +179,6 @@ header{
     transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)
 }
 
-/*Mise en place de l'ouverture du menu burger*/
-.burger-menu.open{
-    height: 260px;
-}
-
-/*Mise en forme de la liste du burger menu*/
-.burger-menu li{
-    padding: 0,7rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;    
-}
 
 /*Mise en forme de divider*/
 .divider{
@@ -205,6 +190,18 @@ header{
     margin-right: 10rem;
     margin-bottom: 10rem;
     margin-top: 10rem;
+}
+/*Mise en place de l'ouverture du menu burger*/
+.burger-menu.open{
+    height: 260px;
+}
+
+/*Mise en forme de la liste du burger menu*/
+.burger-menu li{
+    padding: 0,7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
 }
 
 /*Mise en forme des buttons*/
@@ -227,7 +224,7 @@ header{
 
 .titreindex{
     color: white;
-    font-size: 2rem;
+    font-size: 3rem;
     text-align: center;
     margin-top: 6rem;
     margin-bottom: 6rem;
@@ -291,33 +288,26 @@ header{
 }
 
 
-
-.soustitreIhab{
+/*sous titre Index habitats*/
+.soustitreIhab1{
     margin: 10px;
     font-size: 2rem;
     text-align: center;
     font-family: 'Poppins', sans-serif;
 }
 
-.soustitreIact{
+.soustitreIhab2{
     margin: 10px;
     font-size: 2rem;
     text-align: center;
     font-family: 'Poppins', sans-serif;
 }
 
-.indexactiv{
-    shape-outside: margin-box;
-    box-sizing: border-box;
-    box-shadow: 5px 5px 15px #ecdcdc;
-    justify-content: space-between;
-    display: flex;
-    padding: 1rem;
-    max-width: 750px;
-    border-radius: 60px;
-    position: relative;
-    left: 40%;
-    margin-bottom: 3rem;
+.soustitreIhab3{
+    margin: 10px;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
 }
 
 .container p{
@@ -354,31 +344,301 @@ header{
 }
 
 
-.container-imInd{
-    width: 300px;
-    height: 300px;
-    object-fit: fill;
-    border-radius: 150px;
-    float: left;
-    shape-outside: margin-box;
 
-}
+/*Mise en forme partie Activité*/
 
-/*Mise en forme des textes*/
-
-.habitat-titre{
-    font-size: 3rem;
-    text-align: center;
-    margin-top: 30rem;
-    margin-bottom: -10rem;
-    font-family: 'Poppins', sans-serif;
-}
 .activite-titre{
     font-size: 3rem;
     text-align: center;
     margin-top: 50rem;
     margin-bottom: -5rem;
     font-family: 'Poppins', sans-serif;
+}
+
+.f-act{
+    display: block;
+}
+
+.s-t-Iact1{
+    margin: 10px;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.s-t-Iact2{
+    margin: 10px;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.s-t-Iact3{
+    margin: 10px;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.s-t-Iact4{
+    margin: 10px;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.indactiv1{
+    shape-outside: margin-box;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 15px #ecdcdc;
+    justify-content: space-between;
+    display: flex;
+    padding: 1rem;
+    max-width: 100rem;
+    border-radius: 60px;
+    position: relative;
+    left: 15%;
+    margin-bottom: 3rem;
+    text-align: end;
+}
+
+.indactiv2{
+    shape-outside: margin-box;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 15px #ecdcdc;
+    justify-content: space-between;
+    display: flex;
+    padding: 1rem;
+    max-width: 100rem;
+    border-radius: 60px;
+    position: relative;
+    left: 15%;
+    margin-bottom: 3rem;
+}
+
+.indactiv3{
+    shape-outside: margin-box;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 15px #ecdcdc;
+    justify-content: space-between;
+    display: flex;
+    padding: 1rem;
+    max-width: 100rem;
+    border-radius: 60px;
+    position: relative;
+    left: 15%;
+    margin-bottom: 3rem;
+}
+
+.indactiv4{
+    shape-outside: margin-box;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 15px #ecdcdc;
+    justify-content: space-between;
+    display: flex;
+    padding: 1rem;
+    max-width: 100rem;
+    border-radius: 60px;
+    position: relative;
+    left: 15%;
+    margin-bottom: 3rem;
+}
+.container-imAct1{
+    width: 100rem;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 150px;
+    float: left;
+    shape-outside: margin-box;
+    padding: 1rem;
+
+}
+
+.container-imAct2{
+    width: 65rem;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 150px;
+    float: left;
+    shape-outside: margin-box;
+    padding: 1rem;
+
+}
+
+.container-imAct3{
+    width: 160rem;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 150px;
+    float: left;
+    shape-outside: margin-box;
+    padding: 1rem;
+
+}
+
+.container-imAct4{
+    width: 135rem;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 150px;
+    float: left;
+    shape-outside: margin-box;
+    padding: 1rem;
+
+}
+
+.p-act1{
+    text-align: end;
+    position: relative;
+    top: 1rem;
+    right: 0rem;
+    line-height: 50px;
+    word-spacing: 6px;
+    word-break: break-word;
+}
+
+
+/*Mise en forme de la partie ecologie*/
+
+.p-eco1{
+    text-align: end;
+    position: relative;
+    top: 1rem;
+    right: 0rem;
+    line-height: 50px;
+    word-spacing: 6px;
+    word-break: break-word;
+}
+
+.f-eco{
+    display: block;
+}
+/*sous titre Index écologie*/
+.s-t-Ieco1{
+    margin: 10px;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.s-t-Ieco2{
+    margin: 10px;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.s-t-Ieco3{
+    margin: 10px;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.s-t-Ieco4{
+    margin: 10px;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.indeco1{
+    shape-outside: margin-box;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 15px #ecdcdc;
+    justify-content: space-between;
+    display: flex;
+    padding: 1rem;
+    max-width: 100rem;
+    border-radius: 60px;
+    position: relative;
+    left: 15%;
+    margin-bottom: 3rem;
+}
+
+.indeco2{
+    shape-outside: margin-box;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 15px #ecdcdc;
+    justify-content: space-between;
+    display: flex;
+    padding: 1rem;
+    max-width: 100rem;
+    border-radius: 60px;
+    position: relative;
+    left: 15%;
+    margin-bottom: 3rem;
+}
+
+.indeco3{
+    shape-outside: margin-box;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 15px #ecdcdc;
+    justify-content: space-between;
+    display: flex;
+    padding: 1rem;
+    max-width: 100rem;
+    border-radius: 60px;
+    position: relative;
+    left: 15%;
+    margin-bottom: 3rem;
+}
+
+.indeco4{
+    shape-outside: margin-box;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 15px #ecdcdc;
+    justify-content: space-between;
+    display: flex;
+    padding: 1rem;
+    max-width: 100rem;
+    border-radius: 60px;
+    position: relative;
+    left: 15%;
+    margin-bottom: 3rem;
+}
+.container-imEco1{
+    width: 135rem;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 150px;
+    float: left;
+    shape-outside: margin-box;
+    padding: 1rem;
+
+}
+
+.container-imEco2{
+    width: 135rem;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 150px;
+    float: left;
+    shape-outside: margin-box;
+    padding: 1rem;
+
+}
+
+.container-imEco3{
+    width: 135rem;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 150px;
+    float: left;
+    shape-outside: margin-box;
+    padding: 1rem;
+}
+
+.container-imEco4{
+    width: 135rem;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 150px;
+    float: left;
+    shape-outside: margin-box;
+    padding: 1rem;
+
 }
 
 .ecologie-titre{
@@ -389,6 +649,19 @@ header{
     font-family: 'Poppins', sans-serif;
 
 }
+
+
+/*Mise en forme des textes*/
+
+.habitat-titre{
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 30rem;
+    margin-bottom: -5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+
 
 /*Mise en place d'une fenêtre POPUP*/
 .popup {
@@ -549,8 +822,160 @@ img.alignementCenter{
     font-family: 'Poppins', sans-serif;
 }
 
+
+
+
+
+--------------------------/*Mise en forme de la page HABITATS*/----------------------
+
+.habitats{
+    background-image: url(../ASSETS/beau-ciel-plein-etoiles-trona-californie.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 160vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.hab-titre{
+    text-align: center;
+    font-size: 3rem;
+    position: relative;
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+}
+
+
+.hab-text-intro{
+    text-align: center;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+
+.hab-st-J{
+    text-align: center;
+    font-size: 2rem;
+    position:relative;
+    top: 1rem;
+    margin-bottom: 3rem;
+    right: 6rem;
+}
+
+
+.hab-st-M{
+    text-align: center;
+    font-size: 2rem;
+    position:relative;
+    top: 1rem;
+    margin-bottom: 3rem;
+}
+
+
+.hab-st-S{
+    text-align: center;
+    font-size: 2rem;
+    position:relative;
+    top: 1rem;
+    margin-bottom: 3rem;
+    left: 3rem;
+}
+
+
+.divider-hab{
+    display: inline-block;
+    height: 1px;
+    background-color: white;
+    width: 100%;
+    margin-top: 2rem;   
+}
+
+
+.p-text{
+    max-width: 70%;
+    position: relative;
+    top: 1rem;
+    text-align: left;
+    word-spacing: 10px;
+    line-height: 35px;
+}
+
+.p-text-J{
+    max-width: 70%;
+    position: relative;
+    top: 1rem;
+    text-align: left;
+    word-spacing: 10px;
+    line-height: 35px;
+}
+
+.p-text-M{
+    max-width: 80%;
+    position: relative;
+    top: 1rem;
+    text-align: left;
+    word-spacing: 10px;
+    line-height: 35px;
+    left: 3rem;
+}
+
+.p-text-S{
+    max-width: 65%;
+    position: relative;
+    top: 1rem;
+    text-align: left;
+    word-spacing: 10px;
+    line-height: 35px;
+    left: 10rem;
+}
+
+.img-habitats{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    padding: 7rem;
+}
+
+
+.img-jungle{
+    width: 400px;
+    height: 400px;
+    position: relative;
+    object-fit: cover;
+    border-radius: 100px;
+    margin-right: 10rem;
+    margin-bottom: 1rem;
+}
+
+
+.img-marais{
+    width: 400px;
+    height: 400px;
+    position: relative;
+    object-fit: cover;
+    border-radius: 100px;
+    left: 3rem;
+    margin-bottom: 1rem; 
+}
+
+
+.img-savane{
+    width: 400px;
+    height: 400px;
+    position: relative;
+    object-fit: cover;
+    border-radius: 100px;
+    margin-left: 10rem;
+    margin-bottom: 1rem;
+}
+
+
 /*---------------------RESPONSIVE-----------------*/
-/*Les @Medias*/
+/*Les @Medias Index*/
 
 /*Mise en forme des éléments de la liste en fonction de la taille de l'écran*/
 @media (max-width: 1004px) {
@@ -583,6 +1008,7 @@ img.alignementCenter{
     }
 }
 
+/*Haut de page*/
 @media (max-width: 576px) {
 
     .container-image{
@@ -614,6 +1040,7 @@ img.alignementCenter{
         position: relative;
     }
 }
+
 
 @media (max-width: 576px) {
 
@@ -683,6 +1110,115 @@ img.alignementCenter{
     }
 }
 
+
+@media(max-width:576px){
+    .p-hab1{
+        top: 18rem;
+        right: 2rem;
+        font-size: 13px;
+        text-align: center;
+        display: grid;
+        position: absolute;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .containerJungle{
+        width: 330px;
+        height: 200px;
+        display: flex;
+        margin-left: 100px;
+        right: 30px;
+        position: relative;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .containerSavane{
+        width: 330px;
+        height: 200px;
+        display: flex;
+        margin-left: 100px;
+        right: 30px;
+        position: relative;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .containerMarais{
+        width: 330px;
+        height: 200px;
+        display: flex;
+        margin-left: 100px;
+        right: 30px;
+        position: relative;
+    }
+}
+
+@media (max-width: 576px){
+
+    .soustitreIhab1{
+        padding: 2rem;
+        font-size: 31px;
+        position: relative;
+        right: 3rem;
+    }
+}
+
+@media (max-width: 576px){
+
+    .soustitreIhab2{
+        padding: 2rem;
+        font-size: 31px;
+        position: relative;
+        right: 3rem;
+    }
+}
+
+@media (max-width: 576px){
+
+    .soustitreIhab3{
+        padding: 2rem;
+        font-size: 31px;
+        position: relative;
+        right: 3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    img.container-imageJ{
+        width: 330px;
+        height: 200px;
+        display: flex;
+        left: 325px;
+        position: relative;
+        bottom: 5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    img.container-imageM{
+        width: 330px;
+        height: 200px;
+        display: flex;
+        right: 60px;
+        position: relative;
+    }
+}
+
+@media (max-width: 576px) {
+    img.container-imageS{
+        width: 330px;
+        height: 200px;
+        display: flex;
+        right: 60px;
+        position: relative;
+    }
+}
+
 @media (max-width: 576px) {
 
     .footparc{
@@ -728,6 +1264,7 @@ img.alignementCenter{
 }
 
 
+
 @media (max-width: 576px) {
 
     .openpopup{
@@ -744,12 +1281,71 @@ img.alignementCenter{
     }
 }
 
+@media (min-width: 1004px) {
+
+    .openpopup{
+        cursor: pointer;
+        left: 89rem;
+        bottom: 48rem;
+        border: 2px solid #fffefe;
+        border-radius: 10px;
+        width: 3rem;
+        color: white;
+        background-color: black;
+        font-size: 15px;
+        position: absolute;
+    }
+}
+
+
 @media (max-width: 576px) {
 
     .closepopup{
         top: 145px;
         left: 20px;
         color: white;
+        position: relative;
+    }
+}
+
+
+
+/*Les Medias Habitats*/
+
+@media (max-width: 576px) {
+    img.img-habitats{
+        display: block;
+        position: relative;
+    }
+}
+
+
+@media (max-width: 576px) {
+    img.img-jungle{
+        width: 330px;
+        height: 200px;
+        display: flex;
+        right: 60px;
+        position: relative;
+    }
+}
+
+@media (max-width:576px) {
+    img.img-marais{
+        width: 330px;
+        height: 200px;
+        display: flex;
+        right: 60px;
+        position: relative;
+    }
+}
+
+@media (max-width: 576px) {
+    img.img-savane{
+        width: 330px;
+        height: 200px;
+        display: flex;
+        right: 60px;
         position: relative;
     }
 }
