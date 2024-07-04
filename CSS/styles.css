@@ -1,3 +1,5 @@
+/*----------Mise en forme Générale----------*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 /* Reset Style*/
 *{
     margin: 0;
@@ -5,49 +7,19 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/*Personnalisation du corp*/
 
 /*Mise en forme de l'image background*/
 body {
-        background-image: url(../ASSETS/beau-ciel-plein-etoiles-trona-californie.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        height: 100vh;
-        text-shadow: 0 0 11px #184d00, 0 0 11px #000;
-    }
-
-
-/*Mise en forme du logo img*/
-img {
-    object-fit: cover;
-    shape-outside: margin-box;
+    background-image: url(../ASSETS/beau-ciel-plein-etoiles-trona-californie.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    text-shadow: 0 0 11px #184d00, 0 0 11px #000;
+    font-family: 'Poppins', sans-serif;
+    color: white;
 }
 
-/*Mise en forme de la liste*/
-li{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-/*Mise en forme des éléments de la liste*/
-a{
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-size: 25px;
-}
-
-.ref{
-    text-decoration: none;
-    color:rgb(219, 84, 84);
-    font-size: 20px;
-    outline: none;
-}
-/*Application du Hover*/
-a:hover{
-    color: #cdf80b;
-}
 
 /*Mise en forme du header*/
 header{
@@ -58,32 +30,7 @@ header{
     background-color: rgba(0, 0, 0, 0.466)
 }
 
-/*Mise en forme de la navbar*/
-.navbar{
-    width: 100%;
-    max-width: 1200px;
-    height: 60px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-/*Mise en forme de la liste*/
-.navbar .links{
-    display: flex;
-    gap: 8rem;
-    padding: 4rem;
-}
-
-/*Mise en forme du burger menu*/
-.navbar .burger-menu-button{
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    display: none;
-}
-
+/*---Boutons connexion et contact---*/
 /*Mise en forme des boutons*/
 .buttons{
     display: flex;
@@ -122,127 +69,87 @@ header{
     color: black;
 }
 
-/*Mise en formes des pages*/
 
-.index{
-    background-image: url(../ASSETS/beau-ciel-plein-etoiles-trona-californie.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 160vh;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
 
-.animaux{
-    background-image: url(../ASSETS/lionpandagorille.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 160vh;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+/*Mise en forme du logo img*/
+img {
+    object-fit: cover;
+    shape-outside: margin-box;
+    
 }
 
 
-
-.activity{
-    background-image: url(../ASSETS/fdsouvenirs.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 160vh;
+/*Mise en forme de la liste*/
+li{
+    list-style-type: none;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
-/*---------------------Burger Menu-----------------*/
+/*Mise en forme des éléments de la liste*/
+a{
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+}
+
+
+/*Application du Hover*/
+a:hover{
+    color: #cdf80b;
+}
+
+
+.ref{
+    text-decoration: none;
+    color:rgb(219, 84, 84);
+    font-size: 20px;
+    outline: none;
+}
+
+
+/*Mise en forme de la navbar*/
+.navbar{
+    width: 100%;
+    max-width: 1200px;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-shadow: 0 0 11px #184d00, 0 0 11px #000;
+    color: white;
+}
+
+/*Mise en forme de la liste*/
+.navbar .links{
+    display: flex;
+    gap: 8rem;
+    padding: 4rem;
+}
 
 /*Mise en forme du burger menu*/
-.burger-menu{
-    display: none;
-    height: 0;
-    position: absolute;
-    right: 1rem;
-    top: 90px;
-    width: 160px;
-    background: black(0,0,0,0.2);
-    backdrop-filter: blur(10px);
-    border-radius: 110px;
-    overflow: hidden;
-    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)
-}
-
-
-/*Mise en forme de divider*/
-.divider{
-    display: inline-block;
-    height: 1px;
-    background-color: white;
-    width: 80%;
-    margin-left: 10rem;
-    margin-right: 10rem;
-    margin-bottom: 10rem;
-    margin-top: 10rem;
-}
-/*Mise en place de l'ouverture du menu burger*/
-.burger-menu.open{
-    height: 260px;
-}
-
-/*Mise en forme de la liste du burger menu*/
-.burger-menu li{
-    padding: 0,7rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;    
-}
-
-/*Mise en forme des buttons*/
-.burger-menu .action-button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/*Mise en forme de la liste du burger menu*/
-.button-burger-menu{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-/*---------------------MAIN-----------------*/
-
-.titreindex{
+.navbar .burger-menu-button{
     color: white;
-    font-size: 3rem;
-    text-align: center;
-    margin-top: 6rem;
-    margin-bottom: 6rem;
-    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
 }
 
 /*Pointeur pour ouvrir la popup*/
 .openpopup{
     cursor: pointer;
-    position: relative;
-    left: 110rem;
-    bottom: 7rem;
-    background-color: black;
-    color: white;
+    left: 15%;
+    top: 9%;
+    border: 2px solid #fffefe;
     border-radius: 10px;
+    width: 5%;
+    color: white;
+    background-color: black;
     font-size: 15px;
-    width: 4rem;
+    position: absolute;
 }
+
 
 .closepopup{
     top: 160px;
@@ -250,418 +157,6 @@ header{
     color: white;
     position: relative;
 }
-
-.containerJungle{
-    max-width: 620px;
-    padding: 3rem;
-    border-radius: 90px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-    text-align: right;
-    display: flex;
-    box-sizing: border-box;
-    position: absolute;
-    right: 75%;
-    line-height: 3rem;
-}
-
-.containerSavane{
-    max-width: 525px;
-    padding: 2rem;
-    border-radius: 90px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-    text-align: right;
-    display: flex;
-    position: absolute;
-    left: 75%;
-    line-height: 3rem;
-}
-.containerMarais{
-    max-width: 525px;
-    padding: 2rem;
-    border-radius: 90px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-    text-align: right;
-    display: flex;
-    position: absolute;
-    left: 38%;
-    line-height: 3rem;
-}
-
-
-/*sous titre Index habitats*/
-.soustitreIhab1{
-    margin: 10px;
-    font-size: 2rem;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-}
-
-.soustitreIhab2{
-    margin: 10px;
-    font-size: 2rem;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-}
-
-.soustitreIhab3{
-    margin: 10px;
-    font-size: 2rem;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-}
-
-.container p{
-    line-height: 1.4;
-}
-
-.container-imageJ{
-    width: 300px;
-    height: 300px;
-    object-fit: fill;
-    border-radius: 150px;
-    float: left;
-    shape-outside: margin-box;
-}
-
-.container-imageM{
-    width: 300px;
-    height: 300px;
-    object-fit: fill;
-    border-radius: 150px;
-    float: left;
-    shape-outside: margin-box;
-    margin-top: 15px;
-}
-
-.container-imageS{
-    width: 300px;
-    height: 300px;
-    object-fit: fill;
-    border-radius: 150px;
-    float: left;
-    shape-outside: margin-box;
-    margin-top: 15px;
-}
-
-
-
-/*Mise en forme partie Activité*/
-
-.activite-titre{
-    font-size: 3rem;
-    text-align: center;
-    margin-top: 50rem;
-    margin-bottom: -5rem;
-    font-family: 'Poppins', sans-serif;
-}
-
-.f-act{
-    display: block;
-}
-
-.s-t-Iact1{
-    margin: 10px;
-    font-size: 2rem;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-}
-
-.s-t-Iact2{
-    margin: 10px;
-    font-size: 2rem;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-}
-
-.s-t-Iact3{
-    margin: 10px;
-    font-size: 2rem;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-}
-
-.s-t-Iact4{
-    margin: 10px;
-    font-size: 2rem;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-}
-
-.indactiv1{
-    shape-outside: margin-box;
-    box-sizing: border-box;
-    box-shadow: 5px 5px 15px #ecdcdc;
-    justify-content: space-between;
-    display: flex;
-    padding: 1rem;
-    max-width: 100rem;
-    border-radius: 60px;
-    position: relative;
-    left: 15%;
-    margin-bottom: 3rem;
-    text-align: end;
-}
-
-.indactiv2{
-    shape-outside: margin-box;
-    box-sizing: border-box;
-    box-shadow: 5px 5px 15px #ecdcdc;
-    justify-content: space-between;
-    display: flex;
-    padding: 1rem;
-    max-width: 100rem;
-    border-radius: 60px;
-    position: relative;
-    left: 15%;
-    margin-bottom: 3rem;
-}
-
-.indactiv3{
-    shape-outside: margin-box;
-    box-sizing: border-box;
-    box-shadow: 5px 5px 15px #ecdcdc;
-    justify-content: space-between;
-    display: flex;
-    padding: 1rem;
-    max-width: 100rem;
-    border-radius: 60px;
-    position: relative;
-    left: 15%;
-    margin-bottom: 3rem;
-}
-
-.indactiv4{
-    shape-outside: margin-box;
-    box-sizing: border-box;
-    box-shadow: 5px 5px 15px #ecdcdc;
-    justify-content: space-between;
-    display: flex;
-    padding: 1rem;
-    max-width: 100rem;
-    border-radius: 60px;
-    position: relative;
-    left: 15%;
-    margin-bottom: 3rem;
-}
-.container-imAct1{
-    width: 100rem;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 150px;
-    float: left;
-    shape-outside: margin-box;
-    padding: 1rem;
-
-}
-
-.container-imAct2{
-    width: 65rem;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 150px;
-    float: left;
-    shape-outside: margin-box;
-    padding: 1rem;
-
-}
-
-.container-imAct3{
-    width: 160rem;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 150px;
-    float: left;
-    shape-outside: margin-box;
-    padding: 1rem;
-
-}
-
-.container-imAct4{
-    width: 135rem;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 150px;
-    float: left;
-    shape-outside: margin-box;
-    padding: 1rem;
-
-}
-
-.p-act1{
-    text-align: end;
-    position: relative;
-    top: 1rem;
-    right: 0rem;
-    line-height: 50px;
-    word-spacing: 6px;
-    word-break: break-word;
-}
-
-
-/*Mise en forme de la partie ecologie*/
-
-.p-eco1{
-    text-align: end;
-    position: relative;
-    top: 1rem;
-    right: 0rem;
-    line-height: 50px;
-    word-spacing: 6px;
-    word-break: break-word;
-}
-
-.f-eco{
-    display: block;
-}
-/*sous titre Index écologie*/
-.s-t-Ieco1{
-    margin: 10px;
-    font-size: 2rem;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-}
-
-.s-t-Ieco2{
-    margin: 10px;
-    font-size: 2rem;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-}
-
-.s-t-Ieco3{
-    margin: 10px;
-    font-size: 2rem;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-}
-
-.s-t-Ieco4{
-    margin: 10px;
-    font-size: 2rem;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-}
-
-
-.indeco1{
-    shape-outside: margin-box;
-    box-sizing: border-box;
-    box-shadow: 5px 5px 15px #ecdcdc;
-    justify-content: space-between;
-    display: flex;
-    padding: 1rem;
-    max-width: 100rem;
-    border-radius: 60px;
-    position: relative;
-    left: 15%;
-    margin-bottom: 3rem;
-}
-
-.indeco2{
-    shape-outside: margin-box;
-    box-sizing: border-box;
-    box-shadow: 5px 5px 15px #ecdcdc;
-    justify-content: space-between;
-    display: flex;
-    padding: 1rem;
-    max-width: 100rem;
-    border-radius: 60px;
-    position: relative;
-    left: 15%;
-    margin-bottom: 3rem;
-}
-
-.indeco3{
-    shape-outside: margin-box;
-    box-sizing: border-box;
-    box-shadow: 5px 5px 15px #ecdcdc;
-    justify-content: space-between;
-    display: flex;
-    padding: 1rem;
-    max-width: 100rem;
-    border-radius: 60px;
-    position: relative;
-    left: 15%;
-    margin-bottom: 3rem;
-}
-
-.indeco4{
-    shape-outside: margin-box;
-    box-sizing: border-box;
-    box-shadow: 5px 5px 15px #ecdcdc;
-    justify-content: space-between;
-    display: flex;
-    padding: 1rem;
-    max-width: 100rem;
-    border-radius: 60px;
-    position: relative;
-    left: 15%;
-    margin-bottom: 3rem;
-}
-.container-imEco1{
-    width: 135rem;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 150px;
-    float: left;
-    shape-outside: margin-box;
-    padding: 1rem;
-
-}
-
-.container-imEco2{
-    width: 135rem;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 150px;
-    float: left;
-    shape-outside: margin-box;
-    padding: 1rem;
-
-}
-
-.container-imEco3{
-    width: 135rem;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 150px;
-    float: left;
-    shape-outside: margin-box;
-    padding: 1rem;
-}
-
-.container-imEco4{
-    width: 135rem;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 150px;
-    float: left;
-    shape-outside: margin-box;
-    padding: 1rem;
-
-}
-
-.ecologie-titre{
-    font-size: 3rem;
-    text-align: center;
-    margin-top: 15rem;
-    margin-bottom: -5rem;
-    font-family: 'Poppins', sans-serif;
-
-}
-
-
-/*Mise en forme des textes*/
-
-.habitat-titre{
-    font-size: 3rem;
-    text-align: center;
-    margin-top: 30rem;
-    margin-bottom: -5rem;
-    font-family: 'Poppins', sans-serif;
-}
-
-
 
 /*Mise en place d'une fenêtre POPUP*/
 .popup {
@@ -705,7 +200,6 @@ header{
 
 
 main{
-    color: rgb(250, 250, 249);
     font-size: 1.2rem;
     display: contents;
 }
@@ -717,90 +211,365 @@ main > p{
     word-spacing: 10px;
 }
 
-/*Alignement de l'image à gauche*/
-img.alignementLeft{
-    float: left;
-    margin: 0 15px 0 0;
-    height: 500px;
-    width: 400px;
-    padding: 1rem;
-    border-radius: 100px;
-}
-
-/*Alignement de l'image à droite*/
-img.alignementRight{
-    float: right;
-    margin: 0 0 0 15px;
-    height: 500px;
-    width: 400px;
-    padding: 1rem;
-    border-radius: 100px;
-}
-
-/*Alignement du texte au centre*/
-img.alignementCenter{
-    float: center;
-    margin-left: 40%;
-    height: 500px;
-    width: 400px;
-    padding: 1rem;
-    border-radius: 100px;
-}
-
-/*Alignement du texte à gauche Up*/
-.alinetexteLeftU{
-    display: contents;
-    padding: 1rem;
-    word-break: break-word;
-    word-spacing: 15px;
-    line-height: 2rem;
-    font-size: 20px;
-}
-
-/*Alignement du texte index Up*/
-.texteindexLeftU{
+.divider{
     display: flex;
-    padding: 3rem;
-    word-break: break-word;
-    word-spacing: 15px;
-    line-height: 2rem;
-    text-indent: 6rem;
-    font-size: 20px;
-    margin-right: 10%;
-    text-align: justify;
+    position: relative;
+    left: 5%;
+    height: 1px;
+    background-color: white;
+    width: 90%;
+    bottom: 5rem;
 }
 
-/*Alignement du texte à gauche Down*/
-.alinetexteLeftD{
-    display: contents;
-    padding: 1rem;
-    word-break: break-word;
-    word-spacing: 15px;
-    line-height: 2rem;
+.divider-act{
+    display: inline-block;
+    height: 1px;
+    background-color: white;
+    width: 90%;
+    margin-top: 8rem;
+    position: relative;
+    bottom: 2rem;
+    left: 5%;
+    margin-bottom: 5rem;
 }
 
-/*Alignement du texte Center*/
-.texteindexCenter{
+.divider-hab{
+    display: inline-block;
+    height: 1px;
+    background-color: white;
+    width: 90%;
+    margin-top: 5rem;
+    position: relative;
+    bottom: 10rem;
+    left: 5%;  
+}
+
+.titre{
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 6rem;
+    margin-bottom: 10rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.titre-p{
+    font-size: 35px;
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.articles{
+    margin-top: 30px;
+}
+
+.articles .article{
     display: flex;
-    padding: 3rem;
-    word-break: break-word;
-    word-spacing: 15px;
-    line-height: 2rem;
-    text-indent: 6rem;
-    font-size: 20px;
-    margin-right: 10%;
-    text-align: justify;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
 }
 
-/*Alignement du texte à droite*/
-.alinetexteRight{
-    display: contents;
-    padding: 1rem;
-    word-break: break-word;
-    word-spacing: 15px;
-    margin: 20px;
-    line-height: 2rem;  
+
+.articles .article .left{
+    max-width: 50%;
+    margin-left: 40px;
+    margin-top: 1rem;
+    position: relative;
+    bottom: 1rem;
 }
+
+.articles .article .left img{
+    height: 15rem;
+    width: 30rem;
+    border-radius: 50px;
+}
+
+.articles .article .left img:hover{
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    position: relative;
+    left: 10rem;
+} 
+
+
+.articles .article .right img{
+    height: 15rem;
+    width: 30rem;
+    border-radius: 50px;
+}
+
+.articles .article .right img:hover{
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    position: relative;
+    left: 10rem;
+}
+
+
+.articles .article .right{
+    max-width: 50%;
+    margin-left: 40px;
+    margin-top: 1rem;
+    position: relative;
+    bottom: 1rem;
+}
+
+.articles .article .right h3{
+    margin: 10px;
+    font-size: 2rem;
+    position: relative;
+    left: 15rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.liste{
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.liste ul{
+    list-style-type: none;
+    padding: 0;
+
+}
+
+.liste ul li{
+    margin: 0;
+    padding: 0;
+    display: inline;
+    font-size: 20px;
+    margin-right: 20px;
+
+}
+
+/*---------LES ANIMAUX---------*/
+
+.tableaux{
+    border-collapse: collapse;
+    min-width: 400px;
+    width: auto;
+    overflow-x: auto;
+    position: relative;
+    left: 30rem;
+
+}
+
+
+.tableau
+{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 5px 50px (0,0,0,0.15);
+    margin: 100px;
+    border: 2px greenyellow;
+}
+
+.tableaux .tableau img{
+    width: 100px;
+    height: 100px;
+    border-radius: 40px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+}
+
+.tableaux .tableau img:hover{
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+}
+
+thead tr{
+    background-color: greenyellow;
+    color: white;
+    text-align: left;
+}
+
+
+th, td{
+    padding: 10px 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    color: white;
+}
+
+
+
+
+@media screen and (max-width: 640px) {
+    body{
+        margin: 10px 20px;
+    }
+
+    .titre h1{
+        font-size: 2rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .titre h2{
+        font-size: 2.5rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .titre-p{
+        font-size: 20px;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .articles .article .right h3{
+        margin: 10px;
+        font-size: 20px;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+        left: 0rem;
+    }
+
+    .articles .article .left h3{
+        margin: 10px;
+        font-size: 20px;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+        left: 0rem;
+    }
+
+    .articles .article .left img{
+        height: 200px;
+        width: 200px;
+        border-radius: 20px;
+        position: relative;
+        left: 50%;
+        bottom: 10%;
+    }
+
+    .articles .article .right img{
+        height: 200px;
+        width: 200px;
+        border-radius: 20px;
+        position: relative;
+        left: 50%;
+        bottom: 10%;
+    }
+
+    .articles .article .right{
+        max-width: 100%;
+        font-family: 'POPINS';
+        word-break: break-word;
+        text-indent: 5%;
+        text-align: left;
+        word-spacing: 10px;
+        padding-bottom: 10%;
+        font-size: 15px;
+        margin: 0px;
+    }
+
+    .articles .article .left{
+        max-width: 100%;
+        font-family: 'POPINS';
+        word-break: break-word;
+        text-indent: 5%;
+        text-align: left;
+        word-spacing: 10px;
+        padding-bottom: 10%;
+        font-size: 15px;
+        margin: 0px;
+    }
+
+    .liste ul li{
+        font-size: 10px;
+        margin-right: 10px;
+        display: grid;
+    }
+
+    .divider{
+        left: 0%;
+        height: 1px;
+        background-color: white;
+        width: 100%;
+        bottom: 10%;
+    }
+
+    .tableaux{
+        border-collapse: collapse;
+        min-width: 400px;
+        width: auto;
+        overflow-x: auto;
+        position: relative;
+        left: 0rem;
+    
+    }
+}
+
+/*---------------------Burger Menu-----------------*/
+
+/*Mise en forme du burger menu*/
+.burger-menu{
+    display: none;
+    height: 0;
+    position: absolute;
+    right: 2rem;
+    top: 115px;
+    width: 220px;
+    background: black(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 10%;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+/*Mise en place de l'ouverture du menu burger*/
+.burger-menu.open{
+    height: 170px;
+    width: 50%;
+}
+
+
+/*Mise en forme de la liste du burger menu*/
+.burger-menu li{
+    padding: 0,7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+
+/*Mise en forme des buttons*/
+.burger-menu .action-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*Mise en forme de la liste du burger menu*/
+.button-burger-menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/*Mise en formes des pages*/
+
+
+
+
+/*----------Mise en forme Index----------*/
+
 
 /*---------------------FOOTER-----------------*/
 
@@ -813,7 +582,7 @@ img.alignementCenter{
 }
 
 .footindex{
-    color: rgb(7, 7, 7);
+    color: rgb(191, 152, 152);
     text-align: center;
     margin-top: 40rem;
     clear: both;
@@ -822,162 +591,14 @@ img.alignementCenter{
     font-family: 'Poppins', sans-serif;
 }
 
-
-
-
-
---------------------------/*Mise en forme de la page HABITATS*/----------------------
-
-.habitats{
-    background-image: url(../ASSETS/beau-ciel-plein-etoiles-trona-californie.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 160vh;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-
-.hab-titre{
-    text-align: center;
-    font-size: 3rem;
-    position: relative;
-    margin-bottom: 4rem;
-    margin-top: 4rem;
-}
-
-
-.hab-text-intro{
-    text-align: center;
-    margin-bottom: 1rem;
-    position: relative;
-}
-
-
-.hab-st-J{
-    text-align: center;
-    font-size: 2rem;
-    position:relative;
-    top: 1rem;
-    margin-bottom: 3rem;
-    right: 6rem;
-}
-
-
-.hab-st-M{
-    text-align: center;
-    font-size: 2rem;
-    position:relative;
-    top: 1rem;
-    margin-bottom: 3rem;
-}
-
-
-.hab-st-S{
-    text-align: center;
-    font-size: 2rem;
-    position:relative;
-    top: 1rem;
-    margin-bottom: 3rem;
-    left: 3rem;
-}
-
-
-.divider-hab{
-    display: inline-block;
-    height: 1px;
-    background-color: white;
-    width: 100%;
-    margin-top: 2rem;   
-}
-
-
-.p-text{
-    max-width: 70%;
-    position: relative;
-    top: 1rem;
-    text-align: left;
-    word-spacing: 10px;
-    line-height: 35px;
-}
-
-.p-text-J{
-    max-width: 70%;
-    position: relative;
-    top: 1rem;
-    text-align: left;
-    word-spacing: 10px;
-    line-height: 35px;
-}
-
-.p-text-M{
-    max-width: 80%;
-    position: relative;
-    top: 1rem;
-    text-align: left;
-    word-spacing: 10px;
-    line-height: 35px;
-    left: 3rem;
-}
-
-.p-text-S{
-    max-width: 65%;
-    position: relative;
-    top: 1rem;
-    text-align: left;
-    word-spacing: 10px;
-    line-height: 35px;
-    left: 10rem;
-}
-
-.img-habitats{
-    display: flex;
-    position: relative;
-    justify-content: space-between;
-    padding: 7rem;
-}
-
-
-.img-jungle{
-    width: 400px;
-    height: 400px;
-    position: relative;
-    object-fit: cover;
-    border-radius: 100px;
-    margin-right: 10rem;
-    margin-bottom: 1rem;
-}
-
-
-.img-marais{
-    width: 400px;
-    height: 400px;
-    position: relative;
-    object-fit: cover;
-    border-radius: 100px;
-    left: 3rem;
-    margin-bottom: 1rem; 
-}
-
-
-.img-savane{
-    width: 400px;
-    height: 400px;
-    position: relative;
-    object-fit: cover;
-    border-radius: 100px;
-    margin-left: 10rem;
-    margin-bottom: 1rem;
-}
+/*----------Les Activitées----------*/
 
 
 /*---------------------RESPONSIVE-----------------*/
-/*Les @Medias Index*/
+/*-----Les @Medias Index------*/
 
 /*Mise en forme des éléments de la liste en fonction de la taille de l'écran*/
+
 @media (max-width: 1004px) {
     
     header {
@@ -996,226 +617,38 @@ img.alignementCenter{
     .burger-menu{
         display: block;
     }
-}
 
-@media (max-width: 576px) {
-
-    .burger-menu{
-        display: flex;
-        align-items: center;
-        width: auto;
+    .burger-menu li a{
         font-size: 10px;
     }
 }
 
-/*Haut de page*/
-@media (max-width: 576px) {
+@media (max-width: 640px) {
 
-    .container-image{
-        display: flex;
-        justify-content: space-between;
+    .action-button{
+        font-size: 10px;
+        width: 70%;
+        margin-bottom: 10px;
     }
+
 }
 
 @media (max-width: 576px) {
 
-    img.alignementLeft{
-        width: 330px;
-        height: 200px;
-        display: flex;
-        margin-left: 100px;
-        right: 30px;
-        position: relative;
-    }
-}
-
-@media (max-width: 576px) {
-
-    img.alignementRight{
-        width: 330px;
-        height: 200px;
-        display: flex;
-        margin-left: 100px;
-        right: 30px;
-        position: relative;
-    }
-}
 
 
-@media (max-width: 576px) {
-
-    .alinetexteRight{
-        display: contents;
-        align-items: center;
-        width: auto;
-        padding: 1rem;
-        font-size: 15px;
-    }
-}
-
-@media (max-width: 576px) {
-
-    .alinetexteLeftU{
-        display: contents;
-        align-items: center;
-        width: auto;
-        padding: 1rem;
-        font-size: 15px;
-    }
-}
-
-@media (max-width: 576px) {
-
-    .alinetexteLeftD{
-        display: contents;
-        align-items: center;
-        width: auto;
-        padding: 1rem;
-        font-size: 15px;
-    }
-}
-
-@media (max-width: 576px) {
-
-    .texteindexCenter{
-        display: flex;
-        width: auto;
-        padding: 1rem;
-        font-size: 15px;
-        text-align: left;
-    }
-}
-
-@media (max-width: 576px) {
-
-    .texteindexLeftU{
-        display: flex;
-        width: auto;
-        padding: 1rem;
-        font-size: 15px;
-        text-align: left;
-    }
 }
 
 @media (max-width:576px){
-    .divider{
-        display: inline-block;
+    .burger-divider{
+        display: flex;
+        position: relative;
+        left: 10%;
         height: 1px;
         background-color: white;
-        width: 65%;
-        margin-left: 5rem;
-        margin-right: 5rem;
-        margin-bottom: 5rem;
-        margin-top: 5rem;
-    }
-}
-
-
-@media(max-width:576px){
-    .p-hab1{
-        top: 18rem;
-        right: 2rem;
-        font-size: 13px;
-        text-align: center;
-        display: grid;
-        position: absolute;
-    }
-}
-
-@media (max-width: 576px) {
-
-    .containerJungle{
-        width: 330px;
-        height: 200px;
-        display: flex;
-        margin-left: 100px;
-        right: 30px;
-        position: relative;
-    }
-}
-
-@media (max-width: 576px) {
-
-    .containerSavane{
-        width: 330px;
-        height: 200px;
-        display: flex;
-        margin-left: 100px;
-        right: 30px;
-        position: relative;
-    }
-}
-
-@media (max-width: 576px) {
-
-    .containerMarais{
-        width: 330px;
-        height: 200px;
-        display: flex;
-        margin-left: 100px;
-        right: 30px;
-        position: relative;
-    }
-}
-
-@media (max-width: 576px){
-
-    .soustitreIhab1{
-        padding: 2rem;
-        font-size: 31px;
-        position: relative;
-        right: 3rem;
-    }
-}
-
-@media (max-width: 576px){
-
-    .soustitreIhab2{
-        padding: 2rem;
-        font-size: 31px;
-        position: relative;
-        right: 3rem;
-    }
-}
-
-@media (max-width: 576px){
-
-    .soustitreIhab3{
-        padding: 2rem;
-        font-size: 31px;
-        position: relative;
-        right: 3rem;
-    }
-}
-
-@media (max-width: 576px) {
-    img.container-imageJ{
-        width: 330px;
-        height: 200px;
-        display: flex;
-        left: 325px;
-        position: relative;
-        bottom: 5rem;
-    }
-}
-
-@media (max-width: 576px) {
-    img.container-imageM{
-        width: 330px;
-        height: 200px;
-        display: flex;
-        right: 60px;
-        position: relative;
-    }
-}
-
-@media (max-width: 576px) {
-    img.container-imageS{
-        width: 330px;
-        height: 200px;
-        display: flex;
-        right: 60px;
-        position: relative;
+        width: 80%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 }
 
@@ -1253,13 +686,13 @@ img.alignementCenter{
 
     .avis{
         padding: 0rem;
-        font-size: 12px;
+        font-size: 10px;
         color: white;
-        position: relative; /* Position fixe par rapport à la fenêtre de visualisation */
-        left: 8%; /* Aligné à droite */
-        top: 17%; /* Centré verticalement */
-        transform: translateY(-50%); /* Décale le titre vers le haut de sa propre hauteur pour le centrer parfaitement */
-        width: max-content; 
+        position: relative;
+        left: 5%;
+        top: 38%;
+        transform: translateY(-50%);
+        width: 70%;
     }
 }
 
@@ -1269,15 +702,16 @@ img.alignementCenter{
 
     .openpopup{
         cursor: pointer;
-        left: 24rem;
-        bottom: 56rem;
+        left: 16rem;
+        top: 5%;
         border: 2px solid #fffefe;
         border-radius: 10px;
-        width: 3rem;
+        width: 12%;
         color: white;
         background-color: black;
-        font-size: 15px;
+        font-size: 10px;
         position: absolute;
+        height: 6%;
     }
 }
 
@@ -1285,11 +719,11 @@ img.alignementCenter{
 
     .openpopup{
         cursor: pointer;
-        left: 89rem;
-        bottom: 48rem;
+        left: 15%;
+        top: 9%;
         border: 2px solid #fffefe;
         border-radius: 10px;
-        width: 3rem;
+        width: 5%;
         color: white;
         background-color: black;
         font-size: 15px;
@@ -1310,7 +744,7 @@ img.alignementCenter{
 
 
 
-/*Les Medias Habitats*/
+/*--------Les Medias Habitats--------*/
 
 @media (max-width: 576px) {
     img.img-habitats{
@@ -1349,3 +783,6 @@ img.alignementCenter{
         position: relative;
     }
 }
+
+
+/*----------Les media Activitées-------*/

@@ -14,6 +14,16 @@ burgerMenuButton.onclick = function(){
     burgerMenuButtonIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'
 }
 
+// gestion de l'affichage
+
+document.addEventListener("DOMContentLoaded", function() {
+    const burgerMenuButton = document.querySelector(".burger-menu-button");
+    const burgerMenu = document.querySelector(".burger-menu");
+
+    burgerMenuButton.addEventListener("click", function() {
+        burgerMenu.classList.toggle("show");
+    });
+});
 
 
 // Fonctions de la fenêtre POPUP 

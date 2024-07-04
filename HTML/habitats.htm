@@ -13,7 +13,7 @@
  <!-- Titre de l'onglet-->    
     <title>Le Zoo D'Arcadia</title>   
 </head>
-<body class="habitats">            
+<body>         
 <header> 
         <a href="../index.php" id="logo-link">
         <img src="../ASSETS/LogoArcadia2.png" alt="Logo du Zoo D'Arcadia" id="logo">               
@@ -46,37 +46,100 @@
     </div>     
 </header> 
 <main> 
-    <section id="habitats">
-        <h2 class="hab-titre" >Leurs Habitats</h2>
-        <p class="hab-text-intro" >Les animaux d'Arcadia sont répartis dans les différents habitats présentés ci-dessous.<br>
-            Nous nous sommes efforcé de représenter au mieux leur milieu naturel afin qu'ils puissent y vivre le plus paisiblement possible. </p>
-    </section>
-    <divider class="divider-hab"></divider>
-    <section class="img-habitats">
-    <article>   
-        <img class="img-jungle" src="../ASSETS/jungle.jpg" alt="Jungle">
-        <h3 class="hab-st-J" >La Jungle</h3>
-        <p class="p-text-J" >La jungle est une forêt dense et luxuriante, abritant une biodiversité exceptionnelle. 
+
+             <!-- Avis des visiteurs -->
+<!--- Création d'une fenêtre  popup --->
+<button id="open-popup-btn" class="openpopup"> Avis</button>  
+<div id="popup" class="popup">
+    <!-- Utilisation de &times; pour afficher une croix-->
+        <span id="close-popup-btn" class="closepopup" >&times;</span>
+            <div class="avis", id="avis">
+                <!--<h3 class="avis">Avis Clients :</h3>-->
+                <ul id="avis-list"></ul>
+            </div>
+        </div>
+    </div> 
+
+<div class="titre">
+    <h2>Leurs Habitats</h2>
+    <p class="titre-p">Les animaux d'Arcadia sont répartis dans les différents habitats présentés ci-dessous.<br>
+    Nous nous sommes efforcé de représenter au mieux leur milieu naturel afin qu'ils puissent y vivre le plus paisiblement possible. </p>
+</div>    
+
+<divider class="divider-hab"></divider>
+
+<section class="articles">
+        
+<div class="article">
+    <div class="left">   
+        <img src="../ASSETS/jungle.jpg" alt="Jungle">
+    </div>
+    <div class="right">    
+        <h3>La Jungle</h3>
+        <p>La jungle est une forêt dense et luxuriante, abritant une biodiversité exceptionnelle. 
         <br>Les arbres touffus et le climat humide offrent un refuge idéal pour une variété d'espèces exotiques.</p>
-    </article>   
-    <article>  
-        <img class="img-marais" src="../ASSETS/Marais.jpg" alt="Marais">
-        <h3 class="hab-st-M" >Le Marais</h3> 
-        <p class="p-text-M" >Le marais est un écosystème humide et marécageux, riche en végétation aquatique. 
+    </div>
+</div>
+
+<div class="article">    
+    <div class="left">  
+        <img src="../ASSETS/Marais.jpg" alt="Marais">
+    </div>
+    <div class="right">   
+        <h3>Le Marais</h3> 
+        <p>Le marais est un écosystème humide et marécageux, riche en végétation aquatique. 
         <br>Cet habitat unique est vital pour de nombreuses espèces aquatiques et semi-aquatiques. 
         <br>Offrant des conditions parfaites pour les crocodiles, grenouilles et oiseaux aquatiques.</p>
-    </article>
-    <article> 
-        <img class="img-savane" src="../ASSETS/savane.webp" alt="Savane">
-        <h3 class="hab-st-S" >La Savane</h3>
-        <p class="p-text-S" >La savane est une vaste plaine herbeuse parsemée d'arbres épars, caractérisée par un climat chaud et sec. 
+    </div>
+</div>
+
+<div class="article">
+    <div class="left">       
+        <img src="../ASSETS/savane.webp" alt="Savane">
+    </div>
+    <div class="right">
+        <h3>La Savane</h3>
+        <p>La savane est une vaste plaine herbeuse parsemée d'arbres épars, caractérisée par un climat chaud et sec. 
         <br>C'est le foyer de nombreux grands mammifères comme les lions, les éléphants et les zèbres.</p>
-    </article>
-    </section>
+    </div> 
+</div>
+
+</section>
     </main>    
 <script src="../JAVASCRIPT/scripts.js"></script>
 <footer>
-      
+    <div class="footindex">
+        <p>© 2024 Le Zoo D'Arcadia, Website non promotionnel</p>
+        <p>Site réalisé dans le cadre d'un ECF à destination de STUDI</p>
+        <p>Diverses sources proviennent d'un générateur IA et de différents sites.</p>
+    </div>
+    <div class="navbar">                                        
+        <ul class="links">
+            <li><a href="../ECF-Arcadia/HTML/animaux.htm">Les Animaux</a></li>
+            <li><a href="../ECF-Arcadia/HTML/habitats.htm">Leurs Habitats</a></li>
+            <li><a href="../ECF-Arcadia/HTML/activites.htm">Les Activités</a></li>                
+        </ul>  
+        <div class="buttons">
+            <a href="HTML/contact.htm" class="action-button" id="contacte">Contacts</a>
+            <a href="PHP/login.php" class="action-button connexion" id="connexion">Connexion</a>
+        </div>
+        <div class="burger-menu-button">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+                    <!--- RESPONSIVE --->
+    <div class="burger-menu">
+        <ul class="links">
+            <li><a href="../ECF-Arcadia/HTML/animaux.htm">Les Animaux</a></li>
+            <li><a href="../ECF-Arcadia/HTML/habitats.htm">Leurs Habitats</a></li>
+            <li><a href="../ECF-Arcadia/HTML/activites.htm">Les Activités</a></li>             
+            <div class="divider"></div>
+            <div class="buttons-burger-menu">
+                <a href="HTML/contact.htm" class="action-button" id="contacte">Contacts</a>
+                <a href="PHP/login.php" class="action-button connexion" id="connexion">Connexion</a>
+            </div>
+        </ul>
+    </div>   
 </footer>  
 </body> 
 </html>

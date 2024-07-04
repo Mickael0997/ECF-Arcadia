@@ -13,10 +13,10 @@
  <!-- Titre de l'onglet-->   
         <title>Le Zoo D'Arcadia/Animaux</title>
 </head>
-<body class="animaux">
+<body>
 <header> 
     <a href="../index.php" id="logo-link">
-        <img src="../ASSETS/LogoArcadia2.png" alt="Logo du Zoo Écologique" id="logo">
+        <img class="survol" src="../ASSETS/LogoArcadia2.png" alt="Logo du Zoo Écologique" id="logo">
     </a>                  
     <div class="navbar">                                        
         <ul class="links">
@@ -45,37 +45,124 @@
     </ul>
 </div> 
 </header>
-<section id="animaux">
-    <h2>Les Animaux</h2>
-    <p>Liste d'animaux avec leurs états de santé par habitats (Jungle, Savane, Marais).</p>
-</section>
 <main>
-    <section id="jungle">
-        <h3>Jungle</h3>
-        <ul>
-            <li>Lion : Bon</li>
-            <li>Perroquet : Bon</li>
-            <li>Serpent : Bon</li>
-        </ul>
-    </section>
-    <section id="savane">
-        <h3>Savane</h3>
-        <ul>
-            <li>Éléphant : Bon</li>
-            <li>Girafe : Bon</li>
-            <li>Lion : Bon</li>
-        </ul>
-    </section>
-    <section id="marais">
-        <h3>Marais</h3>
-        <ul>
-            <li>Crocodile : Bon</li>
-            <li>Canard : Bon</li>
-            <li>Flamant Rose : Bon</li>
-        </ul>
-    </section>
+
+             <!-- Avis des visiteurs -->
+<!--- Création d'une fenêtre  popup --->
+<button id="open-popup-btn" class="openpopup"> Avis</button>  
+<div id="popup" class="popup">
+    <!-- Utilisation de &times; pour afficher une croix-->
+        <span id="close-popup-btn" class="closepopup" >&times;</span>
+            <div class="avis", id="avis">
+                <!--<h3 class="avis">Avis Clients :</h3>-->
+                <ul id="avis-list"></ul>
+            </div>
+        </div>
+    </div> 
+
+<div class="titre">
+        <h1>Les Animaux</h1>
+</div>
+
+<divider class="divider"></divider>
+
+<table class="tableaux">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Animal</th>
+            <th>Prénom</th>
+            <th>Age</th>
+            <th>Habitat</th>
+            <th>Etat</th>
+        </tr>
+    </thead>
+<tbody>
+        <tr class="tableau">
+            <td><img src="../ASSETS/LionFace.png" alt=""></td>
+            <td>Lion</td>
+            <td>Simba</td>
+            <td>8 ans</td>
+            <td>Savane</td>
+            <td>Heureux</td>
+    </tr>
+        <tr class="tableau">
+            <td><img src="../ASSETS/rioperroquet.jpg" alt=""></td>
+            <td>Perroquet</td>
+            <td>Rio</td>
+            <td>2 ans</td>
+            <td>Jungle</td>
+            <td>En forme</td>
+    </tr>
+        <tr class="tableau">
+            <td><img src="../ASSETS/dumboelephant.webp" alt=""></td>
+            <td>Éléphant</td>
+            <td>Eléonore</td>
+            <td>12 ans</td>
+            <td>Savane</td>
+            <td>Fatigué</td>
+        </tr>
+        <tr class="tableau">
+            <td><img src="../ASSETS/normangiraffe.jpg" alt=""></td>
+            <td>Girafe</td>
+            <td>Gracieuse</td>
+            <td>5 ans</td>
+            <td>Savane</td>
+            <td>Heureux</td>
+        </tr>
+        <tr class="tableau">
+            <td><img src="../ASSETS/alligator-baie-7-.jpg" alt="Alligator"></td>
+            <td>Alligator</td>
+            <td>Pan</td>
+            <td>15 ans</td>
+            <td>Marais</td>
+            <td>Mécontent</td>
+        </tr>
+    <tr class="tableau">
+        <td><img src="../ASSETS/florahipopotam.jpg" alt="Hippopotame"></td>
+        <td>Hipopotam</td>
+        <td>Flora</td>
+        <td>4 ans</td>
+        <td>Marais</td>
+        <td>Bon</td>
+    </tr>
+</tbody>
+</table>
 </main>
+
 <footer>
+    <div class="footindex">
+        <p>© 2024 Le Zoo D'Arcadia, Website non promotionnel</p>
+        <p>Site réalisé dans le cadre d'un ECF à destination de STUDI</p>
+        <p>Diverses sources proviennent d'un générateur IA et de différents sites.</p>
+    </div>
+    <div class="navbar">                                        
+        <ul class="links">
+            <li><a href="../ECF-Arcadia/HTML/animaux.htm">Les Animaux</a></li>
+            <li><a href="../ECF-Arcadia/HTML/habitats.htm">Leurs Habitats</a></li>
+            <li><a href="../ECF-Arcadia/HTML/activites.htm">Les Activités</a></li>                
+        </ul>  
+        <div class="buttons">
+            <a href="HTML/contact.htm" class="action-button" id="contacte">Contacts</a>
+            <a href="PHP/login.php" class="action-button connexion" id="connexion">Connexion</a>
+        </div>
+        <div class="burger-menu-button">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+                    <!--- RESPONSIVE --->
+    <div class="burger-menu">
+        <ul class="links">
+            <li><a href="../ECF-Arcadia/HTML/animaux.htm">Les Animaux</a></li>
+            <li><a href="../ECF-Arcadia/HTML/habitats.htm">Leurs Habitats</a></li>
+            <li><a href="../ECF-Arcadia/HTML/activites.htm">Les Activités</a></li>             
+            <div class="divider"></div>
+            <div class="buttons-burger-menu">
+                <a href="HTML/contact.htm" class="action-button" id="contacte">Contacts</a>
+                <a href="PHP/login.php" class="action-button connexion" id="connexion">Connexion</a>
+            </div>
+        </ul>
+    </div>  
 </footer>
 <script src="../JAVASCRIPT/scripts.js"></script>
 </body>
