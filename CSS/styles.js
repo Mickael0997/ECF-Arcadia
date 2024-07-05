@@ -292,3 +292,25 @@ header > ul{
         font-size: 10px;
     }
 }
+
+
+const popup = document.getElementById('popup');
+const btn = document.getElementById("open-popup-btn");
+const span = document.getElementById("close-popup-btn");
+
+// Lorsque l'utilisateur clique sur le bouton, ouvre le popup
+btn.onclick = function() {
+    popup.style.display = "block";
+}
+
+// Lorsque l'utilisateur clique sur (x), ferme le popup
+span.onclick = function() {
+    popup.style.display = "none";
+}
+
+// Lorsque l'utilisateur clique n'importe où en dehors du popup, ferme le popup
+window.onclick = function(event) {
+    if (event.target == popup) {
+        popup.style.display = "none";
+    }
+}

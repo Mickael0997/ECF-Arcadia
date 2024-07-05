@@ -32,6 +32,8 @@ const popup = document.getElementById('popup');
 const btn = document.getElementById("open-popup-btn");
 const span = document.getElementById("close-popup-btn");
 
+
+
 // Lorsque l'utilisateur clique sur le bouton, ouvre le popup
 btn.onclick = function() {
     popup.style.display = "block";
@@ -48,9 +50,6 @@ window.onclick = function(event) {
         popup.style.display = "none";
     }
 }
-
-
-
 
 // Fonctions évènements affichage des avis clients
 
@@ -92,6 +91,5 @@ function afficherAvis() {
 // Créé une animation et affiche un nouvel avis toutes les 3 secondes
 
 setInterval(afficherAvis, 3000);
-
 
 

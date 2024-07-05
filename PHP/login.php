@@ -37,9 +37,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <header>
         <a href="../index.php" id="logo-link">
         <img src="../ASSETS/LogoArcadia2.png" alt="Logo du Zoo Écologique" id="logo">
-    </header>  
-    <div class="login-container">
-        <h2>Connexion</h2>
+        </a>
+    </header>
+    
+<section id="connexion">
+
+<div class="container">
+    <div class="title">
+        <h3>Connexion</h3>
+    </div>    
         <?php if (isset($error)) { echo "<p class='error'>$error</p>"; } ?>
         <form action="login.php" method="post">
             <label for="email">Email :</label>
@@ -48,6 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input value="" type="password" id="password" name="password" required>
             <button type="submit">Se connecter</button>
         </form>
-    </div>
+</div>
+
+</section>
 </body>
 </html>
