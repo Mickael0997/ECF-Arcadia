@@ -1,5 +1,7 @@
 /*----------Mise en forme Générale----------*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/*----------Mise en page Générale----------*/
 /* Reset Style*/
 *{
     margin: 0;
@@ -150,13 +152,14 @@ a:hover{
     position: absolute;
 }
 
-
+/*Fermé le popup*/
 .closepopup{
     top: 160px;
     left: 25px;
     color: white;
     position: relative;
 }
+
 
 /*Mise en place d'une fenêtre POPUP*/
 .popup {
@@ -172,6 +175,7 @@ a:hover{
     background-color: rgba(0,0,0,0.4); /* Arrière-plan noir avec opacité */
     cursor: pointer;
 }
+
 
 /*Mise en forme du texte avis*/
 .avis{
@@ -244,6 +248,82 @@ main > p{
     left: 5%;  
 }
 
+
+/*---------------------Burger Menu-----------------*/
+
+/*Mise en forme du burger menu*/
+.burger-menu{
+    display: none;
+    height: 0;
+    position: absolute;
+    right: 2rem;
+    top: 115px;
+    width: 220px;
+    background: black(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 10%;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+/*Mise en place de l'ouverture du menu burger*/
+.burger-menu.open{
+    height: 170px;
+    width: 50%;
+}
+
+
+/*Mise en forme de la liste du burger menu*/
+.burger-menu li{
+    padding: 0,7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+
+/*Mise en forme des buttons*/
+.burger-menu .action-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*Mise en forme de la liste du burger menu*/
+.button-burger-menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/*---------------------FOOTER-----------------*/
+
+.footparc{
+    color: white;
+    text-align: center;
+    padding: 15rem;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footindex{
+    color: rgb(191, 152, 152);
+    text-align: center;
+    margin-top: 40rem;
+    clear: both;
+    position: relative;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/*----------INDEX/ACTIVITES/HABITATS----------*/
+
 .titre{
     color: white;
     font-size: 2rem;
@@ -269,7 +349,7 @@ main > p{
 .articles .article{
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 
@@ -292,7 +372,7 @@ main > p{
     -webkit-transform: scale(1.5);
     transform: scale(1.5);
     position: relative;
-    left: 10rem;
+    left: 5rem;
 } 
 
 
@@ -357,7 +437,7 @@ main > p{
     width: auto;
     overflow-x: auto;
     position: relative;
-    left: 30rem;
+    left: 15rem;
 
 }
 
@@ -402,202 +482,289 @@ th, td{
 
 
 
+/*----------CONTACT----------*/
 
-@media screen and (max-width: 640px) {
-    body{
-        margin: 10px 20px;
-    }
-
-    .titre h1{
-        font-size: 2rem;
-        margin-top: 3rem;
-        margin-bottom: 3rem;
-    }
-
-    .titre h2{
-        font-size: 2.5rem;
-        margin-top: 3rem;
-        margin-bottom: 3rem;
-    }
-
-    .titre-p{
-        font-size: 20px;
-        margin-top: 3rem;
-        margin-bottom: 3rem;
-    }
-
-    .articles .article .right h3{
-        margin: 10px;
-        font-size: 20px;
-        text-align: center;
-        font-family: 'Poppins', sans-serif;
-        position: relative;
-        left: 0rem;
-    }
-
-    .articles .article .left h3{
-        margin: 10px;
-        font-size: 20px;
-        text-align: center;
-        font-family: 'Poppins', sans-serif;
-        position: relative;
-        left: 0rem;
-    }
-
-    .articles .article .left img{
-        height: 200px;
-        width: 200px;
-        border-radius: 20px;
-        position: relative;
-        left: 50%;
-        bottom: 10%;
-    }
-
-    .articles .article .right img{
-        height: 200px;
-        width: 200px;
-        border-radius: 20px;
-        position: relative;
-        left: 50%;
-        bottom: 10%;
-    }
-
-    .articles .article .right{
-        max-width: 100%;
-        font-family: 'POPINS';
-        word-break: break-word;
-        text-indent: 5%;
-        text-align: left;
-        word-spacing: 10px;
-        padding-bottom: 10%;
-        font-size: 15px;
-        margin: 0px;
-    }
-
-    .articles .article .left{
-        max-width: 100%;
-        font-family: 'POPINS';
-        word-break: break-word;
-        text-indent: 5%;
-        text-align: left;
-        word-spacing: 10px;
-        padding-bottom: 10%;
-        font-size: 15px;
-        margin: 0px;
-    }
-
-    .liste ul li{
-        font-size: 10px;
-        margin-right: 10px;
-        display: grid;
-    }
-
-    .divider{
-        left: 0%;
-        height: 1px;
-        background-color: white;
-        width: 100%;
-        bottom: 10%;
-    }
-
-    .tableaux{
-        border-collapse: collapse;
-        min-width: 400px;
-        width: auto;
-        overflow-x: auto;
-        position: relative;
-        left: 0rem;
-    
-    }
+section#contacts{
+    padding: 100px 0px;
 }
 
-/*---------------------Burger Menu-----------------*/
-
-/*Mise en forme du burger menu*/
-.burger-menu{
-    display: none;
-    height: 0;
-    position: absolute;
-    right: 2rem;
-    top: 115px;
-    width: 220px;
-    background: black(0,0,0,0.2);
-    backdrop-filter: blur(10px);
-    border-radius: 10%;
-    overflow: hidden;
-    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-
-/*Mise en place de l'ouverture du menu burger*/
-.burger-menu.open{
-    height: 170px;
-    width: 50%;
-}
-
-
-/*Mise en forme de la liste du burger menu*/
-.burger-menu li{
-    padding: 0,7rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;    
-}
-
-
-/*Mise en forme des buttons*/
-.burger-menu .action-button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-/*Mise en forme de la liste du burger menu*/
-.button-burger-menu{
+section#contacts .container{
+    max-width: 700px;
+    margin: 0px auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    height: 570px;
+    padding: 30px 10px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    box-shadow: 0px 10px 50px -10px;
+    text-shadow: 0 0 11px #184d00, 0 0 11px #000;
+}
+
+section#contacts .container .title{
+    text-align: center;
+}
+
+section#contacts .container .title h3{
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+section#contacts .container .title p{
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+section#contacts .container form{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+   max-width: 600px;
+}
+
+section#contacts .container form label{
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+section#contacts .container form input{
+    width: 47%;
 }
 
 
-/*Mise en formes des pages*/
-
-
-
-
-/*----------Mise en forme Index----------*/
-
-
-/*---------------------FOOTER-----------------*/
-
-.footparc{
-    color: white;
-    text-align: center;
-    padding: 15rem;
-    font-size: 1rem;
-    font-family: 'Poppins', sans-serif;
+section#contacts .container form textarea{
+    width: 100%;
+    height: 150px;
 }
 
-.footindex{
-    color: rgb(191, 152, 152);
+section#contacts .container form input,section#contacts .container form textarea{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px 0px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid wheat;
+    transition: 0,2s;
+    color: #000;
+}
+
+section#contacts .container form input:hover,section#contacts .container form textarea:hover{
+    border-bottom: 2px solid greenyellow;
+}
+
+
+
+/*------CONNEXION------*/
+
+section#connexion{
+    padding: 100px 0px;
+}
+
+section#connexion .container{
+    max-width: 700px;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 300px;
+    padding: 30px 10px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    box-shadow: 0px 10px 50px -10px whitesmoke;
+    text-shadow: 0 0 11px #184d00, 0 0 11px #000;
+}
+
+section#connexion .container .title{
     text-align: center;
-    margin-top: 40rem;
-    clear: both;
+}
+
+section#connexion .container .title h3{
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+section#connexion .container .title p{
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+section#connexion .container form{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+   max-width: 600px;
+}
+
+section#connexion .container form label{
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+section#connexion .container form input{
+    width: 47%;
+}
+
+
+section#connexion .container form textarea{
+    width: 100%;
+    height: 150px;
+}
+
+section#connexion .container form input,section#connexion .container form textarea{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px 0px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid wheat;
+    transition: 0,2s;
+}
+
+
+section#connexion .container form input:hover,section#connexion .container form textarea:hover{
+    border-bottom: 2px solid greenyellow;
+}
+/*----------ADMIN_DASHBOARD----------*/
+
+
+.admin_tableaux{
+    max-width: 392px;
+    width: auto;
+    overflow-x: auto;
     position: relative;
+    left: 0rem;
     font-size: 20px;
-    font-family: 'Poppins', sans-serif;
+    margin-bottom: 10rem;
+
 }
 
-/*----------Les Activitées----------*/
 
+.admin_tableau
+{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 5px 50px (0,0,0,0.15);
+    margin: 100px;
+    border: 2px greenyellow;
+    height: 20px;
+  position: relative;
+}
+
+
+
+
+/*----------DASHBOARD----------*/
+
+h2{
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 6rem;
+    margin-bottom: 10rem;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.btn-historique{
+    cursor: pointer;
+    left: 8rem;
+    border: 2px solid #fffefe;
+    border-radius: 10px;
+    width: 14%;
+    color: white;
+    background-color: black;
+    font-size: 22px;
+    position: relative;
+    bottom: 3rem;
+}
+
+.deco{
+    cursor: pointer;
+    left: 90%;
+    border: 2px solid #fffefe;
+    border-radius: 10px;
+    color: white;
+    background-color: black;
+    font-size: 15px;
+    position: relative;
+    width: 12rem;
+    bottom: 20rem;
+}
+
+
+.tables-dash{
+    border-collapse: collapse;
+    min-width: 70rem;
+    width: auto;
+    overflow-x: auto;
+    position: relative;
+    left: 30rem;
+    margin-bottom: 5rem;
+
+}
+
+
+.table-dash
+{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 5px 50px (0,0,0,0.15);
+    margin: 100px;
+    border: 2px greenyellow;
+}
+
+.tables-dash .table-dash img{
+    width: 100px;
+    height: 100px;
+    border-radius: 40px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+}
+
+.tables-dash .table-dash img:hover{
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+}
+
+.tables-dash .table-dash textarea{
+    width: 100px;
+    height: 100px;
+    border-radius: 40px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+}
+
+thead tr{
+    background-color: greenyellow;
+    color: white;
+    text-align: left;
+}
+
+
+td, textarea{
+    padding: 30px 70px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    color: white;
+}
 
 /*---------------------RESPONSIVE-----------------*/
-/*-----Les @Medias Index------*/
 
-/*Mise en forme des éléments de la liste en fonction de la taille de l'écran*/
+
+/*-----Les @Medias fixes------*/
+
 
 @media (max-width: 1004px) {
     
@@ -633,11 +800,6 @@ th, td{
 
 }
 
-@media (max-width: 576px) {
-
-
-
-}
 
 @media (max-width:576px){
     .burger-divider{
@@ -744,45 +906,208 @@ th, td{
 
 
 
-/*--------Les Medias Habitats--------*/
+/*----------@Medias INDEX/ACTIVITE/HABITATS---------*/
 
-@media (max-width: 576px) {
-    img.img-habitats{
-        display: block;
-        position: relative;
+
+
+@media screen and (max-width: 640px) {
+    body{
+        margin: 10px 20px;
     }
-}
 
+    .titre h1{
+        font-size: 2rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
 
-@media (max-width: 576px) {
-    img.img-jungle{
-        width: 330px;
-        height: 200px;
+    .titre h2{
+        font-size: 2.5rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .titre-p{
+        font-size: 20px;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .articles{
+        margin-top: 30px;
+    }
+    
+    .articles .article{
         display: flex;
-        right: 60px;
-        position: relative;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
     }
-}
 
-@media (max-width:576px) {
-    img.img-marais{
-        width: 330px;
+    .articles .article .right h3{
+        margin: 10px;
+        font-size: 20px;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+        left: 0rem;
+    }
+
+    .articles .article .left h3{
+        margin: 10px;
+        font-size: 20px;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+        left: 0rem;
+    }
+
+    .articles .article .left img{
         height: 200px;
-        display: flex;
-        right: 60px;
+        width: 200px;
+        border-radius: 20px;
         position: relative;
+        left: 20%;
+        bottom: 10%;
     }
-}
 
-@media (max-width: 576px) {
-    img.img-savane{
-        width: 330px;
+    .articles .article .left img:hover{
+        width: 150px;
+        height: 150px;
+        transform: scale(1.5);
+        position: relative;
+
+    } 
+
+
+    .articles .article .right img{
         height: 200px;
-        display: flex;
-        right: 60px;
+        width: 200px;
+        border-radius: 20px;
+        position: relative;
+        left: 20%;
+        bottom: 10%;
+    }
+
+    .articles .article .right img:hover{
+        width: 150px;
+        height: 150px;
+        transform: scale(1.5);
         position: relative;
     }
+
+    .articles .article .right{
+        max-width: 100%;
+        font-family: 'POPINS';
+        word-break: break-word;
+        text-indent: 5%;
+        text-align: left;
+        word-spacing: 10px;
+        padding-bottom: 10%;
+        font-size: 15px;
+        margin: 0px;
+    }
+
+    .articles .article .left{
+        max-width: 100%;
+        font-family: 'POPINS';
+        word-break: break-word;
+        text-indent: 5%;
+        text-align: left;
+        word-spacing: 10px;
+        padding-bottom: 10%;
+        font-size: 15px;
+        margin: 0px;
+    }
+
+    .liste ul li{
+        font-size: 10px;
+        margin-right: 10px;
+        display: grid;
+    }
+
+    .divider{
+        left: 0%;
+        height: 1px;
+        background-color: white;
+        width: 100%;
+        bottom: 10%;
+    }
+
 }
 
 
-/*----------Les media Activitées-------*/
+/*----------@Medias ANIMAUX----------*/
+
+@media screen and (max-width: 640px) {
+    .tableaux{
+        border-collapse: collapse;
+        min-width: 400px;
+        width: auto;
+        overflow-x: auto;
+        position: relative;
+        left: 0rem;
+    
+    }
+
+    .admin_tableaux{
+        border-collapse: collapse;
+        min-width: 400px;
+        width: auto;
+        overflow-x: auto;
+        position: relative;
+        left: 0rem;
+    
+    }
+
+    .admin_tableau
+    {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 5px 50px (0,0,0,0.15);
+        margin: 100px;
+        border: 2px greenyellow;
+    }
+
+    .tableau
+    {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 5px 50px (0,0,0,0.15);
+        margin: 100px;
+        border: 2px greenyellow;
+    }
+    
+    .tableaux .tableau img{
+        width: 100px;
+        height: 100px;
+        border-radius: 40px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    
+    }
+    
+    .tableaux .tableau img:hover{
+        -ms-transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+    
+    thead tr{
+        background-color: greenyellow;
+        color: white;
+        text-align: left;
+    }
+    
+    
+    th, td{
+        padding: 10px 20px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+        color: white;
+    }
+
+
+
+
+
+} 

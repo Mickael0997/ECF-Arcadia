@@ -20,13 +20,13 @@
     <img src="ASSETS/LogoArcadia2.png" alt="Logo du Zoo D'Arcadia" id="logo">                
         <div class="navbar">                                        
             <ul class="links">
-                <li><a href="../ECF-Arcadia/HTML/animaux.htm">Les Animaux</a></li>
-                <li><a href="../ECF-Arcadia/HTML/habitats.htm">Leurs Habitats</a></li>
-                <li><a href="../ECF-Arcadia/HTML/activites.htm">Les Activités</a></li>                
+                <li><a href="PHP/animaux.php">Les Animaux</a></li>
+                <li><a href="PHP/habitats.php">Leurs Habitats</a></li>
+                <li><a href="PHP/activites.php">Les Activités</a></li>                 
             </ul>  
             <div class="buttons">
-                <a href="HTML/contact.htm" class="action-button" id="contacte">Contacts</a>
-                <a href="PHP/login.php" class="action-button connexion" id="connexion">Connexion</a>
+                    <a href="HTML/contact.htm" class="action-button" id="contacte">Contacts</a>
+                    <a href="PHP/login.php" class="action-button connexion" id="connexion">Connexion</a>
             </div>
             <div class="burger-menu-button">
                 <i class="fas fa-bars"></i>
@@ -35,9 +35,9 @@
                         <!--- RESPONSIVE --->
         <div class="burger-menu">
             <ul class="links">
-                <li><a href="../ECF-Arcadia/HTML/animaux.htm">Les Animaux</a></li>
-                <li><a href="../ECF-Arcadia/HTML/habitats.htm">Leurs Habitats</a></li>
-                <li><a href="../ECF-Arcadia/HTML/activites.htm">Les Activités</a></li>             
+                <li><a href="PHP/animaux.php">Les Animaux</a></li>
+                <li><a href="PHP/habitats.php">Leurs Habitats</a></li>
+                <li><a href="PHP/activites.php">Les Activités</a></li>             
                 <div class="burger-divider"></div>
                 <div class="buttons-burger-menu">
                     <a href="HTML/contact.htm" class="action-button" id="contacte">Contacts</a>
@@ -58,7 +58,7 @@
                 <ul id="avis-list"></ul>
             </div>
         </div>
-    </div>    
+    </div> 
 
 
     <!--Accueil-->
@@ -104,12 +104,6 @@
         </div>
     </div>
 </section>
-
-
-
-
-
-
 
 
             <!-- Habitats -->
@@ -282,9 +276,9 @@
         </div>
         <div class="navbar">                                        
             <ul class="links">
-                <li><a href="../ECF-Arcadia/HTML/animaux.htm">Les Animaux</a></li>
-                <li><a href="../ECF-Arcadia/HTML/habitats.htm">Leurs Habitats</a></li>
-                <li><a href="../ECF-Arcadia/HTML/activites.htm">Les Activités</a></li>                
+                <li><a href="PHP/animaux.php">Les Animaux</a></li>
+                <li><a href="PHP/habitats.php">Leurs Habitats</a></li>
+                <li><a href="PHP/activites.php">Les Activités</a></li>                
             </ul>  
             <div class="buttons">
                 <a href="HTML/contact.htm" class="action-button" id="contacte">Contacts</a>
@@ -297,9 +291,9 @@
                         <!--- RESPONSIVE --->
         <div class="burger-menu">
             <ul class="links">
-                <li><a href="../ECF-Arcadia/HTML/animaux.htm">Les Animaux</a></li>
-                <li><a href="../ECF-Arcadia/HTML/habitats.htm">Leurs Habitats</a></li>
-                <li><a href="../ECF-Arcadia/HTML/activites.htm">Les Activités</a></li>             
+                    <li><a href="PHP/animaux.php">Les Animaux</a></li>
+                    <li><a href="PHP/habitats.php">Leurs Habitats</a></li>
+                    <li><a href="PHP/activites.php">Les Activités</a></li>            
                 <div class="divider"></div>
                 <div class="buttons-burger-menu">
                     <a href="HTML/contact.htm" class="action-button" id="contacte">Contacts</a>

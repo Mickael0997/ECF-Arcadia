@@ -5,20 +5,34 @@ require 'database.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
-    
+
+    $sql = "SELECT * FROM administrateurs WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$email]);
+    $admin = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($admin) {
+        if (password_verify($password, $admin['password'])) {
+            $_SESSION['admin_id'] = $admin['id'];
+            $_SESSION['admin_name'] = $admin['prenom'] . ' ' . $admin['nom'];
+            header('Location: admin_dashboard.php');
+            exit;
+        }
+    }
+
     $sql = "SELECT * FROM employes WHERE email = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param('s', $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $user = $result->fetch_assoc();
+    $stmt->execute([$email]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user && $password ==$user['password']   ) {
-        $_SESSION['loggedin'] = true;
-        $_SESSION['name'] = $user['prenom'];
-        $_SESSION['id'] = $user['id'];
-        header('Location: dashboard.php');
-        exit;
+    if ($user) {
+        if ($user && $password == $user['password']) {
+            $_SESSION['loggedin'] = true;
+            $_SESSION['name'] = $user['prenom'];
+            $_SESSION['id'] = $user['id'];
+            header('Location: dashboard.php');
+            exit;
+        }
     } else {
         $error = "Email ou mot de passe incorrect";
     }
@@ -37,9 +51,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <header>
         <a href="../index.php" id="logo-link">
         <img src="../ASSETS/LogoArcadia2.png" alt="Logo du Zoo Écologique" id="logo">
-    </header>  
-    <div class="login-container">
-        <h2>Connexion</h2>
+        </a>
+    </header>
+    
+<section id="connexion">
+
+<div class="container">
+    <div class="title">
+        <h3>Connexion</h3>
+    </div>    
         <?php if (isset($error)) { echo "<p class='error'>$error</p>"; } ?>
         <form action="login.php" method="post">
             <label for="email">Email :</label>
@@ -48,6 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input value="" type="password" id="password" name="password" required>
             <button type="submit">Se connecter</button>
         </form>
-    </div>
+</div>
+
+</section>
 </body>
 </html>

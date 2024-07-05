@@ -10,12 +10,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $sql = "INSERT INTO journal (date, employe, fonction, commentaire) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param('ssss', $date, $employe, $fonction, $commentaire);
 
-    if ($stmt->execute()) {
+    if (!$stmt) {
+        die($conn->errorInfo());
+    }
+
+    if ($stmt->execute([$date, $employe, $fonction, $commentaire])) {
         header('Location: dashboard.php');
     } else {
-        echo "Erreur : " . $stmt->error;
+        echo "Erreur : " . implode(":", $conn->errorInfo());
     }
 }
 ?>

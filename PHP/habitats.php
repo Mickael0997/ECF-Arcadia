@@ -1,3 +1,22 @@
+<?php
+// Connexion à la base de données
+require 'database.php';
+
+// Récupération des données du formulaire
+$sql = "SELECT * FROM habitats WHERE id = ?";
+$stmt = $conn->prepare($sql);
+//jungle
+$stmt->execute([1]);
+$habitat1 = $stmt->fetch(PDO::FETCH_ASSOC);
+//savane
+$stmt->execute([2]);
+$habitat2 = $stmt->fetch(PDO::FETCH_ASSOC);
+//marais
+$stmt->execute([3]);
+$habitat3 = $stmt->fetch(PDO::FETCH_ASSOC);
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -20,12 +39,12 @@
         </a>
     <div class="navbar">                                        
         <ul class="links">
-            <li><a href="animaux.htm">Les Animaux</a></li>
+            <li><a href="../ECF-Arcadia/PHP/animaux.php">Les Animaux</a></li>
             <li><a href="#">Leurs Habitats</a></li>    
-            <li><a href="activites.htm">Les Activités</a></li>                
+            <li><a href="../PHP/activites.php">Les Activités</a></li>                
         </ul>  
         <div class="buttons">
-            <a href="contact.htm" class="action-button" id="contacte">Contacts</a>
+            <a href="../HTML/contact.htm" class="action-button" id="contacte">Contacts</a>
             <a href="../PHP/login.php" class="action-button connexion" id="connexion">Connexion</a>
         </div>
         <div class="burger-menu-button">
@@ -35,11 +54,11 @@
                         <!--- RESPONSIVE --->
     <div class="burger-menu">
         <ul class="links">
-            <li><a href="animaux.htm">Les Animaux</a></li>
+            <li><a href="../ECF-Arcadia/PHP/animaux.php">Les Animaux</a></li>
             <li><a href="#">Leurs Habitats</a></li>
-            <li><a href="activites.htm">Les Activités</a></li>             
+            <li><a href="../PHP/activites.php">Les Activités</a></li>             
                 <div class="buttons-burger-menu">
-                    <a href="contact.htm" class="action-button" id="contacte">Contacts</a>
+                    <a href="../HTML/contact.htm" class="action-button" id="contacte">Contacts</a>
                     <a href="../PHP/login.php" class="action-button connexion" id="connexion">Connexion</a>
                 </div>
             </ul>
@@ -72,35 +91,31 @@
         
 <div class="article">
     <div class="left">   
-        <img src="../ASSETS/jungle.jpg" alt="Jungle">
+    <img src="<?php echo htmlspecialchars($habitat1['images_habitats']); ?>" alt="Une Jungle">
     </div>
     <div class="right">    
-        <h3>La Jungle</h3>
-        <p>La jungle est une forêt dense et luxuriante, abritant une biodiversité exceptionnelle. 
-        <br>Les arbres touffus et le climat humide offrent un refuge idéal pour une variété d'espèces exotiques.</p>
+        <h3><?php echo htmlspecialchars($habitat1['habitats']); ?></h3>
+        <p><?php echo htmlspecialchars($habitat1['description']); ?></p>
     </div>
 </div>
 
 <div class="article">    
     <div class="left">  
-        <img src="../ASSETS/Marais.jpg" alt="Marais">
+    <img src="<?php echo htmlspecialchars($habitat2['images_habitats']); ?>" alt="Une Savanne">
     </div>
     <div class="right">   
-        <h3>Le Marais</h3> 
-        <p>Le marais est un écosystème humide et marécageux, riche en végétation aquatique. 
-        <br>Cet habitat unique est vital pour de nombreuses espèces aquatiques et semi-aquatiques. 
-        <br>Offrant des conditions parfaites pour les crocodiles, grenouilles et oiseaux aquatiques.</p>
+        h3><?php echo htmlspecialchars($habitat2['habitats']); ?></h3>
+        <p><?php echo htmlspecialchars($habitat2['description']); ?></p>
     </div>
 </div>
 
 <div class="article">
     <div class="left">       
-        <img src="../ASSETS/savane.webp" alt="Savane">
+    <img src="<?php echo htmlspecialchars($habitat3['images_habitats']); ?>" alt="Un Marais">
     </div>
     <div class="right">
-        <h3>La Savane</h3>
-        <p>La savane est une vaste plaine herbeuse parsemée d'arbres épars, caractérisée par un climat chaud et sec. 
-        <br>C'est le foyer de nombreux grands mammifères comme les lions, les éléphants et les zèbres.</p>
+        <h3><?php echo htmlspecialchars($habitat3['habitats']); ?></h3>
+        <p><?php echo htmlspecialchars($habitat3['description']); ?></p>
     </div> 
 </div>
 
@@ -115,9 +130,9 @@
     </div>
     <div class="navbar">                                        
         <ul class="links">
-            <li><a href="../ECF-Arcadia/HTML/animaux.htm">Les Animaux</a></li>
-            <li><a href="../ECF-Arcadia/HTML/habitats.htm">Leurs Habitats</a></li>
-            <li><a href="../ECF-Arcadia/HTML/activites.htm">Les Activités</a></li>                
+            <li><a href="../ECF-Arcadia/PHP/animaux.php">Les Animaux</a></li>
+            <li><a href="#">Leurs Habitats</a></li>
+            <li><a href="../ECF-Arcadia/PHP/animaux.php">Les Activités</a></li>                
         </ul>  
         <div class="buttons">
             <a href="HTML/contact.htm" class="action-button" id="contacte">Contacts</a>
@@ -130,13 +145,13 @@
                     <!--- RESPONSIVE --->
     <div class="burger-menu">
         <ul class="links">
-            <li><a href="../ECF-Arcadia/HTML/animaux.htm">Les Animaux</a></li>
-            <li><a href="../ECF-Arcadia/HTML/habitats.htm">Leurs Habitats</a></li>
-            <li><a href="../ECF-Arcadia/HTML/activites.htm">Les Activités</a></li>             
+            <li><a href="../ECF-Arcadia/PHP/animaux.php">Les Animaux</a></li>
+            <li><a href="#">Leurs Habitats</a></li>
+            <li><a href="../ECF-Arcadia/PHP/animaux.php">Les Activités</a></li>             
             <div class="divider"></div>
             <div class="buttons-burger-menu">
-                <a href="HTML/contact.htm" class="action-button" id="contacte">Contacts</a>
-                <a href="PHP/login.php" class="action-button connexion" id="connexion">Connexion</a>
+                <a href="../HTML/contact.htm" class="action-button" id="contacte">Contacts</a>
+                <a href="../PHP/login.php" class="action-button connexion" id="connexion">Connexion</a>
             </div>
         </ul>
     </div>   
