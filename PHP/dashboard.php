@@ -45,7 +45,7 @@ if (!$stmt) {
 $habitats = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Récupérer tous les commentaires de la base de données pour les habitats
-$sql = "SELECT commentaires.commentaire, habitats.nom FROM commentaires INNER JOIN habitats ON commentaires.habitat_id = habitats.id";
+$sql = "SELECT commentaires.commentaire, habitats.habitats FROM commentaires INNER JOIN habitats ON commentaires.habitat_id = habitats.id";
 $stmt = $conn->query($sql);
 
 if (!$stmt) {
@@ -70,6 +70,13 @@ $commentaires_habitats = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <a href="../index.php" id="logo-link">
             <img src="../ASSETS/LogoArcadia2.png" alt="Logo du Zoo Écologique" id="logo"></a>
         </div>
+        <nav>
+<div>            
+    <ul>
+        <li><a href="./nourriture.php">Enregistrer la Nourriture</a></li>
+    </ul>
+</div>
+</nav>
   <div>  
     <h1 class="titre">Bonjour <?php echo htmlspecialchars($employe['prenom']); ?> !</h1>
        </div> 
@@ -77,7 +84,7 @@ $commentaires_habitats = $stmt->fetchAll(PDO::FETCH_ASSOC);
  
     </header>
     <main>
-    <div class="btn-historique"><a href="../PHP/historique.php">Consulter la main courante</a>
+    <div class="btn-historique"><a href="./historique.php">Consulter la main courante</a>
         </div>
        <div>
        <nav>
@@ -147,32 +154,6 @@ $commentaires_habitats = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     </footer>
     <!-- JAVASCRIPT  -->
-    <script>
-$(document).ready(function(){
-    $("#animalForm").submit(function(e){
-        e.preventDefault();
-        $.ajax({
-            url: 'submit_comment.php',
-            type: 'post',
-            data: $(this).serialize(),
-            success: function(response){
-                alert(response);
-            }
-        });
-    });
-
-    $("#habitatForm").submit(function(e){
-        e.preventDefault();
-        $.ajax({
-            url: 'submit_comment.php',
-            type: 'post',
-            data: $(this).serialize(),
-            success: function(response){
-                alert(response);
-            }
-        });
-    });
-});
-</script>
+    <script src="JS/script.js"></script>
 </body>
 </html>

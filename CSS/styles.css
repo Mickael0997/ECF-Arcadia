@@ -9,7 +9,26 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/*Mise en forme form*/
+.form{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 200px;
+    position: relative;
+    right: 10rem;
+    top: 10rem;
+}
 
+/*Mise en forme label*/
+.lab{
+    position: relative;
+    left: 2rem;
+}
+.admin-table{
+    position: relative;
+    top: 15rem;
+    left: 10rem;
+}
 /*Mise en forme de l'image background*/
 body {
     background-image: url(../ASSETS/beau-ciel-plein-etoiles-trona-californie.jpg);
@@ -452,7 +471,6 @@ main > p{
 }
 
 .tableaux .tableau img{
-    width: 100px;
     height: 100px;
     border-radius: 40px;
     padding-left: 1rem;
@@ -466,6 +484,9 @@ main > p{
     transform: scale(1.5);
 }
 
+.tableaux .tableau img.clickable {
+    cursor: pointer;
+}
 thead tr{
     background-color: greenyellow;
     color: white;
@@ -479,7 +500,6 @@ th, td{
     border-bottom: 1px solid #ddd;
     color: white;
 }
-
 
 
 /*----------CONTACT----------*/
@@ -757,7 +777,7 @@ td, textarea{
     padding: 30px 70px;
     text-align: center;
     border-bottom: 1px solid #ddd;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 /*---------------------RESPONSIVE-----------------*/

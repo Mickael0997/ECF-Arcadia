@@ -47,8 +47,6 @@ $stmt->execute([11]);
 $animaux6 = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
-
-
 $sql = "SELECT * FROM habitats WHERE id = ?";
 $stmt = $conn->prepare($sql);
 //jungle
@@ -60,6 +58,8 @@ $habitat2 = $stmt->fetch(PDO::FETCH_ASSOC);
 //marais
 $stmt->execute([3]);
 $habitat3 = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -144,7 +144,7 @@ $habitat3 = $stmt->fetch(PDO::FETCH_ASSOC);
     </thead>
 <tbody>
         <tr class="tableau">
-            <td><img src="<?php echo htmlspecialchars($parc1['images_animaux']); ?>" alt="Un lion"></td>
+            <td><img src="<?php echo htmlspecialchars($parc1['images_animaux']); ?>" onclick="recordView(1)" alt="Un lion"><p id="viewCount-1">Nombre de vues: 0</p> </td>
             <td><?php echo htmlspecialchars($animaux1['espece']); ?></td>
             <td><?php echo htmlspecialchars($animaux1['surnom']); ?></td>
             <td><?php echo htmlspecialchars($animaux1['age']); ?></td>

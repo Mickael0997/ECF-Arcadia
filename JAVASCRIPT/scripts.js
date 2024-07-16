@@ -93,4 +93,56 @@ function afficherAvis() {
 setInterval(afficherAvis, 3000);
 
 
+// Comptabilise les vues / Gère l'ouverture et la fermeture de la fenêtre modale
 
+function recordView(imageId) {
+    fetch('record_view.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: 'image_id=' + imageId
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Optionally, update view count on the same page
+        document.getElementById('viewCount-' + imageId).innerText = 'Nombre de vues: ' + data.views;
+        updateAdminDashboard(imageId, data.views);
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+function updateAdminDashboard(imageId, views) {
+    const adminDashboard = window.parent.document.getElementById('viewCount-' + imageId);
+    if (adminDashboard) {
+        adminDashboard.innerText = 'Nombre de vues: ' + views;
+    }
+}
+
+
+
+$(document).ready(function(){
+    $("#animalForm").submit(function(e){
+        e.preventDefault();
+        $.ajax({
+            url: 'submit_comment.php',
+            type: 'post',
+            data: $(this).serialize(),
+            success: function(response){
+                alert(response);
+            }
+        });
+    });
+
+    $("#habitatForm").submit(function(e){
+        e.preventDefault();
+        $.ajax({
+            url: 'submit_comment.php',
+            type: 'post',
+            data: $(this).serialize(),
+            success: function(response){
+                alert(response);
+            }
+        });
+    });
+});
