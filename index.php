@@ -25,8 +25,8 @@
                 <li><a href="./PHP/activites.php">Les Activités</a></li>                 
             </ul>  
             <div class="buttons">
-                    <a href="./HTML/contact.htm" class="action-button" id="contacte">Contacts</a>
-                    <a href="./PHP/login.php" class="action-button connexion" id="connexion">Connexion</a>
+                <a href="HTML/contact.htm" class="action-button" id="contacte">Contacts</a>
+                <a href="PHP/login.php" class="action-button connexion" id="connexion">Connexion</a>
             </div>
             <div class="burger-menu-button">
                 <i class="fas fa-bars"></i>

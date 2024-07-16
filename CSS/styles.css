@@ -502,283 +502,198 @@ th, td{
 }
 
 
-/*----------CONTACT----------*/
 
-section#contacts{
-    padding: 100px 0px;
+
+@media screen and (max-width: 640px) {
+    body{
+        margin: 10px 20px;
+    }
+
+    .titre h1{
+        font-size: 2rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .titre h2{
+        font-size: 2.5rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .titre-p{
+        font-size: 20px;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .articles .article .right h3{
+        margin: 10px;
+        font-size: 20px;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+        left: 0rem;
+    }
+
+    .articles .article .left h3{
+        margin: 10px;
+        font-size: 20px;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+        left: 0rem;
+    }
+
+    .articles .article .left img{
+        height: 200px;
+        width: 200px;
+        border-radius: 20px;
+        position: relative;
+        left: 50%;
+        bottom: 10%;
+    }
+
+    .articles .article .right img{
+        height: 200px;
+        width: 200px;
+        border-radius: 20px;
+        position: relative;
+        left: 50%;
+        bottom: 10%;
+    }
+
+    .articles .article .right{
+        max-width: 100%;
+        font-family: 'POPINS';
+        word-break: break-word;
+        text-indent: 5%;
+        text-align: left;
+        word-spacing: 10px;
+        padding-bottom: 10%;
+        font-size: 15px;
+        margin: 0px;
+    }
+
+    .articles .article .left{
+        max-width: 100%;
+        font-family: 'POPINS';
+        word-break: break-word;
+        text-indent: 5%;
+        text-align: left;
+        word-spacing: 10px;
+        padding-bottom: 10%;
+        font-size: 15px;
+        margin: 0px;
+    }
+
+    .liste ul li{
+        font-size: 10px;
+        margin-right: 10px;
+        display: grid;
+    }
+
+    .divider{
+        left: 0%;
+        height: 1px;
+        background-color: white;
+        width: 100%;
+        bottom: 10%;
+    }
+
+    .tableaux{
+        border-collapse: collapse;
+        min-width: 400px;
+        width: auto;
+        overflow-x: auto;
+        position: relative;
+        left: 0rem;
+    
+    }
 }
 
-section#contacts .container{
-    max-width: 700px;
-    margin: 0px auto;
+/*---------------------Burger Menu-----------------*/
+
+/*Mise en forme du burger menu*/
+.burger-menu{
+    display: none;
+    height: 0;
+    position: absolute;
+    right: 2rem;
+    top: 115px;
+    width: 220px;
+    background: black(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 10%;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+/*Mise en place de l'ouverture du menu burger*/
+.burger-menu.open{
+    height: 170px;
+    width: 50%;
+}
+
+
+/*Mise en forme de la liste du burger menu*/
+.burger-menu li{
+    padding: 0,7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+
+/*Mise en forme des buttons*/
+.burger-menu .action-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*Mise en forme de la liste du burger menu*/
+.button-burger-menu{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    height: 570px;
-    padding: 30px 10px;
-    border-radius: 15px;
-    box-sizing: border-box;
-    box-shadow: 0px 10px 50px -10px;
-    text-shadow: 0 0 11px #184d00, 0 0 11px #000;
-}
-
-section#contacts .container .title{
-    text-align: center;
-}
-
-section#contacts .container .title h3{
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-section#contacts .container .title p{
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-section#contacts .container form{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-   max-width: 600px;
-}
-
-section#contacts .container form label{
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    text-align: left;
-}
-
-section#contacts .container form input{
-    width: 47%;
+    gap: 10px;
 }
 
 
-section#contacts .container form textarea{
-    width: 100%;
-    height: 150px;
-}
-
-section#contacts .container form input,section#contacts .container form textarea{
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px 0px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    border-bottom: 2px solid wheat;
-    transition: 0,2s;
-    color: #000;
-}
-
-section#contacts .container form input:hover,section#contacts .container form textarea:hover{
-    border-bottom: 2px solid greenyellow;
-}
-
-
-
-/*------CONNEXION------*/
-
-section#connexion{
-    padding: 100px 0px;
-}
-
-section#connexion .container{
-    max-width: 700px;
-    margin: 0px auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 300px;
-    padding: 30px 10px;
-    border-radius: 15px;
-    box-sizing: border-box;
-    box-shadow: 0px 10px 50px -10px whitesmoke;
-    text-shadow: 0 0 11px #184d00, 0 0 11px #000;
-}
-
-section#connexion .container .title{
-    text-align: center;
-}
-
-section#connexion .container .title h3{
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-section#connexion .container .title p{
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-section#connexion .container form{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-   max-width: 600px;
-}
-
-section#connexion .container form label{
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    text-align: left;
-}
-
-section#connexion .container form input{
-    width: 47%;
-}
-
-
-section#connexion .container form textarea{
-    width: 100%;
-    height: 150px;
-}
-
-section#connexion .container form input,section#connexion .container form textarea{
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px 0px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    border-bottom: 2px solid wheat;
-    transition: 0,2s;
-}
-
-
-section#connexion .container form input:hover,section#connexion .container form textarea:hover{
-    border-bottom: 2px solid greenyellow;
-}
-/*----------ADMIN_DASHBOARD----------*/
-
-
-.admin_tableaux{
-    max-width: 392px;
-    width: auto;
-    overflow-x: auto;
-    position: relative;
-    left: 0rem;
-    font-size: 20px;
-    margin-bottom: 10rem;
-
-}
-
-
-.admin_tableau
-{
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    box-shadow: 0 5px 50px (0,0,0,0.15);
-    margin: 100px;
-    border: 2px greenyellow;
-    height: 20px;
-  position: relative;
-}
+/*Mise en formes des pages*/
 
 
 
 
-/*----------DASHBOARD----------*/
+/*----------Mise en forme Index----------*/
 
-h2{
+
+/*---------------------FOOTER-----------------*/
+
+.footparc{
     color: white;
-    font-size: 2rem;
     text-align: center;
-    margin-top: 6rem;
-    margin-bottom: 10rem;
+    padding: 15rem;
+    font-size: 1rem;
     font-family: 'Poppins', sans-serif;
-
 }
 
-.btn-historique{
-    cursor: pointer;
-    left: 8rem;
-    border: 2px solid #fffefe;
-    border-radius: 10px;
-    width: 14%;
-    color: white;
-    background-color: black;
-    font-size: 22px;
-    position: relative;
-    bottom: 3rem;
-}
-
-.deco{
-    cursor: pointer;
-    left: 90%;
-    border: 2px solid #fffefe;
-    border-radius: 10px;
-    color: white;
-    background-color: black;
-    font-size: 15px;
-    position: relative;
-    width: 12rem;
-    bottom: 20rem;
-}
-
-
-.tables-dash{
-    border-collapse: collapse;
-    min-width: 70rem;
-    width: auto;
-    overflow-x: auto;
-    position: relative;
-    left: 30rem;
-    margin-bottom: 5rem;
-
-}
-
-
-.table-dash
-{
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    box-shadow: 0 5px 50px (0,0,0,0.15);
-    margin: 100px;
-    border: 2px greenyellow;
-}
-
-.tables-dash .table-dash img{
-    width: 100px;
-    height: 100px;
-    border-radius: 40px;
-    padding-left: 1rem;
-    padding-right: 1rem;
-
-}
-
-.tables-dash .table-dash img:hover{
-    -ms-transform: scale(1.5);
-    -webkit-transform: scale(1.5);
-    transform: scale(1.5);
-}
-
-.tables-dash .table-dash textarea{
-    width: 100px;
-    height: 100px;
-    border-radius: 40px;
-    padding-left: 1rem;
-    padding-right: 1rem;
-
-}
-
-thead tr{
-    background-color: greenyellow;
-    color: white;
-    text-align: left;
-}
-
-
-td, textarea{
-    padding: 30px 70px;
+.footindex{
+    color: rgb(191, 152, 152);
     text-align: center;
-    border-bottom: 1px solid #ddd;
-    color: rgb(0, 0, 0);
+    margin-top: 40rem;
+    clear: both;
+    position: relative;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
 }
+
+/*----------Les Activitées----------*/
+
 
 /*---------------------RESPONSIVE-----------------*/
 
@@ -926,208 +841,45 @@ td, textarea{
 
 
 
-/*----------@Medias INDEX/ACTIVITE/HABITATS---------*/
+/*--------Les Medias Habitats--------*/
 
-
-
-@media screen and (max-width: 640px) {
-    body{
-        margin: 10px 20px;
-    }
-
-    .titre h1{
-        font-size: 2rem;
-        margin-top: 3rem;
-        margin-bottom: 3rem;
-    }
-
-    .titre h2{
-        font-size: 2.5rem;
-        margin-top: 3rem;
-        margin-bottom: 3rem;
-    }
-
-    .titre-p{
-        font-size: 20px;
-        margin-top: 3rem;
-        margin-bottom: 3rem;
-    }
-
-    .articles{
-        margin-top: 30px;
-    }
-    
-    .articles .article{
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom: 30px;
-    }
-
-    .articles .article .right h3{
-        margin: 10px;
-        font-size: 20px;
-        text-align: center;
-        font-family: 'Poppins', sans-serif;
-        position: relative;
-        left: 0rem;
-    }
-
-    .articles .article .left h3{
-        margin: 10px;
-        font-size: 20px;
-        text-align: center;
-        font-family: 'Poppins', sans-serif;
-        position: relative;
-        left: 0rem;
-    }
-
-    .articles .article .left img{
-        height: 200px;
-        width: 200px;
-        border-radius: 20px;
-        position: relative;
-        left: 20%;
-        bottom: 10%;
-    }
-
-    .articles .article .left img:hover{
-        width: 150px;
-        height: 150px;
-        transform: scale(1.5);
-        position: relative;
-
-    } 
-
-
-    .articles .article .right img{
-        height: 200px;
-        width: 200px;
-        border-radius: 20px;
-        position: relative;
-        left: 20%;
-        bottom: 10%;
-    }
-
-    .articles .article .right img:hover{
-        width: 150px;
-        height: 150px;
-        transform: scale(1.5);
+@media (max-width: 576px) {
+    img.img-habitats{
+        display: block;
         position: relative;
     }
-
-    .articles .article .right{
-        max-width: 100%;
-        font-family: 'POPINS';
-        word-break: break-word;
-        text-indent: 5%;
-        text-align: left;
-        word-spacing: 10px;
-        padding-bottom: 10%;
-        font-size: 15px;
-        margin: 0px;
-    }
-
-    .articles .article .left{
-        max-width: 100%;
-        font-family: 'POPINS';
-        word-break: break-word;
-        text-indent: 5%;
-        text-align: left;
-        word-spacing: 10px;
-        padding-bottom: 10%;
-        font-size: 15px;
-        margin: 0px;
-    }
-
-    .liste ul li{
-        font-size: 10px;
-        margin-right: 10px;
-        display: grid;
-    }
-
-    .divider{
-        left: 0%;
-        height: 1px;
-        background-color: white;
-        width: 100%;
-        bottom: 10%;
-    }
-
 }
 
 
-/*----------@Medias ANIMAUX----------*/
-
-@media screen and (max-width: 640px) {
-    .tableaux{
-        border-collapse: collapse;
-        min-width: 400px;
-        width: auto;
-        overflow-x: auto;
+@media (max-width: 576px) {
+    img.img-jungle{
+        width: 330px;
+        height: 200px;
+        display: flex;
+        right: 60px;
         position: relative;
-        left: 0rem;
-    
     }
+}
 
-    .admin_tableaux{
-        border-collapse: collapse;
-        min-width: 400px;
-        width: auto;
-        overflow-x: auto;
+@media (max-width:576px) {
+    img.img-marais{
+        width: 330px;
+        height: 200px;
+        width: 200px;
+        border-radius: 20px;
         position: relative;
-        left: 0rem;
-    
     }
+}
 
-    .admin_tableau
-    {
-        margin-top: 3rem;
-        margin-bottom: 3rem;
-        box-shadow: 0 5px 50px (0,0,0,0.15);
-        margin: 100px;
-        border: 2px greenyellow;
+@media (max-width: 576px) {
+    img.img-savane{
+        width: 330px;
+        height: 200px;
+        display: flex;
+        right: 60px;
+        position: relative;
     }
-
-    .tableau
-    {
-        margin-top: 3rem;
-        margin-bottom: 3rem;
-        box-shadow: 0 5px 50px (0,0,0,0.15);
-        margin: 100px;
-        border: 2px greenyellow;
-    }
-    
-    .tableaux .tableau img{
-        width: 100px;
-        height: 100px;
-        border-radius: 40px;
-        padding-left: 1rem;
-        padding-right: 1rem;
-    
-    }
-    
-    .tableaux .tableau img:hover{
-        -ms-transform: scale(1.5);
-        -webkit-transform: scale(1.5);
-        transform: scale(1.5);
-    }
-    
-    thead tr{
-        background-color: greenyellow;
-        color: white;
-        text-align: left;
-    }
-    
-    
-    th, td{
-        padding: 10px 20px;
-        text-align: center;
-        border-bottom: 1px solid #ddd;
-        color: white;
-    }
+}
 
 
-
-
-
-} 
+/*----------Les media Activitées-------*/

@@ -92,7 +92,6 @@ function afficherAvis() {
 
 setInterval(afficherAvis, 3000);
 
-
 // Comptabilise les vues / Gère l'ouverture et la fermeture de la fenêtre modale
 
 function recordView(imageId) {
