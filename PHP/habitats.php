@@ -33,128 +33,66 @@ $habitat3 = $stmt->fetch(PDO::FETCH_ASSOC);
     <title>Le Zoo D'Arcadia</title>   
 </head>
 <body>         
-<header> 
-        <a href="../index.php" id="logo-link">
-        <img src="../ASSETS/LogoArcadia2.png" alt="Logo du Zoo D'Arcadia" id="logo">               
-        </a>
-    <div class="navbar">                                        
-        <ul class="links">
-            <li><a href="./animaux.php">Les Animaux</a></li>
-            <li><a href="#">Leurs Habitats</a></li>    
-            <li><a href="./activites.php">Les Activités</a></li>                
-        </ul>  
-        <div class="buttons">
-            <a href="../HTML/contact.htm" class="action-button" id="contacte">Contacts</a>
-            <a href="./PHP/login.php" class="action-button connexion" id="connexion">Connexion</a>
-        </div>
-        <div class="burger-menu-button">
-            <i class="fas fa-bars"></i>
-        </div>
-    </div>
-                        <!--- RESPONSIVE --->
-    <div class="burger-menu">
-        <ul class="links">
-        <li><a href="./animaux.php">Les Animaux</a></li>
-            <li><a href="#">Leurs Habitats</a></li>    
-            <li><a href="./activites.php">Les Activités</a></li>            
-                <div class="buttons-burger-menu">
-                    <a href="../HTML/contact.htm" class="action-button" id="contacte">Contacts</a>
-                    <a href="./PHP/login.php" class="action-button connexion" id="connexion">Connexion</a>
-                </div>
-            </ul>
-    </div>     
-</header> 
-<main> 
 
-             <!-- Avis des visiteurs -->
-<!--- Création d'une fenêtre  popup --->
-<button id="open-popup-btn" class="openpopup"> Avis</button>  
-<div id="popup" class="popup">
-    <!-- Utilisation de &times; pour afficher une croix-->
-        <span id="close-popup-btn" class="closepopup" >&times;</span>
-            <div class="avis", id="avis">
-                <!--<h3 class="avis">Avis Clients :</h3>-->
-                <ul id="avis-list"></ul>
-            </div>
-        </div>
-    </div> 
+<?php include './header.php'; ?>  
+<?php include './avis.php';?>
 
-<div class="titre">
-    <h2>Leurs Habitats</h2>
-    <p class="titre-p">Les animaux d'Arcadia sont répartis dans les différents habitats présentés ci-dessous.<br>
-    Nous nous sommes efforcé de représenter au mieux leur milieu naturel afin qu'ils puissent y vivre le plus paisiblement possible. </p>
+<main>
+
+<div>
+    <h1>LEURS HABITATS</h1>
+</div>
+
+<divider class="divider"></divider>
+
+<div onclick="toggleParc()"> 
+    <h2>Habitats</h2>
 </div>    
 
-<divider class="divider-hab"></divider>
 
-<section class="articles">
+<section class="habitats" id="parc-section" style="display: none;">
         
-<div class="article">
-    <div class="left">   
-    <img src="<?php echo htmlspecialchars($habitat1['images_habitats']); ?>" alt="Une Jungle">
+<div class="habitat">
+    <div>   
+        <img src="<?php echo htmlspecialchars($habitat1['images_habitats']); ?>" alt="Une Jungle">
     </div>
-    <div class="right">    
+    <div>
         <h3><?php echo htmlspecialchars($habitat1['habitats']); ?></h3>
-        <p><?php echo htmlspecialchars($habitat1['description']); ?></p>
+    </div>
+    <div>    
+        <p class="descriptifs"><?php echo htmlspecialchars($habitat1['description']); ?></p>
     </div>
 </div>
 
-<div class="article">    
-    <div class="left">  
-    <img src="<?php echo htmlspecialchars($habitat2['images_habitats']); ?>" alt="Une Savanne">
+<div class="habitat">    
+    <div>  
+        <img src="<?php echo htmlspecialchars($habitat2['images_habitats']); ?>" alt="Une Savanne">
     </div>
-    <div class="right">   
-        h3><?php echo htmlspecialchars($habitat2['habitats']); ?></h3>
-        <p><?php echo htmlspecialchars($habitat2['description']); ?></p>
+    <div>
+        <h3><?php echo htmlspecialchars($habitat2['habitats']); ?></h3>
+    </div>
+    <div>   
+        <p class="descriptifs"><?php echo htmlspecialchars($habitat2['description']); ?></p>
     </div>
 </div>
 
-<div class="article">
-    <div class="left">       
-    <img src="<?php echo htmlspecialchars($habitat3['images_habitats']); ?>" alt="Un Marais">
+<div class="habitat">
+    <div>       
+        <img src="<?php echo htmlspecialchars($habitat3['images_habitats']); ?>" alt="Un Marais">
     </div>
-    <div class="right">
+    <div>
         <h3><?php echo htmlspecialchars($habitat3['habitats']); ?></h3>
-        <p><?php echo htmlspecialchars($habitat3['description']); ?></p>
+    </div>
+    <div>
+        <p class="descriptifs"><?php echo htmlspecialchars($habitat3['description']); ?></p>
     </div> 
 </div>
 
 </section>
-    </main>    
+</main>
+
 <script src="../JAVASCRIPT/scripts.js"></script>
-<footer>
-    <div class="footindex">
-        <p>© 2024 Le Zoo D'Arcadia, Website non promotionnel</p>
-        <p>Site réalisé dans le cadre d'un ECF à destination de STUDI</p>
-        <p>Diverses sources proviennent d'un générateur IA et de différents sites.</p>
-    </div>
-    <div class="navbar">                                        
-        <ul class="links">
-        <li><a href="./animaux.php">Les Animaux</a></li>
-            <li><a href="#">Leurs Habitats</a></li>    
-            <li><a href="./activites.php">Les Activités</a></li>                
-        </ul>  
-        <div class="buttons">
-            <a href="HTML/contact.htm" class="action-button" id="contacte">Contacts</a>
-            <a href="./PHP/login.php" class="action-button connexion" id="connexion">Connexion</a>
-        </div>
-        <div class="burger-menu-button">
-            <i class="fas fa-bars"></i>
-        </div>
-    </div>
-                    <!--- RESPONSIVE --->
-    <div class="burger-menu">
-        <ul class="links">
-        <li><a href="./animaux.php">Les Animaux</a></li>
-            <li><a href="#">Leurs Habitats</a></li>    
-            <li><a href="./activites.php">Les Activités</a></li>            
-            <div class="divider"></div>
-            <div class="buttons-burger-menu">
-                <a href="../HTML/contact.htm" class="action-button" id="contacte">Contacts</a>
-                <a href="./PHP/login.php" class="action-button connexion" id="connexion">Connexion</a>
-            </div>
-        </ul>
-    </div>   
-</footer>  
+<?php include'./footer.php';?>   
+
 </body> 
 </html>

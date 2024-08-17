@@ -9,19 +9,15 @@
 <body>
 
 <header> 
-    <a href="../index.php" id="logo-link">
+    <a href="../PHP/index.php" id="logo-link">
         <img src="../ASSETS/LogoArcadia2.png" alt="Logo du Zoo Écologique" id="logo">
     </a>
 </header>  
     <main>
-<section id="contacts">
-    
-    <div class="container">
-        <div class="title">
-            <h3>Contacts</h3>
-            <p>Vous pouvez poser votre question ici.</p>
-        </div>
-                    <form>
+        <section class="contacts" id="contacts">
+                    <h2>Contactez-nous</h2>
+                    <p>Vous pouvez poser votre question ici.</p>
+                    <form class="form">
                         <label for="name">Nom:</label>
                         <input type="text" name="Nom" placeholder="Entrer votre nom..." required><br>
                         <label for="email">Courriel:</label>
@@ -30,16 +26,15 @@
                         <textarea name="commentaire" placeholder="Entrer votre message..." required></textarea><br>
                         <button type="submit">Soumettre</button>
                     </form> 
-            <div>
-                <p>Nous vous reviendrons vers vous dans les plus bref délais.</p>
+                    <div>
+                        <p>Nous vous reviendrons vers vous dans les plus bref délais.</p>
+                    </div>
+                </div> 
             </div>
-        </div>
-    </div>
-</section>
+        </section> 
         
     </main>
-<footer>
-    
-</footer>
+    <script src="../JAVASCRIPT/scripts.js"></script>
+
 </body>
 </html>

@@ -30,13 +30,14 @@ try {
         $stmt_insert = $conn->prepare($sql_insert);
         $stmt_insert->execute([$image_id, $views]);
     }
-} catch (PDOException $e) {
-    die("Error: " . $e->getMessage());
-}
 
-// Fermeture de la connexion à la base de données
-$conn = null;
+    echo json_encode(['success' => true, 'views' => $views]);
+} catch (PDOException $e) {
+    echo json_encode(['success' => false, 'message' => $e->getMessage()]);
+}
 ?>
+
+
 
 
 <!DOCTYPE html>
@@ -48,7 +49,7 @@ $conn = null;
     <link rel="stylesheet" href="../CSS/styles.css">
 </head>
     <header>
-    <a href="../index.php" id="logo-link">   
+    <a href="./index.php" id="logo-link">   
         <img src="../ASSETS/LogoArcadia2.png" alt="Logo du Zoo D'Arcadia" id="logo">
     </a>
         <h1>Bienvenue, <?php echo htmlspecialchars($_SESSION['admin_name']); ?> !</h1>
@@ -70,7 +71,7 @@ $conn = null;
 <body>
 <main>
 
-<script src="JS/script.js"></script>
+<script src="../JAVASCRIPT/scripts.js"></script>
 </main>
 
 </body>

@@ -67,7 +67,7 @@ $commentaires_habitats = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
     <header>
         <div>    
-            <a href="../index.php" id="logo-link">
+            <a href="./index.php" id="logo-link">
             <img src="../ASSETS/LogoArcadia2.png" alt="Logo du Zoo Écologique" id="logo"></a>
         </div>
         <nav>
@@ -154,6 +154,6 @@ $commentaires_habitats = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     </footer>
     <!-- JAVASCRIPT  -->
-    <script src="JS/script.js"></script>
+    <script src="../JAVASCRIPT/scripts.js"></script>
 </body>
 </html>

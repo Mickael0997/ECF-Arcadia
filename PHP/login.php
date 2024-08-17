@@ -49,15 +49,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <header>
-        <a href="../index.php" id="logo-link">
+        <a href="./index.php" id="logo-link">
         <img src="../ASSETS/LogoArcadia2.png" alt="Logo du Zoo Écologique" id="logo">
         </a>
     </header>
-    
-<section id="connexion">
+    <h1>Espace réservé aux employé(e)s</h1>
+<section class="containers" id="connexion">
 
 <div class="container">
-    <div class="title">
+    <div>
         <h3>Connexion</h3>
     </div>    
         <?php if (isset($error)) { echo "<p class='error'>$error</p>"; } ?>
