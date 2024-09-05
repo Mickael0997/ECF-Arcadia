@@ -7,9 +7,10 @@ if (!isset($_SESSION['admin_id'])) {
 
 require 'database.php';
 
+
 $activity_id = $_GET['id'];
 
-$sql = "DELETE FROM activites WHERE id = ?";
+$sql = "DELETE FROM parc_activites WHERE id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bindValue(1, $activity_id, PDO::PARAM_INT);
 $stmt->execute();

@@ -1,0 +1,139 @@
+
+
+
+
+
+/* ---------- MISE EN FORME DU DASHBOARD ADMIN ---------- */
+
+.admin-title h1{
+    color: white;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 8rem;
+    font-family: 'Poppins', sans-serif;
+    width: 30rem;
+}
+
+.admin-title h2{
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    margin: 5rem;
+    width: auto;
+}
+
+.admin-navbar{
+    width: 66%;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-bottom: 2rem;
+    position: relative;
+    bottom: 0.5rem;
+}
+
+/*Mise en forme du burger menu*/
+.admin-navbar .burger-menu-button{
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.admin-navbar .links{
+    display: flex;
+    gap: 4rem;
+    padding: 4rem;
+    text-decoration: underline;
+}
+
+.links li{
+    display: flex;
+    gap: 10px;
+}
+
+.links li a{
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+}
+
+.admin-buttons{
+    display: flex;
+    gap: 4px;
+}
+
+.admin-action-button{
+    background-color: greenyellow;
+    color: black;
+    border: 1px solid greenyellow;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    outline: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.admin-table{
+    position: relative;
+    top: 15rem;
+    left: 10rem;
+}
+
+.admin-table th,
+.admin-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.admin-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+
+/* ---------- MISE EN FORME VIEW ---------- */
+
+.view-title{
+    color: white;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 8rem;
+    font-family: 'Poppins', sans-serif;
+    width: 30rem;
+}
+
+.vue {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vue-image {
+    border-radius: 50%;
+    width: 20rem;
+    height: 20rem;
+}
+
+.likes {
+    display: block ruby;
+    font-size: 3rem;
+}
+
+.heart {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    color: red;
+}

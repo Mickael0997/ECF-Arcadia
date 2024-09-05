@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['admin_id'])) {
+if (!isset($_SESSION['id']) && !isset($_SESSION['admin_id'])) {
     header('Location: login.php');
     exit;
 }
@@ -36,7 +36,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die($conn->errorInfo()[2]);
     }
 
-    header('Location: admin_dashboard.php');
+    if (isset($_SESSION['admin_id'])) {
+        header('Location: admin_dashboard.php');
+    } else {
+        header('Location: dashboard.php');
+    }
     exit;
 }
 ?>

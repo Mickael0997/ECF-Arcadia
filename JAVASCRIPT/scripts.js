@@ -24,32 +24,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // ---------- AFFICHAGE POPUP POUR AVIS ----------
- 
 document.addEventListener('DOMContentLoaded', function() {
     const popup = document.getElementById('popup');
     const btn = document.getElementById("open-popup-btn");
     const span = document.getElementById("close-popup-btn");
 
-    // Lorsque l'utilisateur clique sur le bouton, ouvre le popup
-    btn.onclick = function() {
-        popup.style.display = "block";
+    // Vérifiez que btn et span ne sont pas null avant de les utiliser
+    if (btn) {
+        btn.addEventListener('click', function() {
+            // Ouvre le popup
+            popup.style.display = "block";
+        });
     }
 
-    // Lorsque l'utilisateur clique sur (x), ferme le popup
-    span.onclick = function() {
-        popup.style.display = "none";
-    }
-
-    // Lorsque l'utilisateur clique n'importe où en dehors du popup, ferme le popup
-    /*window.onclick = function(event) {
-        if (event.target == popup) {
+    if (span) {
+        span.addEventListener('click', function() {
+            // Ferme le popup
             popup.style.display = "none";
-        }
-    }*/
-     // Lorsque l'utilisateur clique sur la croix, ferme le popup
-    document.querySelector('.closepopup').onclick = function() {
-    popup.style.display = "none";
-}   
+        });
+    }   
     
 
     // Animation pour les avis des visiteurs
@@ -144,36 +137,56 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Comptabilise les vues / Gère l'ouverture et la fermeture de la fenêtre modale
 
+// Attache un gestionnaire d'événements au document qui sera exécuté lorsque le DOM sera entièrement chargé
 document.addEventListener('DOMContentLoaded', function() {
-    const animals = document.querySelectorAll('.tableau img');
+    // Sélectionne toutes les icônes de cœur dans le tableau et les stocke dans la variable "hearts"
+    const hearts = document.querySelectorAll('.heart-icon');
 
-    animals.forEach((animal) => {
-        animal.addEventListener('click', function() {
-            const imageId = this.dataset.id; // Utilisez l'attribut data-id pour obtenir l'ID de l'image
-            recordView(imageId);
+    // Parcourt chaque icône dans "hearts"
+    hearts.forEach((heart) => {
+        // Définit la couleur de l'icône en gris
+        heart.style.color = 'grey';
+        // Attache un gestionnaire d'événements à chaque icône qui sera exécuté lorsque l'icône est cliquée
+        heart.addEventListener('click', function(event) {
+            // Empêche l'action par défaut du navigateur lorsqu'un utilisateur clique sur un lien
+            event.preventDefault();
+            // Récupère l'ID de l'image à partir de l'attribut data-id de l'icône
+            const imagesanimauxid = this.dataset.id;
+            // Appelle la fonction recordView avec l'ID de l'image
+            recordView(imagesanimauxid);
+            // Si la couleur de l'icône est rouge, la change en gris, sinon la change en rouge
+            this.style.color = this.style.color === 'red' ? 'grey' : 'red';
         });
     });
 });
 
-function recordView(imageId) {
+function recordView(images_animaux_id) {
+    // Envoie une requête POST à 'record_views.php' avec l'ID de l'image dans le corps de la requête
     fetch('record_views.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ image_id: imageId })
+        body: JSON.stringify({ images_animaux_id: images_animaux_id })
     })
+    // Convertit la réponse en JSON
     .then(response => response.json())
+    // Traite la réponse JSON
     .then(data => {
+        // Si la requête a réussi
         if (data.success) {
-            const viewCount = document.getElementById('viewCount-' + imageId);
+            // Récupère l'élément HTML où afficher le nombre de vues
+            const viewCount = document.getElementById('viewCount-' + images_animaux_id);
+            // Met à jour le texte de cet élément avec le nombre de vues
             viewCount.textContent = 'Nombre de vues: ' + data.views;
         } else {
+            // Si la requête a échoué, affiche un message d'erreur dans la console
             console.error('Erreur lors de l\'enregistrement du clic:', data.message);
         }
     })
+    // Si une erreur se produit lors de l'envoi de la requête, affiche un message d'erreur dans la console
     .catch(error => console.error('Erreur:', error));
-}
+};
 
 //-------------------------------------------------------------------------------------------------
 

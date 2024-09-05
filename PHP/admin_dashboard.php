@@ -1,24 +1,46 @@
 <?php
 session_start();
 
+// Démarrez la session si elle n'est pas déjà démarrée
+if(session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+
+// Vérifiez si la variable de session 'last_activity' est définie
+if(isset($_SESSION['last_activity'])) {
+    // Vérifiez si l'utilisateur est inactif depuis plus de 5 minutes (300 secondes)
+    if(time() - $_SESSION['last_activity'] > 300) {
+        // Si oui, détruisez la session et redirigez l'utilisateur vers la page de connexion
+        session_unset();
+        session_destroy();
+        header("Location: login.php");
+        exit();
+    }
+}
+
+// Mettez à jour la dernière activité de l'utilisateur
+$_SESSION['last_activity'] = time();
+
+// Vérifiez si l'utilisateur est connecté en tant qu'administrateur
 if (!isset($_SESSION['admin_id'])) {
     header('Location: login.php');
     exit;
 }
 
+// Incluez le fichier de connexion à la base de données
 require 'database.php';
 
 try {
-    // Récupération des tables
-    $tables = ['employes', 'veterinaires', 'animaux', 'parc_activites', 'habitats', 'parc_animaux'];
-    $data = [];
+// Récupération des tables
+$tables = ['employes', 'veterinaires', 'animaux', 'parc_activites', 'habitats', 'parc_animaux', 'record_view'];
+$data = [];
 
-    foreach ($tables as $table) {
-        $sql = "SELECT * FROM $table";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-        $data[$table] = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
+foreach ($tables as $table) {
+    $sql = "SELECT * FROM $table";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $data[$table] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
     $employes = $data['employes'];
     $veterinaires = $data['veterinaires'];
@@ -32,7 +54,13 @@ try {
     $veterinaire_filter = $_GET['veterinaire'] ?? '';
     $date_filter = $_GET['date'] ?? '';
 
-    $sql = "SELECT commentaires.commentaire, commentaires.date, employes.nom as employe, animaux.espece, habitats.habitats as habitat, veterinaires.nom as veterinaire
+    // Récupération des images et des vues
+    $sql = "SELECT parc_animaux.*, record_view.views FROM parc_animaux LEFT JOIN record_view ON parc_animaux.id = record_view.images_animaux_id";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $images_views = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $sql = "SELECT commentaires.comments, commentaires.date, employes.nom as employe, animaux.espece, habitats.nom as habitat, veterinaires.nom as veterinaire
             FROM commentaires 
             INNER JOIN employes ON commentaires.employe_id = employes.id
             INNER JOIN animaux ON commentaires.animal_id = animaux.id 
@@ -84,11 +112,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $employe_id = $_SESSION['id'];
     $animal_id = $_POST['animal_id'];
     $habitat_id = $_POST['habitat_id'];
-    $commentaire = $_POST['commentaire'];
+    $commentaire = $_POST['comments'];
 
-    $sql = "INSERT INTO commentaires (employe_id, animal_id, habitat_id, commentaire, date) VALUES (?, ?, ?, ?, NOW())";
+    $sql = "INSERT INTO commentaires (employe_id, animal_id, habitat_id, comments, date) VALUES (?, ?, ?, ?, NOW())";
     $stmt = $conn->prepare($sql);
-    $stmt->execute([$employe_id, $animal_id, $habitat_id, $commentaire]);
+    $stmt->execute([$employe_id, $animal_id, $habitat_id, $comments]);
 
     if ($stmt->rowCount() > 0) {
         echo "Commentaire ajouté avec succès.";
@@ -104,8 +132,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tableau de bord Administrateur</title>
     <link rel="stylesheet" href="../CSS/styles.css">
+    <link rel="stylesheet" href="../CSS/dash_admin.css">
+    <link rel="stylesheet" href="../CSS/historique.css">
+    <link rel="stylesheet" href="../CSS/employes.css">
+    <link rel="stylesheet" href="../CSS/veterinaires.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Tableau de bord Administrateur</title>
 </head>
 <body>
     <header>
@@ -115,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </a>
 
         <div class="admin-title">
-            <h1>Bienvenue, <?php echo htmlspecialchars($_SESSION['admin_name']); ?> !</h1>
+            <h1>Bienvenue, <?php echo htmlspecialchars($_SESSION['admin_name']); ?></h1>
         </div>
         
         <div class="admin-navbar">
@@ -124,8 +163,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <li><a href="./veterinaires.php">Gestion des Vétérinaires</a></li>
                 <li><a href="./gest_animaux.php">Gestion des Animaux</a></li>
                 <li><a href="./gest_activites.php">Gestion des Activités</a></li>
+                <li><a href="./historique.php">Historique</a></li>
             </ul>
-            <div class="buttons">
+            <div class="admin-buttons">
                 <a href="./logout.php" class="action-button">Déconnexion</a>
             </div>
             <div class="burger-menu-button">
@@ -137,133 +177,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <li><a href="./employes.php">Gestion des Employés</a></li>
                 <li><a href="./veterinaires.php">Gestion des Vétérinaires</a></li>
                 <li><a href="./gest_animaux.php">Gestion des Animaux</a></li>
-                <li><a href="./gest_activites.php">Gestion des Activités</a></li>
+                <li><a href="./gest_activites.php">Gestion des Services</a></li>
+                <li><a href="./historique.php">Historique</a></li>
                 <div class="burger-divider"></div>
                 <div class="admin-buttons">
                     <a href="./logout.php" class="admin-action-button">Déconnexion</a>
                 </div>
             </ul>
         </div>
-    </header>
-
-
+</header>
+<div class="admin-title">
+        <h2>Journal de bord</h2>
+</div> 
     <main>
-
-    
-        
-<div class="admin-title"><h2>Journal de bord</h2></div>
-        <form class="admin-form" method="get" action="historique.php">
-            
-            <section class="admin">
-
-                <label for="animal">Animal :</label>
-
-                <select id="animal" name="animal">
-                    <option value="">Tous</option>
-                    <?php foreach ($animaux as $animal) { ?>
-                        <option value="<?php echo $animal['id']; ?>" <?php if ($animal_filter == $animal['id']) echo 'selected'; ?>>
-                            <?php echo $animal['espece']; ?>
-                        </option>
-                    <?php } ?>
-                </select><br>
-
-                <label for="habitat">Habitat :</label>
-
-                <select id="habitat" name="habitat">
-                    <option value="">Tous</option>
-                    <?php foreach ($habitats as $habitat) { ?>
-                        <option value="<?php echo $habitat['id']; ?>" <?php if ($habitat_filter == $habitat['id']) echo 'selected'; ?>>
-                            <?php echo $habitat['habitats']; ?>
-                        </option>
-                    <?php } ?>
-                </select><br>
-
-                <label for="employe">Employé :</label>
-
-                <select id="employe" name="employe">
-                    <option value="">Tous</option>
-                    <?php foreach ($employes as $employe) { ?>
-                        <option value="<?php echo $employe['id']; ?>" <?php if ($employe_filter == $employe['id']) echo 'selected'; ?>>
-                            <?php echo $employe['nom']; ?>
-                        </option>
-                    <?php } ?>
-                </select><br>
-
-                <label for="veterinaire">Vétérinaire :</label>
-
-                <select id="veterinaire" name="veterinaire">
-                    <option value="">Tous</option>
-                    <?php foreach ($veterinaires as $veterinaire) { ?>
-                        <option value="<?php echo $veterinaire['id']; ?>" <?php if ($veterinaire_filter == $veterinaire['id']) echo 'selected'; ?>>
-                            <?php echo $veterinaire['nom']; ?>
-                        </option>
-                    <?php } ?>
-                </select><br>
-
-                <label for="date">Date :</label>
-                <input type="date" id="date" name="date" value="<?php echo htmlspecialchars($date_filter); ?>"><br>
-                <input type="submit" value="Filtrer">
-            </section>
-        </form>
-
-        <section>
-            <div class="admin-title"><h2>Observations</h2></div>
-            
-            <table class="admin-table">
-                <thead>
-                    <tr>
-                        <th>Observations</th>
-                        <th>Date</th>
-                        <th>Employé</th>
-                        <th>Animal</th>
-                        <th>Habitat</th>
-                        <th>Valider</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($commentaires as $commentaire) { ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($commentaire['commentaire']); ?></td>
-                            <td><?php echo htmlspecialchars($commentaire['date']); ?></td>
-                            <td><?php echo htmlspecialchars($commentaire['employe']); ?></td>
-                            <td><?php echo htmlspecialchars($commentaire['espece']); ?></td>
-                            <td><?php echo htmlspecialchars($commentaire['habitat']); ?></td>
-                            <td><button type="button">Valider</button></td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-        </section>
-        
-        <section>
-            <h2>Nombre de vues des images</h2>
-            <table class="tableaux">
-                <thead>
-                    <tr>
-                        <th>ID de l'image</th>
-                        <th>Nombre de vues</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($record_view as $views) { ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($views['image_id']); ?></td>
-                            <td id="viewCount-<?php echo htmlspecialchars($views['image_id']); ?>"><?php echo htmlspecialchars($views['views']); ?></td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-        </section>
-    </main>
-    <footer>
-    </footer>
-    <script src="../JAVASCRIPT/scripts.js"></script>
+<section>
+    <h2 class="view-title">Les Chouchous</h2>
+<section class="vues">
+    <div class="vue">
+        <?php foreach ($images_views as $image_view) { ?>
+            <div class="image-container">
+                <img class="vue-image" src="<?php echo htmlspecialchars($image_view['images_animaux']); ?>" alt="Image de l'animal" data-id="<?php echo htmlspecialchars($image_view['id']); ?>">
+                <div class="likes">
+                <i class="bi bi-heart-fill" style="color: red;"></i>
+                    <span id="viewCount-<?php echo htmlspecialchars($image_view['id']); ?>"><?php echo htmlspecialchars($image_view['views']); ?><br></span>
+                </div>
+            </div>
+        <?php } ?>
+    </div>
+</section>
+</main>
+<footer>
+</footer>
+<script src="../JAVASCRIPT/scripts.js"></script>
 </body>
 </html>
 
-
-
- 
 
 
 

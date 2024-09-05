@@ -1,6 +1,6 @@
 
 <footer>
-    <div class="footindex">
+    <div class="footer">
         <p>Ouvert du lundi au dimanche de 9H a 18H  sans interruption</p>
         <p>contact@arcadia.com</p>
         <p>© 2024 Le Zoo D'Arcadia, Website non promotionnel</p>

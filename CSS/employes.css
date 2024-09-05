@@ -1,0 +1,83 @@
+
+.titre h2{
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 2rem;
+    cursor: default;
+}
+.admin_tableaux{
+    position: relative;
+    bottom: 4rem;
+    left: 32rem;
+}
+
+.admin_tableau th,
+.admin_tableau td{
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}   
+
+.admin_tableau th{
+    background-color: green;
+    color: white;
+    width: 15rem;
+    font-size: 20px;
+}
+
+.admin_tableau tbody{
+    display: table-cell;
+    font-size: 2rem;
+}
+
+.admin_tableau tr{
+    transition: background-color 0.3s ease;
+}
+
+.admin_tableau td{
+    color: #000;
+    background-color: rgba(162, 153, 137, 0.7);
+    font-size: 25px;
+}
+
+.employe_btn{
+    padding: 8px 16px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+    height: 4rem;
+    width: 20rem;
+    left: 10rem;
+    position: relative;
+}
+
+
+/* ---------- EDIT EMPLOYE ---------- */
+.employes-form {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.employes-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+.employes-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.employes-form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+.employes-form input[type="submit"]:hover {
+    background-color: #45a049;
+}

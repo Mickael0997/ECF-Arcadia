@@ -233,7 +233,7 @@ a:hover{
     width: max-content;
     margin-left: 36%;
     border-radius: 20px;
-  padding: 20px;
+    padding: 20px;
 }
 
 .form input{
@@ -350,15 +350,14 @@ a:hover{
 .openpopup{
     position: absolute;
     cursor: pointer;
-    left: 10%;
-    margin-top: -9.5rem;
+    left: 15%;
     border: 2px solid #fffefe;
     border-radius: 25px;
     width: 3%;
     color: white;
     background-color: black;
     font-size: 20px;
-    height: 3%;
+    height: 20%;
 }
 
 /*Close popup*/
@@ -381,7 +380,7 @@ a:hover{
     font-size: 2rem;
     text-decoration: underline;
     text-underline-position: under;
-  }
+}
 
 /*Mise en forme de la liste des avis*/
 #avis-list {
@@ -433,133 +432,16 @@ a:hover{
     }
 }
 
-
-/* ---------- MISE EN FORME DU DASHBOARD ADMIN ---------- */
-
-.admin-title h1{
-    color: white;
-    font-size: 3rem;
+/* ---------- MISE EN FORME DU FOOTER --------- */
+.footer {
+    color: rgb(255, 255, 255);
     text-align: center;
-    margin-bottom: 8rem;
-    font-family: 'Poppins', sans-serif;
-    margin-left: 10rem;
-    width: auto;
-}
-
-.admin-title h2{
-    color: white;
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 8rem;
-    font-family: 'Poppins', sans-serif;
-    margin-right: 100rem;
-    width: auto;
-}
-
-.admin-navbar{
-    width: 60%;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: white;
-    margin-left: 10rem;
-    margin-bottom: 2rem;
-}
-
-.admin-navbar .links{
-    display: flex;
-    gap: 8rem;
-    padding: 4rem;
-}
-
-.links li{
-    display: flex;
-    gap: 10px;
-}
-
-.links li a{
-    text-decoration: none;
-    font-size: 25px;
-    color: white;
-}
-
-.admin-buttons{
-    display: flex;
-    gap: 10px;
-}
-
-.admin-action-button{
-    background-color: greenyellow;
-    color: black;
-    border: 1px solid greenyellow;
-    padding: 0.5rem 1.2rem;
-    border-radius: 20px;
-    outline: none;
-    font-size: 0.9rem;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.admin-table{
+    margin-top: 15rem;
+    clear: both;
     position: relative;
-    top: 15rem;
-    left: 10rem;
-}
-
-.admin-form{
-    display: grid;
-    justify-content: center;
-    position: relative;
-    border: solid green;
-    width: max-content;
-    margin-left: 15%;
-    border-radius: 20px;
-  padding: 20px;
-}
-
-
-
-.admin textarea{
-    width: 50rem;
-    height: 100px;
-    border-radius: 20px;
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid green;
-}
-
-.admin label{
-    color: white;
-    font-size: 2rem;
-    margin: 10px;
+    font-size: 20px;
     font-family: 'Poppins', sans-serif;
-    gap: 1rem;
-    display: flex;
-}
-
-.admin select{
-    width: 20rem;
-    height: 30px;
-    border-radius: 20px;
-    margin: 0px;
-    padding: 0px;
-    border: 1px solid green;
-    text-align: center;
-    font-size: 20px;
-}
-
-.admin input{
-    width: 20rem;
-    height: 30px;
-    border-radius: 20px;
-    margin: 0px;
-    padding: 0px;
-    border: 1px solid green;
-    text-align: center;
-    font-size: 20px;
-}
-
+    }
 
 /*---------------------Burger Menu-----------------*/
 
@@ -718,6 +600,11 @@ a:hover{
     border-radius: 10px;
 }
 
+.info a {
+    position: relative;
+    display: inline-block;
+}
+
 .info .informations p {
     margin: 10px 0;
     text-align: left;
@@ -729,9 +616,18 @@ a:hover{
     text-align: center;
 }
 
+.heart-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    /*color: rgba(85, 84, 84, 0.5); /* Rouge translucide */
+}
+
 /* ---------- MISE EN FORME DE LA PAGE HABITATS ---------- */
 .habitats {
     display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .habitats .habitat {
@@ -740,13 +636,13 @@ a:hover{
 
 .habitat h3 {
     font-size: 2.5rem;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-  margin-left: 35rem;
-  cursor: pointer;
-  text-decoration: underline;
-  text-underline-position: under;
-  width: 25rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    margin-left: 35rem;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-position: under;
+    width: 25rem;
 }
 
 .habitats .habitat img {
@@ -779,6 +675,7 @@ a:hover{
     border: 0px solid;
     box-sizing: border-box;
     border-radius: 3rem;
+    margin-bottom: 5rem;
 }
 
 /* ---------- MISE EN FORME DE LA PAGE ACTIVITES ---------- */
@@ -849,19 +746,19 @@ a:hover{
 /*---------------------RESPONSIVE-----------------*/
 
 
-@media (max-width: 1180px) {
+@media (max-width: 1375px) {
 
     /* ---------- MEDIA HEADER --------- */
 
 header {
     background: none;
     }
-    
+
     /*LOGO MENU BURGER*/
     .fa-solid, .fas {
         font-weight: 900;
         font-size: 2.5rem;
-      }
+    }
     
 
 .logo{
@@ -876,7 +773,7 @@ header {
     color: white;
     position: relative;
     left: 2%;
-    top: 12%;
+    top: 22%;
     transform: translateY(-50%);
     width: 50%;
     }
@@ -884,33 +781,45 @@ header {
 #avis-list {
     list-style-type: none;
     padding: 0;
+    padding-top: 1rem;
     }
     
 .openpopup{
     cursor: pointer;
-    left: 16rem;
-    top: 17%;
+    left: 15rem;
+    top: 6rem;
     border: 2px solid #fffefe;
     border-radius: 50px;
-    width: 6%;
+    width: 10%;
     color: white;
     background-color: black;
-    position: absolute;
-    height: 4%;
+    height: 20%;
     font-size: 15px;
     }
     
 .closepopup{    
-    top: 145px;
-    left: 20px;
-    color: white;
-    position: relative;   
+    position: absolute;
+    top: 11rem;
+    left: 10px;
+    font-size: 3rem;
+    cursor: pointer;
     }
 
 /*BURGER MENU*/
+
+.navbar {
+    width: 100%;
+    max-width: 1200px;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
 .navbar .links,
 .navbar .action-button {
-   display: none;
+    display: none;
     }
 
 .navbar .burger-menu-button{
@@ -918,9 +827,9 @@ header {
     }
 
 .burger-menu.open {
-    height: 220px;
+    height: 20rem;
     width: 30%;
-    right: 3rem;
+    left: 45rem;
     }
 
 .burger-menu{
@@ -929,7 +838,7 @@ header {
     }
 
 .burger-menu li a{
-    font-size: 18px;
+    font-size: 30px;
     }
 
 .buttons-burger-menu{
@@ -993,7 +902,7 @@ header {
     width: max-content;
     margin-left: 12%;
     border-radius: 20px;
-  padding: 20px;
+    padding: 20px;
 }
 
 .form input{
@@ -1151,12 +1060,20 @@ h3{
     }
     
     .article img {
-        max-width: 20rem;
-        max-height: 20rem;
+        max-width: 40rem;
+        max-height: 25rem;
         position: relative;
         right: 4rem;
-        cursor: pointer; /* Changer le curseur en pointer pour les images cliquables */
+        cursor: pointer;
+        margin-bottom: 4rem;
+        margin-top: 1rem; /* Changer le curseur en pointer pour les images cliquables */
     }
+
+    .articles .article img:hover{
+        -webkit-transform: scale(1.3);
+        transform: scale(1.3);
+        position: relative;
+    } 
     
     .article h3 {
         margin-top: 10px; /* Espacement entre l'image et le titre */
@@ -1250,12 +1167,13 @@ h3{
 }
 
 .habitat img {
-    max-width: 20rem;
-    max-height: 20rem;
+    max-width: 40rem;
+    max-height: 25rem;
     margin-bottom: 4rem;
     position: relative;
     right: 8rem;
     cursor: pointer;
+    margin-top: 1rem;
 }
 
 .habitats .habitat:hover img {
@@ -1309,12 +1227,12 @@ h3{
 }
 
 .service img {
-    max-width: 20rem;
-    max-height: 20rem;
+    max-width: 40rem;
+    max-height: 25rem;
     position: relative;
     left: 13rem;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 26px;
 }
 
 .services .service:hover img {
@@ -1375,21 +1293,15 @@ h3{
 
     
     /* ---------- MEDIA FOOTEUR ---------- */
-.footindex {
+.footer {
     color: rgb(255, 255, 255);
     text-align: center;
-    margin-top: 48rem;
+    margin-top: 15rem;
     clear: both;
     position: relative;
     font-size: 20px;
     font-family: 'Poppins', sans-serif;
     }
-
-
-
-
-
-
 
 }
 
@@ -1397,134 +1309,563 @@ h3{
 
 @media (max-width: 740px) {
 
-    * ---------- MEDIA HEADER --------- */
-header {
-    background: none;
-    }
+    /* ---------- MEDIA HEADER --------- */
 
-.logo{
-    margin-left: 1rem;
-    object-fit: cover;
-    shape-outside: margin-box;
+    header {
+        background: none;
+        }
+    
+        /*LOGO MENU BURGER*/
+        .fa-solid, .fas {
+            font-weight: 900;
+            font-size: 2.5rem;
+        }
+        
+    
+    .logo{
+        margin-left: 1rem;
+        object-fit: cover;
+        shape-outside: margin-box;
+        }
+    
+    /*AVIS*/
+    .avis{
+        font-size: 20px;
+        color: white;
+        position: relative;
+        left: 2%;
+        top: 22%;
+        transform: translateY(-50%);
+        width: 50%;
+        }
+            
+    #avis-list {
+        list-style-type: none;
+        padding: 0;
+        padding-top: 1rem;
+        }
+        
+    .openpopup{
+        cursor: pointer;
+        left: 15rem;
+        top: 6rem;
+        border: 2px solid #fffefe;
+        border-radius: 50px;
+        width: 10%;
+        color: white;
+        background-color: black;
+        height: 20%;
+        font-size: 15px;
+        }
+        
+    .closepopup{    
+        position: absolute;
+        top: 11rem;
+        left: 10px;
+        font-size: 3rem;
+        cursor: pointer;
+        }
+    
+    /*BURGER MENU*/
+    
+    .navbar {
+        width: 100%;
+        max-width: 1200px;
+        height: 60px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: white;
+    }
+    .navbar .links,
+    .navbar .action-button {
+        display: none;
+        }
+    
+    .navbar .burger-menu-button{
+        display: block;
+        }
+    
+    .burger-menu.open {
+        height: 20rem;
+        width: 30%;
+        left: 25rem;
+        }
+    
+    .burger-menu{
+        display: block;
+        top: 10px;
+        }
+    
+    .burger-menu li a{
+        font-size: 25px;
+        }
+    
+    .buttons-burger-menu{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        }
+    
+    .action-button{
+        font-size: 10px;
+        width: 70%;
+        margin-bottom: 10px;
+        }
+        
+    .burger-divider{
+        display: flex;
+        position: relative;
+        left: 10%;
+        height: 2px;
+        background-color: white;
+        width: 80%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        }
+    
+    
+        /*---------- MEDIA FORMULAIRE CONTACT*/
+    
+    .contacts{
+        position: relative;
+        text-align: center;
+        margin-top: -10rem;
     }
     
-.navbar .links,
-.navbar .action-button {
-   display: none;
-    }
-
-.navbar .burger-menu-button{
-    display: block;
-    }
-
-.burger-menu{
-    display: block;
-    }
-
-.burger-menu li a{
-    font-size: 10px;
-    }
-
-.action-button{
-    font-size: 10px;
-    width: 70%;
-    margin-bottom: 10px;
+    .contacts h2{
+        color: white;
+        font-size: 2rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        margin-left: 23rem;
+        text-align: center;
+        width: 37%;
+        font-family: 'Poppins', sans-serif;
     }
     
-.burger-divider{
-    display: flex;
-    position: relative;
-    left: 10%;
-    height: 1px;
-    background-color: white;
-    width: 80%;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    .contacts p{
+        color: white;
+        font-size: 1.2rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        font-family: 'Poppins', sans-serif;
+        left: 6rem;
+        position: relative;
+        text-align: left;
     }
-
-    /* ---------- MEDIA TITRE ---------- */
-h1{
-    color: white;
-    margin-top: 5rem;
-    font-size: 5rem;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-    }
-
-h2{
-    width: 30rem;
-    font-size: 3rem;
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-    cursor: pointer;
-    margin-left: 5rem;
-    text-decoration: underline;
-    text-underline-position: under;
-    }
-
-h3{
-    font-size: 2.5rem;
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-    margin-left: 8rem;
-    cursor: pointer;
-    text-decoration: underline;
-    text-underline-position: under;
-    width: 25rem;
-    }
-
-    /*----------- MEDIA ARCTICLES ----------*/
-
-.article {
-    flex-direction: column;
-    align-items: center;
-    }
-
     
-.article .description {
-    display: none; /* Hide descriptions on small screens */
+    .form{
+        display: grid;
+        justify-content: center;
+        position: relative;
+        border: solid green;
+        width: max-content;
+        margin-left: 12%;
+        border-radius: 20px;
+        padding: 20px;
     }
-
-.liste ul li{
-    font-size: 10px;
-    margin-right: 10px;
-    display: grid;
+    
+    .form input{
+        position: relative;
+        left: 2.5rem;
+        width: 25rem;
+        height: 30px;
+        border-radius: 20px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid green;
+        text-align: center;
     }
-
-.divider{
-    left: 0%;
-    height: 1px;
-    background-color: white;
-    width: 100%;
-    bottom: 10%;
+    
+    .form textarea{
+        width: 30rem;
+        height: 100px;
+        border-radius: 20px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid green;
+        text-align: center;
     }
+    
+    .form label{
+        color: white;
+        font-size: 20px;
+        margin: 10px;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .form button{
+        width: 8rem;
+        height: 3rem;
+        border-radius: 20px;
+        margin-left: 38%;
+        padding: 10px;
+        border: 1px solid green;
+        background-color: green;
+        color: white;
+        font-size: 1rem;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    /* --------- MEDIA CONNEXION ---------- */
+    
+    /*Mise en place du bouton connexion*/
+    .containers{
+        background-color: transparent;
+        color: white;
+        border: 1px solid white;
+        width: 30rem;
+        position: relative;
+        left: 3.5rem;
+        top: 10%;
+        border-radius: 20px;
+        padding: 4rem;
+    }
+    
+    .container h3{
+        font-size: 2.5rem;
+        margin-top: 1rem;
+        margin-right: 1rem;
+        padding: 0;
+    }
+    
+    .container form{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .container label{
+        font-size: 1.5rem;
+    }
+    
+    .container input{
+        padding: 0.5rem;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 20rem;
+    }
+    
+    .container button{
+        font-size: 1rem;
+        padding: 0.5rem;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        background-color: green;
+        color: white;
+        cursor: pointer;
+        width: 21rem;
+    }
+    
+    .container button:hover{
+        background-color: rgb( 173 , 255 , 47);
+    }
+    
+        /* ---------- MEDIA TITRE ---------- */
+    
+    .divider{
+        left: 0%;
+        height: 1px;
+        background-color: white;
+        width: 100%;
+        bottom: 1%;
+        }
+    
+    h1{
+        color: white;
+        margin-top: 3rem;
+        font-size: 2.5rem;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+        top: 5rem;
+        }
+    
+    h2{
+        width: 20rem;
+        font-size: 2.25rem;
+        margin-bottom: 5rem;
+        cursor: pointer;
+        margin-left: 15rem;
+        position: relative;
+        bottom: 0rem;
+        text-decoration: underline;
+        text-underline-position: under;
+        text-align: center;
+        }
+    
+    h3{
+        font-size: 2.5rem;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+        margin-left: 8rem;
+        cursor: pointer;
+        text-decoration: underline;
+        text-underline-position: under;
+        width: 25rem;
+        }
+    
+        /*----------- MEDIA ACCUEIL ----------*/
+    
+        .articles {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Espacement entre les articles */
+        }
+        
+        .article {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centrer les images et les textes */
+            text-align: center; /* Centrer le texte */
+            margin-bottom: 2rem; /* Espacement en bas de chaque article */
+        }
+        
+        .article img {
+            max-width: 40rem;
+            max-height: 25rem;
+            position: relative;
+            right: 4.5rem;
+            margin-bottom: 4rem;
+            margin-top: 1rem;
+            cursor: default;
+        }
 
-.tableaux{
-    border-collapse: collapse;
-    min-width: 400px;
-    width: auto;
-    overflow-x: auto;
-    position: relative;
-    left: 0rem;
+        .articles .article img:hover {
+            -webkit-transform: none;
+            transform: none;
+            position: relative;}
+
+        .article h3 {
+            margin-top: 10px; /* Espacement entre l'image et le titre */
+            margin-right: 3.5rem;
+            font-size: 1.5em;
+            
+        }
+        
+        .article .description{
+            display: flex;
+            position: relative;
+            width: 40rem;
+            height: 20rem;
+            padding: 2rem;
+            font-size: 20px;
+            text-align: center;
+            text-align-last: center;
+            font-family: 'Poppins', sans-serif;
+            background-color: rgba(24, 33, 4, 0.42);
+            word-spacing: 8px;
+            border: 0px solid;
+            box-sizing: border-box;
+            border-radius: 3rem;
+        }
+    
+    
+        /* ---------- MISE EN FORME DE LA PAGE ANIMAUX ---------- */
+    
+    
+    
+    .infos {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .infos .info {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+    
+    .infos .info img {
+        height: 10rem;
+        width: 15rem;
+        margin-left: 3rem;
+        margin-right: 5rem;
+        border-radius: 10px;
+        cursor: default;
+    }
+    
+    .infos .info:hover img {
+        transform: none;
+    }
+    
+    .info .informations {
+        display: flex;
+        flex-direction: column;
+        width: 320px;
+        padding: 2px;
+        font-size: 1rem;
+        background-color: rgba(24, 33, 4, 0.42);
+        border-radius: 10px;
+        height: 20rem;
+    }
+    
+    .info .informations p {
+        margin: 10px 0;
+        text-align: left;
+    }
+    
+    .info .informations .title {
+        font-weight: bold;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    
+        /* ---------- MEDIA HABITATS ---------- */
+    
+    .habitats {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .habitat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .habitat img {
+        max-width: 25rem;
+        max-height: 20rem;
+        margin-bottom: 4rem;
+        position: relative;
+        right: 8rem;
+        cursor: default;
+        margin-top: 1rem;
+    }
+    
+    .habitats .habitat:hover img {
+        -webkit-transform: none;
+        transform: none;
+        position: relative;
+    }
+    
+    .habitat h3 {
+        margin-top: 10px;
+        margin-left: 3.5rem;
+        font-size: 1.5em;
+        
+    }
+    
+    .habitat .descriptifs {
+        display: flex;
+        position: relative;
+        width: 30rem;
+        height: 16rem;
+        left: 2rem;
+        padding: 2rem;
+        margin-bottom: 1rem;
+        font-size: 20px;
+        text-align: center;
+        text-align-last: center;
+        font-family: 'Poppins', sans-serif;
+        background-color: rgba(24, 33, 4, 0.42);
+        word-spacing: 8px;
+        border: 0px solid;
+        box-sizing: border-box;
+        border-radius: 3rem;
+    }
+    
+    /* ---------- MEDIA ACTIVITES ---------- */
+    
+    
+    
+    .services {
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+    }
+    
+    .service {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centrer les images et les textes */
+        text-align: center; /* Centrer le texte */
+        margin-bottom: 2rem;
+    }
+    
+    .service img {
+        max-width: 30rem;
+        max-height: 15rem;
+        position: relative;
+        left: 0.5rem;
+        cursor: default;
+    }
+    
+    .services .service:hover img {
+        transform: scale(1.1);
+    }
+    
+    .service h3 {
+        margin-top: 10px; /* Espacement entre l'image et le titre */
+        font-size: 1.5em;
+        position: relative;
+        right: 12rem;
+    }
+    
+    .service .serv {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        width: 31rem;
+        font-size: 20px;
+        background-color: rgba(24, 33, 4, 0.42);
+        border-radius: 10px;
+        position: relative;
+        top: 2rem;
+        left: 7.5rem;
+    }
+    
+    .service .serv p {
+        margin: 10px 0;
+        text-align: center;
+    }
+    
+    .services_p {
+        position: relative;
+        top: 6rem;
+        font-weight: bold;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+        
+    
+    .liste ul li{
+        font-size: 10px;
+        margin-right: 10px;
+        display: grid;
+        }
+    
+    
+    
+    .tableaux{
+        border-collapse: collapse;
+        min-width: 400px;
+        width: auto;
+        overflow-x: auto;
+        position: relative;
+        left: 0rem;
+        
+        }
+    
+        
+        /* ---------- MEDIA FOOTEUR ---------- */
+    .footer {
+        color: rgb(255, 255, 255);
+        text-align: center;
+        margin-top: 15rem;
+        clear: both;
+        position: relative;
+        font-size: 20px;
+        font-family: 'Poppins', sans-serif;
+        }
     
     }
-
-    
-    /* ---------- MEDIA FOOTEUR ---------- */
-.footindex {
-    color: rgb(255, 255, 255);
-    text-align: center;
-    margin-top: 48rem;
-    clear: both;
-    position: relative;
-    font-size: 20px;
-    font-family: 'Poppins', sans-serif;
-    }
-
-
-
-
-
-
-
-}

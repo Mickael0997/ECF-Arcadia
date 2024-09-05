@@ -12,20 +12,21 @@ $activity_id = $_GET['id'];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nom = $_POST['nom'];
     $description = $_POST['description'];
+    $activites_images = $_POST['activites_images']; // Ajoutez cette ligne
 
-    $sql = "UPDATE activites SET nom = ?, description = ? WHERE id = ?";
+    $sql = "UPDATE parc_activites SET nom = ?, description = ?, activites_images = ? WHERE id = ?";
     $stmt = $conn->prepare($sql);
 
     if (!$stmt) {
         die($conn->errorInfo());
     }
 
-    $stmt->execute([$nom, $description, $activity_id]);
+    $stmt->execute([$nom, $description, $activites_images, $activity_id]); // Ajoutez $activites_images ici
 
     header('Location: admin_dashboard.php');
     exit;
 } else {
-    $sql = "SELECT * FROM activites WHERE id = ?";
+    $sql = "SELECT * FROM parc_activites WHERE id = ?";
     $stmt = $conn->prepare($sql);
 
     if (!$stmt) {

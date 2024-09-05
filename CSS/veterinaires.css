@@ -1,0 +1,52 @@
+
+.admin_tableau tr{
+    transition: background-color 0.3s ease;
+}
+
+.admin_tableau td{
+    color: #000;
+    background-color: rgba(162, 153, 137, 0.7);
+    font-size: 25px;
+}
+
+.veterinaire_btn{
+    padding: 8px 16px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+    height: 4rem;
+    width: 20rem;
+    left: 10rem;
+    position: relative;
+}
+
+
+/* ---------- EDIT VETERINAIRE ---------- */
+.veterinaires-form {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.veterinaires-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+.veterinaires-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.veterinaires-form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+.veterinaires-form input[type="submit"]:hover {
+    background-color: #45a049;
+}
