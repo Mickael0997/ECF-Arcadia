@@ -1,0 +1,81 @@
+.gest-animaux{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.gest-animaux form {
+    display: contents;
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+}
+
+.gest-animaux label {
+    display: block;
+    margin-bottom: 5px;
+    width: 50rem;
+    font-size: 2rem;
+    background-color: rgba(24, 33, 4, 0.42);
+    position: relative;
+    left: 50rem;
+}
+
+.gest-animaux input {
+    width: 15%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 20px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50; /* couleur de fond */
+    color: white; /* couleur du texte */
+    padding: 14px 20px; /* padding */
+    margin: 8px 0; /* marge */
+    border: none; /* pas de bordure */
+    cursor: pointer; /* curseur en forme de main */
+    width: 12%;
+    font-size: 20px; /* largeur */
+}
+
+input[type="submit"]:hover {
+    opacity: 0.8; /* opacité au survol */
+}
+
+select[name="animal_selected"] {
+    width: 15%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 20px;
+}
+
+select[name="animal_selected"] option[value=""] {
+    font-size: 20px; /* Remplacez 20px par la taille de police que vous souhaitez */
+}
+
+.gest-animaux-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 15%;
+    height: 20%;
+    border-radius: 0px;
+    font-size: 20px; /* largeur */
+}
+
+.gest-animaux-button:hover {
+    opacity: 0.8; /* opacité au survol */
+}

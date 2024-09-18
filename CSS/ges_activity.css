@@ -1,0 +1,41 @@
+.gest-act-tableaux {
+    width: 65%;
+    border-collapse: collapse;
+    background-color: rgba(24, 33, 4, 0.42);
+    position: relative;
+    left: 15%;
+}
+
+.gest-act-tableaux th, .gest-act-tableaux td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.gest-act-tableaux th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.gest-act-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition: all 0.5s;
+}
+
+.gest-act-button:hover {
+    opacity: 0.8;
+}
+
+.gest-act-button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
