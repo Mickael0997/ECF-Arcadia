@@ -55,7 +55,7 @@
 
     <div class="article">
         <div>
-            <img src="../ASSETS/foretbroceliande.jpg" alt="Forêt" onclick="toggleDescription(this)" id="Forêt"><br><br><br>
+            <img src="../ASSETS/foretbroceliande.jpg" alt="Forêt" onclick="toggleDescription(this)" id="Forêt"><br><br>
         </div>
         <div>
             <h3>Notre Mission</h3>
@@ -63,7 +63,7 @@
         <div>
             <p class="description">
             Ce havre de biodiversité offre un cadre naturel exceptionnel où les animaux vivent dans des environnements soigneusement créés pour refléter leurs habitats d'origine.
-            <br><br>Nos installations écologiques</a> couplées à nos équipes de spécialistes dévoués veillent avec une responsabilité intransigeante à la santé physique et mentale de nos résidents, assurant un cadre de vie respectueux.
+            <br>Nos installations écologiques</a> couplées à nos équipes de spécialistes dévoués veillent avec une responsabilité intransigeante à la santé physique et mentale de nos résidents, assurant un cadre de vie respectueux.
             </p>
         </div> 
     </div>
@@ -155,7 +155,7 @@
 
     <div class="article">
         <div>
-            <img src="../ASSETS/petittrainvisiteguidé.jpg" alt="petit train" onclick="toggleDescription(this)">
+            <img src="../ASSETS/petittrainvisiteguide.jpg" alt="petit train" onclick="toggleDescription(this)">
         </div>
         <div>
             <h3>Visite guidée</h3>
@@ -170,7 +170,7 @@
             <img src="../ASSETS/ferme.jpg" alt="ferme" onclick="toggleDescription(this)">
         </div>
         <div>
-            <h3>Ateliers pédagogiques</h3>
+            <h3>Ateliers</h3>
         </div>
         <div>
             <p class="description">Participez à des ateliers pédagogiques interactifs et ludiques,<br> 
@@ -183,7 +183,7 @@
                 <img src="../ASSETS/point-restauration.jpg" alt="restaurant" onclick="toggleDescription(this)">
             </div>
             <div>
-                <h3>Restauration</h3>
+                <h3>Restaurations</h3>
             </div>
             <div>
                 <p class="description">Profitez d'une pause gourmande en pleine nature avec notre service de restauration, où vous pourrez savourer des mets délicieux tout en observant les animaux. 

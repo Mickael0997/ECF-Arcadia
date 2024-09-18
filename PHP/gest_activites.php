@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['admin_id'])) {
+if (!isset($_SESSION['id_admin'])) {
     header('Location: login.php');
     exit;
 }
@@ -10,10 +10,10 @@ require 'database.php';
 
 try {
 // Récupération de la table parc_activites
-    $sql = "SELECT * FROM parc_activites";
+    $sql = "SELECT * FROM activite";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-    $parc_activites = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $activites = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 } catch (PDOException $e) {
     die("Erreur : " . $e->getMessage());
@@ -92,14 +92,14 @@ try {
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($parc_activites as $activite): ?>
+            <?php foreach ($activites as $activite): ?>
                 <tr>
                     <td><?php echo htmlspecialchars($activite['nom']); ?></td>
                     <td><?php echo htmlspecialchars($activite['description']); ?></td>
-                    <td><?php echo htmlspecialchars($activite['activites_images']); ?></td>
+                    <td><?php echo htmlspecialchars($activite['image_activite']); ?></td>
                     <td>
-                        <a class="gest-act-button" href="edit_activity.php?id=<?php echo $activite['id']; ?>">Modifier</a>
-                        <a class="gest-act-button" href="delete_activity.php?id=<?php echo $activite['id']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette activité ?');">Supprimer</a>
+                        <a class="gest-act-button" href="edit_activity.php?id=<?php echo $activite['id_activite']; ?>">Modifier</a>
+                        <a class="gest-act-button" href="delete_activity.php?id=<?php echo $activite['id_activite']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette activité ?');">Supprimer</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

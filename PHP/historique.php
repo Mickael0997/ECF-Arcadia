@@ -1,5 +1,4 @@
 <?php
-
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -7,121 +6,146 @@ if (!isset($conn)) {
     require 'database.php';
 }
 
-require 'database.php';
-
 try {
-    // Récupérer les informations de l'employé connecté
-    $employe_id = $_SESSION['admin_id'];
-    $sql = "SELECT * FROM employes WHERE id = ?";
+    // Récupérer les informations de l'administrateur connecté
+    $id_admin = $_SESSION['id_admin'];
+    $sql = "SELECT * FROM administrateur WHERE id_admin = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->execute([$employe_id]);
-    $employe = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt->execute([$id_admin]);
+    $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if (!$employe) {
-        die("Employé non trouvé");
+    if (!$admin) {
+        die("Administrateur non trouvé");
     }
 
-    // Récupérer les filtres
     $animal_filter = $_GET['animal'] ?? '';
     $habitat_filter = $_GET['habitat'] ?? '';
+    $date_filter = $_GET['date'] ?? '';
     $employe_filter = $_GET['employe'] ?? '';
     $veterinaire_filter = $_GET['veterinaire'] ?? '';
-    $date_filter = $_GET['date'] ?? '';
 
     // Récupérer les données pour les filtres
-    $sql = "SELECT id, espece FROM animaux";
+    $sql = "SELECT id_animal, espece FROM animal";
     $stmt = $conn->query($sql);
     $animaux = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    $sql = "SELECT id, nom as habitats FROM habitats";
+    $sql = "SELECT id_habitat, nom FROM habitat";
     $stmt = $conn->query($sql);
     $habitats = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    $sql = "SELECT id, nom FROM employes";
+    $sql = "SELECT id_employe, nom FROM employe";
     $stmt = $conn->query($sql);
     $employes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    $sql = "SELECT id, nom FROM veterinaires";
+    $sql = "SELECT id_veterinaire, nom FROM veterinaire";
     $stmt = $conn->query($sql);
     $veterinaires = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Préparer la requête pour récupérer les commentaires des employés
-    $sql_employe_comments = "SELECT c.date, e.nom as employe, h.nom as habitat, a.espece as animal, c.comments 
-                            FROM commentaires c
-                            JOIN employes e ON c.employe_id = e.id
-                            JOIN habitats h ON c.habitat_id = h.id
-                            JOIN animaux a ON c.animal_id = a.id
-                            WHERE c.employe_id IS NOT NULL";
-    
-    // Préparer la requête pour récupérer les commentaires des vétérinaires
-    $sql_veterinaire_comments = "SELECT c.date, v.nom as veterinaire, h.nom as habitat, a.espece as animal, a.etat as etat_sante, c.comments 
-                                FROM commentaires c
-                                JOIN veterinaires v ON c.veterinaire_id = v.id
-                                JOIN habitats h ON c.habitat_id = h.id
-                                JOIN animaux a ON c.animal_id = a.id
-                                WHERE c.veterinaire_id IS NOT NULL";
+    // Préparer la requête pour récupérer les observations des employés et vétérinaires
+    $sql_observations_animal = "
+        SELECT observation_animal.date_observation, 
+            employe.nom AS employe, 
+            veterinaire.nom AS veterinaire, 
+            habitat.nom AS habitat, 
+            animal.espece AS animal, 
+            observation_animal.observation
+        FROM observation_animal
+        LEFT JOIN employe ON observation_animal.id_utilisateur = employe.id_employe
+        LEFT JOIN veterinaire ON observation_animal.id_utilisateur = veterinaire.id_veterinaire
+        JOIN animal ON observation_animal.id_animal = animal.id_animal
+        JOIN habitat ON animal.id_habitat = habitat.id_habitat
+        WHERE 1 = 1";
 
     // Ajouter des conditions aux requêtes en fonction des filtres sélectionnés
     if ($animal_filter != '') {
-        $sql_employe_comments .= " AND a.id = :animal_filter";
-        $sql_veterinaire_comments .= " AND a.id = :animal_filter";
+        $sql_observations_animal .= " AND animal.id_animal = :animal_filter";
     }
     if ($habitat_filter != '') {
-        $sql_employe_comments .= " AND h.id = :habitat_filter";
-        $sql_veterinaire_comments .= " AND h.id = :habitat_filter";
+        $sql_observations_animal .= " AND habitat.id_habitat = :habitat_filter";
+    }
+    if ($date_filter != '') {
+        $sql_observations_animal .= " AND DATE(observation_animal.date_observation) = :date_filter";
     }
     if ($employe_filter != '') {
-        $sql_employe_comments .= " AND e.id = :employe_filter";
+        $sql_observations_animal .= " AND employe.id_employe = :employe_filter";
     }
     if ($veterinaire_filter != '') {
-        $sql_veterinaire_comments .= " AND v.id = :veterinaire_filter";
-    }
-    if ($date_filter != '') {
-        $sql_employe_comments .= " AND c.date = :date_filter";
-        $sql_veterinaire_comments .= " AND c.date = :date_filter";
+        $sql_observations_animal .= " AND veterinaire.id_veterinaire = :veterinaire_filter";
     }
 
-    // Préparer et exécuter la requête pour les commentaires des employés
-    $stmt_employe_comments = $conn->prepare($sql_employe_comments);
+    // Préparer et exécuter la requête pour les observations des animaux
+    $stmt_observations_animal = $conn->prepare($sql_observations_animal);
+
     if ($animal_filter != '') {
-        $stmt_employe_comments->bindParam(':animal_filter', $animal_filter, PDO::PARAM_INT);
+        $stmt_observations_animal->bindParam(':animal_filter', $animal_filter, PDO::PARAM_INT);
     }
     if ($habitat_filter != '') {
-        $stmt_employe_comments->bindParam(':habitat_filter', $habitat_filter, PDO::PARAM_INT);
+        $stmt_observations_animal->bindParam(':habitat_filter', $habitat_filter, PDO::PARAM_INT);
+    }
+    if ($date_filter != '') {
+        $stmt_observations_animal->bindParam(':date_filter', $date_filter);
     }
     if ($employe_filter != '') {
-        $stmt_employe_comments->bindParam(':employe_filter', $employe_filter, PDO::PARAM_INT);
-    }
-    if ($date_filter != '') {
-        $stmt_employe_comments->bindParam(':date_filter', $date_filter);
-    }
-    $stmt_employe_comments->execute();
-    $employe_comments = $stmt_employe_comments->fetchAll(PDO::FETCH_ASSOC);
-
-    // Préparer et exécuter la requête pour les commentaires des vétérinaires
-    $stmt_veterinaire_comments = $conn->prepare($sql_veterinaire_comments);
-    if ($animal_filter != '') {
-        $stmt_veterinaire_comments->bindParam(':animal_filter', $animal_filter, PDO::PARAM_INT);
-    }
-    if ($habitat_filter != '') {
-        $stmt_veterinaire_comments->bindParam(':habitat_filter', $habitat_filter, PDO::PARAM_INT);
+        $stmt_observations_animal->bindParam(':employe_filter', $employe_filter, PDO::PARAM_INT);
     }
     if ($veterinaire_filter != '') {
-        $stmt_veterinaire_comments->bindParam(':veterinaire_filter', $veterinaire_filter, PDO::PARAM_INT);
+        $stmt_observations_animal->bindParam(':veterinaire_filter', $veterinaire_filter, PDO::PARAM_INT);
+    }
+
+    $stmt_observations_animal->execute();
+    $observations_animal = $stmt_observations_animal->fetchAll(PDO::FETCH_ASSOC);
+
+    // Préparer la requête pour récupérer les observations des habitats
+    $sql_observations_habitat = "
+        SELECT observation_habitat.date_observation, 
+            employe.nom AS employe, 
+            veterinaire.nom AS veterinaire, 
+            habitat.nom AS habitat, 
+            observation_habitat.observation
+        FROM observation_habitat
+        LEFT JOIN employe ON observation_habitat.id_utilisateur = employe.id_employe
+        LEFT JOIN veterinaire ON observation_habitat.id_utilisateur = veterinaire.id_veterinaire
+        JOIN habitat ON observation_habitat.id_habitat = habitat.id_habitat
+        WHERE 1 = 1";
+
+    // Ajouter des conditions aux requêtes en fonction des filtres sélectionnés
+    if ($habitat_filter != '') {
+        $sql_observations_habitat .= " AND habitat.id_habitat = :habitat_filter";
     }
     if ($date_filter != '') {
-        $stmt_veterinaire_comments->bindParam(':date_filter', $date_filter);
+        $sql_observations_habitat .= " AND DATE(observation_habitat.date_observation) = :date_filter";
     }
-    $stmt_veterinaire_comments->execute();
-    $veterinaire_comments = $stmt_veterinaire_comments->fetchAll(PDO::FETCH_ASSOC);
+    if ($employe_filter != '') {
+        $sql_observations_habitat .= " AND employe.id_employe = :employe_filter";
+    }
+    if ($veterinaire_filter != '') {
+        $sql_observations_habitat .= " AND veterinaire.id_veterinaire = :veterinaire_filter";
+    }
+
+    // Préparer et exécuter la requête pour les observations des habitats
+    $stmt_observations_habitat = $conn->prepare($sql_observations_habitat);
+
+    if ($habitat_filter != '') {
+        $stmt_observations_habitat->bindParam(':habitat_filter', $habitat_filter, PDO::PARAM_INT);
+    }
+    if ($date_filter != '') {
+        $stmt_observations_habitat->bindParam(':date_filter', $date_filter);
+    }
+    if ($employe_filter != '') {
+        $stmt_observations_habitat->bindParam(':employe_filter', $employe_filter, PDO::PARAM_INT);
+    }
+    if ($veterinaire_filter != '') {
+        $stmt_observations_habitat->bindParam(':veterinaire_filter', $veterinaire_filter, PDO::PARAM_INT);
+    }
+
+    $stmt_observations_habitat->execute();
+    $observations_habitat = $stmt_observations_habitat->fetchAll(PDO::FETCH_ASSOC);
 
 } catch (PDOException $e) {
     echo "Erreur : " . $e->getMessage();
 }
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -177,164 +201,76 @@ try {
 </header>
 
 <div>
-    <h2 class="history-title">Historique des Tâches</h2>
+    <h2 class="history-title">Historique des Observations</h2>
 </div>
+<form method="GET" action="">
+        <label for="animal">Animal:</label>
+        <select name="animal" id="animal">
+            <option value="">Tous</option>
+            <?php foreach ($animaux as $animal): ?>
+                <option value="<?= htmlspecialchars($animal['id_animal']) ?>"><?= htmlspecialchars($animal['espece']) ?></option>
+            <?php endforeach; ?>
+        </select>
 
-<form class="history-form" method="get" action="historique.php">
-    <section class="history">
-        <table>
+
+        <label for="habitat">Habitat:</label>
+        <select name="habitat" id="habitat">
+            <option value="">Tous</option>
+            <?php foreach ($habitats as $habitat): ?>
+                <option value="<?= htmlspecialchars($habitat['id_habitat']) ?>"><?= htmlspecialchars($habitat['nom']) ?></option>
+            <?php endforeach; ?>
+        </select>
+
+        <label for="date">Date:</label>
+        <input type="date" name="date" id="date" value="<?= htmlspecialchars($date_filter) ?>">
+
+        <label for="employe">Employé:</label>
+        <select name="employe" id="employe">
+            <option value="">Tous</option>
+            <?php foreach ($employes as $employe): ?>
+                <option value="<?= htmlspecialchars($employe['id_employe']) ?>"><?= htmlspecialchars($employe['nom']) ?></option>
+            <?php endforeach; ?>
+        </select>
+
+        <label for="veterinaire">Vétérinaire:</label>
+        <select name="veterinaire" id="veterinaire">
+            <option value="">Tous</option>
+            <?php foreach ($veterinaires as $veterinaire): ?>
+                <option value="<?= htmlspecialchars($veterinaire['id_veterinaire']) ?>"><?= htmlspecialchars($veterinaire['nom']) ?></option>
+            <?php endforeach; ?>
+        </select>
+
+        <button type="submit">Filtrer</button>
+    </form>
+
+    <h2>Observations</h2>
+<table border="1">
+    <tr>
+        <th>Date</th>
+        <th>Employé</th>
+        <th>Vétérinaire</th>
+        <th>Habitat</th>
+        <th>Animal</th>
+        <th>Observation</th>
+    </tr>
+    <?php if (!empty($observations)): ?>
+        <?php foreach ($observations as $observation): ?>
             <tr>
-                <th>Employé :</th>
-                <th>Animal :</th>
-                <th>Habitat :</th>
-                <th>Date :</th>
+                <td><?= htmlspecialchars($observation['date_observation']) ?></td>
+                <td><?= htmlspecialchars($observation['employe'] ?? 'N/A') ?></td>
+                <td><?= htmlspecialchars($observation['veterinaire'] ?? 'N/A') ?></td>
+                <td><?= htmlspecialchars($observation['habitat']) ?></td>
+                <td><?= htmlspecialchars($observation['animal']) ?></td>
+                <td><?= htmlspecialchars($observation['observation']) ?></td>
             </tr>
-            <tr>
-                <td>
-                    <select id="employe" name="employe">
-                        <option value="">Tous</option>
-                        <?php foreach ($employes as $employe) { ?>
-                            <option value="<?php echo $employe['id']; ?>" <?php if ($employe_filter == $employe['id']) echo 'selected'; ?>>
-                            <?php echo htmlspecialchars($employe['nom']); ?>
-                            </option>
-                        <?php } ?>
-                    </select>
-                </td>
-                <td>
-                    <select id="animal" name="animal">
-                        <option value="">Tous</option>
-                        <?php foreach ($animaux as $animal) { ?>
-                            <option value="<?php echo $animal['id']; ?>" <?php if ($animal_filter == $animal['id']) echo 'selected'; ?>>
-                            <?php echo htmlspecialchars($animal['espece']); ?>
-                            </option>
-                        <?php } ?>
-                    </select>
-                </td>
-                <td>
-                    <select id="habitat" name="habitat">
-                        <option value="">Tous</option>
-                        <?php foreach ($habitats as $habitat) { ?>
-                            <option value="<?php echo $habitat['id']; ?>" <?php if ($habitat_filter == $habitat['id']) echo 'selected'; ?>>
-                            <?php echo htmlspecialchars($habitat['habitats']); ?>
-                            </option>
-                        <?php } ?>
-                    </select>
-                </td>
-                <td>
-                    <input type="date" id="date" name="date" value="<?php echo htmlspecialchars($date_filter); ?>">
-                </td>
-                </td>
-                    <td>
-                        <button class="history-button" type="submit">Filtrer</button>
-                    </td>
-                </tr>
-            </table>
-        </section>
-    
-
-        <!-- Affichage des commentaires des employés -->
-        <section class="history-table">
-        <h2 class="history-title">Commentaires des Employés</h2>
-        <table>
-            <tr>
-                <th>Date</th>
-                <th>Employé</th>
-                <th>Habitat</th>
-                <th>Animal</th>
-                <th>Commentaire</th>
-            </tr>
-            <?php foreach ($employe_comments as $comment) { ?>
-                <tr>
-                    <td><?php echo htmlspecialchars($comment['date']); ?></td>
-                    <td><?php echo htmlspecialchars($comment['employe']); ?></td>
-                    <td><?php echo htmlspecialchars($comment['habitat']); ?></td>
-                    <td><?php echo htmlspecialchars($comment['animal']); ?></td>
-                    <td><?php echo htmlspecialchars($comment['comments']); ?></td>
-                </tr>
-            <?php } ?>
-        </table>
-    </section>
-</form>
-<!-------------------------------------------------------------------------------------------------------------------------------------------->
-
-
-<!-- Affichage des commentaires des vétérinaires -->
-
-<form class="history-form" method="get" action="historique.php">
-    <section class="history">
-        <table>
-            <tr>
-                <th>Vétérinaires :</th>
-                <th>Animal :</th>
-                <th>Habitat :</th>
-                <th>Date :</th>
-            </tr>
-            <tr>
-                <td>
-                <select id="veterinaire" name="veterinaire">
-                        <option value="">Tous</option>
-                        <?php foreach ($veterinaires as $veterinaire) { ?>
-                            <option value="<?php echo $veterinaire['id']; ?>" <?php if ($veterinaire_filter == $veterinaire['id']) echo 'selected'; ?>>
-                            <?php echo htmlspecialchars($veterinaire['nom']); ?>
-                            </option>
-                        <?php } ?>
-                    </select>
-                </td>
-                <td>
-                    <select id="animal" name="animal">
-                        <option value="">Tous</option>
-                        <?php foreach ($animaux as $animal) { ?>
-                            <option value="<?php echo $animal['id']; ?>" <?php if ($animal_filter == $animal['id']) echo 'selected'; ?>>
-                            <?php echo htmlspecialchars($animal['espece']); ?>
-                            </option>
-                        <?php } ?>
-                    </select>
-                </td>
-                <td>
-                    <select id="habitat" name="habitat">
-                        <option value="">Tous</option>
-                        <?php foreach ($habitats as $habitat) { ?>
-                            <option value="<?php echo $habitat['id']; ?>" <?php if ($habitat_filter == $habitat['id']) echo 'selected'; ?>>
-                            <?php echo htmlspecialchars($habitat['habitats']); ?>
-                            </option>
-                        <?php } ?>
-                    </select>
-                </td>
-                <td>
-                    <input type="date" id="date" name="date" value="<?php echo htmlspecialchars($date_filter); ?>">
-                </td>
-                <td>
-                    <button class="history-button" type="submit">Filtrer</button>
-                </td>
-            </tr>
-        </table>
-        
-    </section>
-
-    <!-- Affichage des commentaires des vétérinaires -->
-    <section class="history-table">
-        <h2 class="history-title">Commentaires des Vétérinaires</h2>
-        <table>
-            <tr>
-                <th>Date</th>
-                <th>Vétérinaire</th>
-                <th>Habitat</th>
-                <th>Animal</th>
-                <th>État de Santé</th>
-                <th>Commentaire</th>
-            </tr>
-            <?php foreach ($veterinaire_comments as $comment) { ?>
-                <tr>
-                    <td><?php echo htmlspecialchars($comment['date']); ?></td>
-                    <td><?php echo htmlspecialchars($comment['veterinaire']); ?></td>
-                    <td><?php echo htmlspecialchars($comment['habitat']); ?></td>
-                    <td><?php echo htmlspecialchars($comment['animal']); ?></td>
-                    <td><?php echo htmlspecialchars($comment['etat_sante']); ?></td>
-                    <td><?php echo htmlspecialchars($comment['comments']); ?></td>
-                </tr>
-            <?php } ?>
-        </table>
-    </section>
-</form>
-<script src="../JAVASCRIPT/scripts.js"></script>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <tr>
+            <td colspan="6">Aucune observation trouvée.</td>
+        </tr>
+    <?php endif; ?>
+</table>
 </body>
+<script src="../JAVASCRIPT/scripts.js"></script>
+</html>
+

@@ -81,3 +81,75 @@
 .employes-form input[type="submit"]:hover {
     background-color: #45a049;
 }
+
+
+
+/* ---------- GEST_ANIMAL_EMPLOYE --------- */
+.g_a_e .g_a_e_I{
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+.g_a_e h3{
+    width: 80%;
+    text-align: center;
+    cursor: default;
+    font-size: 2rem;
+
+}
+
+.g_a_e img{
+    height: 24rem;
+    width: 40rem;
+    margin-left: 3rem;
+    margin-right: 5rem;
+    border-radius: 10px;
+    transform: none;
+    cursor: default;
+}
+
+.lab_inp{
+    display: flex;
+    flex-direction: column;
+    width: 20rem; /* Ajuster la largeur selon tes besoins */
+    padding: 20px;
+    font-size: 1rem;
+    background-color: rgba(24, 33, 4, 0.42);
+    border-radius: 10px;
+}
+
+
+.g_a_e .lab_inp p {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.g_a_e .lab_inp .title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* ---------- MISE EN FORME MESSAGE ---------- */
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(0, 0, 0, 0.44);
+    border: 2px solid #0000;
+}
+
+th, td {
+    border: 1px solid #006400; /* Bordure vert foncé */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: rgba(0, 128, 0, 0.2); /* En-têtes avec fond vert légèrement transparent */
+}
+
+tr:nth-child(even) {
+    background-color: rgba(0, 128, 0, 0.05); /* Alternance de couleur des lignes (plus transparent) */
+}

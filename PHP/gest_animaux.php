@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['admin_id'])) {
+if (!isset($_SESSION['id_admin']) || !isset($_SESSION['id_employe'])) {
     header('Location: login.php');
     exit;
 }
@@ -9,23 +9,35 @@ if (!isset($_SESSION['admin_id'])) {
 require 'database.php';
 
 // Récupération des données de la table animaux
-$query = $conn->query('SELECT * FROM animaux');
-$animaux = $query->fetchAll(PDO::FETCH_ASSOC);
+$query = $conn->query('SELECT * FROM animal');
+$animals = $query->fetchAll(PDO::FETCH_ASSOC);
 
-// ACCES A LA TABLE
-$animauxInfo = '';
-foreach ($animaux as $animal) {
-    $animauxInfo .= "Surnom: " . $animal['surnom'] . "<br>";
-    $animauxInfo .= "Date de naissance: " . $animal['date_naissance'] . "<br>";
-    $animauxInfo .= "Age: " . $animal['age'] . "<br>";
-    $animauxInfo .= "Taille: " . $animal['taille'] . "<br>";
-    $animauxInfo .= "Poids: " . $animal['poids'] . "<br>";
-    $animauxInfo .= "Sexe: " . $animal['sexe'] . "<br>";
-    $animauxInfo .= "Race: " . $animal['race'] . "<br>";
-    $animauxInfo .= "Habitat: " . $animal['habitats_id'] . "<br>"; // Vous devrez peut-être récupérer le nom de l'habitat à partir de la base de données
-    $animauxInfo .= "Etat: " . $animal['etat'] . "<br>";
-    $animauxInfo .= "Alimentation: " . $animal['id_RegimeAlimentaires'] . "<br>"; // Vous devrez peut-être récupérer le nom du régime alimentaire à partir de la base de données
-    $animauxInfo .= "<hr>";
+// ACCESSING THE TABLE
+$animalInfo = '';
+foreach ($animals as $animal) {
+    if (is_array($animal)) {
+        $animalInfo .= "Surnom: " . htmlspecialchars($animal['surnom']) . "<br>";
+        $animalInfo .= "Espèce: " . htmlspecialchars($animal['espece']) . "<br>";
+        $animalInfo .= "Etat de santé: " . htmlspecialchars($animal['etat_sante']) . "<br>";
+        $animalInfo .= "Age: " . htmlspecialchars($animal['age']) . "<br>";
+        $animalInfo .= "Date de naissance: " . htmlspecialchars($animal['date_naissance']) . "<br>";
+        $animalInfo .= "Poids: " . htmlspecialchars($animal['poids']) . "<br>";
+        $animalInfo .= "Sexe: " . htmlspecialchars($animal['sexe']) . "<br>";
+        $animalInfo .= "Race: " . htmlspecialchars($animal['race']) . "<br>";
+        $animalInfo .= "Alimentation: " . htmlspecialchars($animal['type_alimentation']) . "<br>";
+        $animalInfo .= "<hr>";
+
+        $habitatQuery = $conn->prepare('SELECT nom FROM habitat WHERE id_habitat = :id');
+        $habitatQuery->execute(['id' => $animal['id_habitat']]);
+        $habitat = $habitatQuery->fetch(PDO::FETCH_ASSOC);
+        if ($habitat && is_array($habitat)) {
+            $animalInfo .= "Habitat: " . htmlspecialchars($habitat['nom']) . "<br>";
+        } else {
+            $animalInfo .= "Habitat: Non défini<br>";
+        }
+    } else {
+        $animalInfo .= "Données d'animal incorrectes<br>";
+    }
 }
 ?>
 
@@ -93,23 +105,23 @@ foreach ($animaux as $animal) {
     </div>
     <form method="post">
     <select name="animal_selected">
-        <option value="">Sélectionner</option>
-        <?php foreach ($animaux as $animal): ?>
-            <option value="<?php echo $animal['id']; ?>">
+        <option value="">Select</option>
+        <?php foreach ($animals as $animal): ?>
+            <option value="<?php echo $animal['id_animal']; ?>">
                 <?php echo htmlspecialchars($animal['surnom']); ?>
             </option>
         <?php endforeach; ?>
     </select>
     <input type="submit" name="info" value="Afficher les informations">
-    <button onclick="window.location.href='add_animal.php'" class="gest-animaux-button">Ajouter un nouvel animal</button>
+    <button onclick="window.location.href='add_animal.php'" class="gest-animaux-button">Ajouter un animal</button>
 </form>
     <?php
     if (isset($_POST['animal_selected'])) {
-        // Trouver l'animal sélectionné dans le tableau $animaux
-        $selected_animal = array_filter($animaux, function($animal) {
-            return $animal['id'] == $_POST['animal_selected'];
+        // Find the selected animal in the $animals array
+        $selected_animal = array_filter($animals, function($animal) {
+            return $animal['id_animal'] == $_POST['animal_selected'];
         });
-        $selected_animal = reset($selected_animal); // Prendre le premier élément du tableau filtré
+        $selected_animal = reset($selected_animal); // Take the first element from the filtered array
     ?>
 <section class="gest-animaux">   
 <form method="post" class="gest-animaux-form">
@@ -125,9 +137,6 @@ foreach ($animaux as $animal) {
     <label for="age">Age:</label><br>
     <input type="number" id="age" name="age" value="<?php echo htmlspecialchars($selected_animal['age']); ?>"><br>
 
-    <label for="taille">Taille:</label><br>
-    <input type="number" id="taille" name="taille" value="<?php echo htmlspecialchars($selected_animal['taille']); ?>"><br>
-
     <label for="poids">Poids:</label><br>
     <input type="number" id="poids" name="poids" value="<?php echo htmlspecialchars($selected_animal['poids']); ?>"><br>
 
@@ -137,16 +146,16 @@ foreach ($animaux as $animal) {
     <label for="race">Race:</label><br>
     <input type="text" id="race" name="race" value="<?php echo htmlspecialchars($selected_animal['race']); ?>"><br>
 
-    <label for="habitats_id">Habitat:</label><br>
-    <input type="number" id="habitats_id" name="habitats_id" value="<?php echo htmlspecialchars($selected_animal['habitats_id']); ?>"><br>
+    <label for="id_habitat">Habitat:</label><br>
+    <input type="number" id="id_habitat" name="id_habitat" value="<?php echo htmlspecialchars($selected_animal['id_habitat']); ?>"><br>
 
-    <label for="etat">Etat:</label><br>
-    <input type="text" id="etat" name="etat" value="<?php echo htmlspecialchars($selected_animal['etat']); ?>"><br>
+    <label for="etat_sante">Etat:</label><br>
+    <input type="text" id="etat_sante" name="etat_sante" value="<?php echo htmlspecialchars($selected_animal['etat_sante']); ?>"><br>
 
-    <label for="id_RegimeAlimentaires">Alimentation:</label><br>
-    <input type="number" id="id_RegimeAlimentaires" name="id_RegimeAlimentaires" value="<?php echo htmlspecialchars($selected_animal['id_RegimeAlimentaires']); ?>"><br>
+    <label for="type_alimentation">Alimentation:</label><br>
+    <input type="text" id="type_alimentation" name="type_alimentation" value="<?php echo htmlspecialchars($selected_animal['type_alimentation']); ?>"><br>
 
-    <input type="hidden" name="animal_id" value="<?php echo $selected_animal['id']; ?>"><br>
+    <input type="hidden" name="id_animal" value="<?php echo $selected_animal['id_animal']; ?>"><br>
     <input type="submit" name="update" value="Mettre à jour">
     <input type="submit" name="delete" value="Supprimer">
 </form>

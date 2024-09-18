@@ -5,20 +5,21 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "arcadia";
+$dbname = "ecf";
+$charset = "utf8";
 
 // Tentative pour établir une connexion
 
-
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $dsn = "mysql:host=$servername;dbname=$dbname;charset=$charset";
+    $conn = new PDO($dsn, $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
 
-// Si connexion échoué, un message s'affiche
+// Si connexion échoue, un message s'affiche
 catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
-
 }
+
 ?>
 

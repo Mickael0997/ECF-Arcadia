@@ -1,7 +1,8 @@
+
 <?php
 session_start();
 
-if (!isset($_SESSION['admin_id'])) {
+if (!isset($_SESSION['id_admin'])) {
     header('Location: login.php');
     exit;
 }
@@ -9,8 +10,8 @@ if (!isset($_SESSION['admin_id'])) {
 require 'database.php';
 
 try {
-//Récupération de la table veterinaires
-    $sql = "SELECT * FROM veterinaires";
+    // Récupération de la table employées
+    $sql = "SELECT * FROM veterinaire";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $veterinaires = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -19,7 +20,6 @@ try {
     die("Erreur : " . $e->getMessage());
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -77,38 +77,43 @@ try {
             </ul>
         </div>
 </header> 
-    <main>
-
-<div class="titre">
-    <h2>Gestion des Vétérinaires</h2>
-</div>
-<a href="add_veterinaires.php" class="employe_btn">Ajouter un employé</a>
-<table class="admin_tableaux">
-            <thead>
-                <tr class="admin_tableau">
-                    <th>Nom</th>
-                    <th>Prénom</th>
-                    <th>Téléphone</th>
-                    <th>E-mail</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
+<main>
+    <div class="titre">
+        <h2>Gestion des Vétérinaires</h2>
+    </div>
+    <a href="add_veterinaires.php" class="employe_btn">Ajouter un vétérinaire</a>
+    <table class="admin_tableaux">
+        <thead>
+            <tr class="admin_tableau">
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Téléphone</th>
+                <th>E-mail</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if (!empty($veterinaires)): ?>
                 <?php foreach ($veterinaires as $veterinaire): ?>
                     <tr class="admin_tableau">
                         <td><?php echo htmlspecialchars($veterinaire['nom']); ?></td>
                         <td><?php echo htmlspecialchars($veterinaire['prenom']); ?></td>
                         <td><?php echo htmlspecialchars($veterinaire['telephone']); ?></td>
-                        <td><?php echo htmlspecialchars($veterinaire['email']); ?></td>
+                        <td><?php echo htmlspecialchars($veterinaire['adresse_mail']); ?></td>
                         <td>
-                        <a href="edit_employes.php?id=<?php echo $veterinaire['id']; ?>">Modifier</a>
-                        <a href="delete_employes.php?id=<?php echo $veterinaire['id']; ?>">Supprimer</a>>
+                            <a href="edit_veterinaires.php?id=<?php echo $veterinaire['id_veterinaire']; ?>">Modifier</a>
+                            <a href="delete_veterinaires.php?id=<?php echo $veterinaire['id_veterinaire']; ?>">Supprimer</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
-            </tbody>
-        </table>
-    </main>
+            <?php else: ?>
+                <tr>
+                    <td colspan="6">Aucun vétérinaire trouvé.</td>
+                </tr>
+            <?php endif; ?>
+        </tbody>
+    </table>
+</main>
 <script src="../JAVASCRIPT/scripts.js"></script>
 </body>
 </html>

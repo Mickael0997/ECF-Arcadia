@@ -1,28 +1,19 @@
 <?php
 session_start();
 
-// Démarrez la session si elle n'est pas déjà démarrée
-if(session_status() !== PHP_SESSION_ACTIVE) {
-    session_start();
-}
-
-// Vérifiez si la variable de session 'last_activity' est définie
-if(isset($_SESSION['last_activity'])) {
-    // Vérifiez si l'utilisateur est inactif depuis plus de 5 minutes (300 secondes)
-    if(time() - $_SESSION['last_activity'] > 300) {
-        // Si oui, détruisez la session et redirigez l'utilisateur vers la page de connexion
-        session_unset();
-        session_destroy();
-        header("Location: login.php");
-        exit();
-    }
+// Vérifiez si l'utilisateur est inactif depuis plus de 5 minutes (300 secondes)
+if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 300)) {
+    session_unset();
+    session_destroy();
+    header("Location: login.php");
+    exit();
 }
 
 // Mettez à jour la dernière activité de l'utilisateur
 $_SESSION['last_activity'] = time();
 
 // Vérifiez si l'utilisateur est connecté en tant qu'administrateur
-if (!isset($_SESSION['admin_id'])) {
+if (!isset($_SESSION['id_admin'])) {
     header('Location: login.php');
     exit;
 }
@@ -30,9 +21,8 @@ if (!isset($_SESSION['admin_id'])) {
 // Incluez le fichier de connexion à la base de données
 require 'database.php';
 
-try {
 // Récupération des tables
-$tables = ['employes', 'veterinaires', 'animaux', 'parc_activites', 'habitats', 'parc_animaux', 'record_view'];
+$tables = ['employe', 'veterinaire', 'animal', 'habitat', 'parc', 'view'];
 $data = [];
 
 foreach ($tables as $table) {
@@ -42,90 +32,49 @@ foreach ($tables as $table) {
     $data[$table] = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-    $employes = $data['employes'];
-    $veterinaires = $data['veterinaires'];
-    $animaux = $data['animaux'];
-    $habitats = $data['habitats'];
+$employes = $data['employe'];
+$veterinaires = $data['veterinaire'];
+$animaux = $data['animal'];
+$habitats = $data['habitat'];
 
-    // Récupération des commentaires avec filtres
-    $animal_filter = $_GET['animal'] ?? '';
-    $habitat_filter = $_GET['habitat'] ?? '';
-    $employe_filter = $_GET['employe'] ?? '';
-    $veterinaire_filter = $_GET['veterinaire'] ?? '';
-    $date_filter = $_GET['date'] ?? '';
+// Gestion des vues des images et des incrémentations
+$sql = "SELECT parc.*, SUM(view.nombre_view) AS total_views 
+        FROM parc 
+        LEFT JOIN view ON parc.id_parc = view.id_animal 
+        GROUP BY parc.id_parc";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$images_views = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Récupération des images et des vues
-    $sql = "SELECT parc_animaux.*, record_view.views FROM parc_animaux LEFT JOIN record_view ON parc_animaux.id = record_view.images_animaux_id";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    $images_views = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    $sql = "SELECT commentaires.comments, commentaires.date, employes.nom as employe, animaux.espece, habitats.nom as habitat, veterinaires.nom as veterinaire
-            FROM commentaires 
-            INNER JOIN employes ON commentaires.employe_id = employes.id
-            INNER JOIN animaux ON commentaires.animal_id = animaux.id 
-            INNER JOIN habitats ON commentaires.habitat_id = habitats.id 
-            INNER JOIN veterinaires ON commentaires.veterinaire_id = veterinaires.id 
-            WHERE 1=1";
-
-    $params = [];
-
-    if ($animal_filter) {
-        $sql .= " AND animaux.id = ?";
-        $params[] = $animal_filter;
+foreach ($images_views as $image) {
+    $image_animal = $image['id_parc'];
+    
+    if (!preg_match("/^[0-9]+$/", $image_animal)) {
+        continue;
     }
 
-    if ($habitat_filter) {
-        $sql .= " AND habitats.id = ?";
-        $params[] = $habitat_filter;
-    }
+    try {
+        $sql = "SELECT nombre_view FROM view WHERE id_animal = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$image_animal]);
+        $views = $stmt->fetchColumn();
 
-    if ($employe_filter) {
-        $sql .= " AND employes.id = ?";
-        $params[] = $employe_filter;
-    }
-
-    if ($veterinaire_filter) {
-        $sql .= " AND veterinaires.id = ?";
-        $params[] = $veterinaire_filter;
-    }
-
-    if ($date_filter) {
-        $sql .= " AND DATE(commentaires.date) = ?";
-        $params[] = $date_filter;
-    }
-
-    $stmt = $conn->prepare($sql);
-    $stmt->execute($params);
-    $commentaires = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    // Récupération des vues des images
-    $sql = "SELECT * FROM record_view";
-    $stmt = $conn->query($sql);
-    $record_view = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    die("Erreur : " . $e->getMessage());
-}
-
-// Ajouter commentaires
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $employe_id = $_SESSION['id'];
-    $animal_id = $_POST['animal_id'];
-    $habitat_id = $_POST['habitat_id'];
-    $commentaire = $_POST['comments'];
-
-    $sql = "INSERT INTO commentaires (employe_id, animal_id, habitat_id, comments, date) VALUES (?, ?, ?, ?, NOW())";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute([$employe_id, $animal_id, $habitat_id, $comments]);
-
-    if ($stmt->rowCount() > 0) {
-        echo "Commentaire ajouté avec succès.";
-    } else {
-        echo "Erreur lors de l'ajout du commentaire.";
+        if ($views !== false) {
+            $views++;
+            $sql_update = "UPDATE view SET nombre_view = ? WHERE id_animal = ?";
+            $stmt_update = $conn->prepare($sql_update);
+            $stmt_update->execute([$views, $image_animal]);
+        } else {
+            $views = 1;
+            $sql_insert = "INSERT INTO view (id_animal, nombre_view) VALUES (?, ?)";
+            $stmt_insert = $conn->prepare($sql_insert);
+            $stmt_insert->execute([$image_animal, $views]);
+        }
+    } catch (PDOException $e) {
+        echo "Erreur : " . $e->getMessage();
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -186,33 +135,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </ul>
         </div>
 </header>
-<div class="admin-title">
-        <h2>Journal de bord</h2>
-</div> 
+
     <main>
-<section>
-    <h2 class="view-title">Les Chouchous</h2>
-<section class="vues">
-    <div class="vue">
-        <?php foreach ($images_views as $image_view) { ?>
-            <div class="image-container">
-                <img class="vue-image" src="<?php echo htmlspecialchars($image_view['images_animaux']); ?>" alt="Image de l'animal" data-id="<?php echo htmlspecialchars($image_view['id']); ?>">
-                <div class="likes">
-                <i class="bi bi-heart-fill" style="color: red;"></i>
-                    <span id="viewCount-<?php echo htmlspecialchars($image_view['id']); ?>"><?php echo htmlspecialchars($image_view['views']); ?><br></span>
+        <section>
+            <h2 class="view-title">Les Chouchous</h2>
+            <section class="vues">
+                <div class="vue">
+                    <?php if (!empty($images_views)) { ?>
+                        <?php foreach ($images_views as $image_view) { ?>
+                            <div class="image-container">
+                                <?php if (isset($image_view['image_animal'], $image_view['id_parc'], $image_view['total_views'])) { ?>
+                                    <img class="vue-image" src="<?php echo htmlspecialchars($image_view['image_animal']); ?>" alt="Image de l'animal" data-id="<?php echo htmlspecialchars($image_view['id_parc']); ?>">
+                                    <div class="likes">
+                                        <i class="bi bi-heart-fill" style="color: red;"></i>
+                                        <span id="viewCount-<?php echo htmlspecialchars($image_view['id_parc']); ?>"><?php echo htmlspecialchars($image_view['total_views']); ?><br></span>
+                                    </div>
+                                <?php } else { ?>
+                                    <p>Données manquantes pour cette vue.</p>
+                                <?php } ?>
+                            </div>
+                        <?php } ?>
+                    <?php } else { ?>
+                        <p>Aucune vue disponible.</p>
+                    <?php } ?>
                 </div>
-            </div>
-        <?php } ?>
-    </div>
-</section>
-</main>
-<footer>
-</footer>
-<script src="../JAVASCRIPT/scripts.js"></script>
+            </section>
+        </section>
+    </main>
 </body>
 </html>
-
-
-
-
-

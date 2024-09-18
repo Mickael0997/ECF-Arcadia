@@ -174,6 +174,7 @@ a:hover{
     padding: 0.5rem 1.2rem;
     border-radius: 20px;
     outline: none;
+    text-align: center;
     font-size: 0.9rem;
     font-weight: bold;
     cursor: pointer;
@@ -275,17 +276,22 @@ a:hover{
     font-family: 'Poppins', sans-serif;
 }
 
+
 /* --------- MISE EN FORME DE CONNEXION ---------- */
 
 /*Mise en place du bouton connexion*/
+
+.login h1{
+    font-size: 2rem;
+}
+
 .containers{
     background-color: transparent;
     color: white;
     border: 1px solid white;
     width: max-content;
     position: relative;
-    left: 40%;
-    top: 10%;
+    left: 35%;
     border-radius: 20px;
     padding: 4rem;
 }
@@ -352,7 +358,7 @@ a:hover{
     cursor: pointer;
     left: 15%;
     border: 2px solid #fffefe;
-    border-radius: 25px;
+    border-radius: 10px;
     width: 3%;
     color: white;
     background-color: black;
@@ -363,7 +369,7 @@ a:hover{
 /*Close popup*/
 .popup .closepopup {
     position: absolute;
-    top: 10rem;
+    top: 15rem;
     left: 10px;
     font-size: 3rem;
     cursor: pointer;
@@ -373,8 +379,8 @@ a:hover{
 .avis{
     color: rgb(255, 255, 255);
     position: relative;/* Position fixe par rapport à la fenêtre de visualisation */
-    left: 1rem;/* Aligné à droite */
-    top: 22%;/* Centré verticalement */
+    left: 2rem;/* Aligné à droite */
+    top: 32%;/* Centré verticalement */
     transform: translateY(-60%);/* Décale le titre vers le haut de sa propre hauteur pour le centrer parfaitement */
     width: max-content;
     font-size: 2rem;
@@ -394,6 +400,30 @@ a:hover{
     padding: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+/* Style des étoiles */
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    cursor: pointer;
+    position: relative;
+    right: 22rem;
+}
+
+.star {
+    cursor: pointer;
+    font-size: 2rem;
+    color: gold;
+}
+
+.star.selected {
+    color: gold;
+}
+
+.star.hover {
+    color: lightgray;
 }
 
 /* ---------- MEDIA POPUP ---------- */
@@ -531,9 +561,9 @@ a:hover{
 
 .articles .article img{
     display: flex;
-    height: 30rem;
-    width: 40rem;
-    margin-left: 7.5rem;
+    height: 25rem;
+    width: 30rem;
+    margin-left: 4.5rem;
     border-radius: 50px;
 }
 
@@ -543,14 +573,16 @@ a:hover{
     position: relative;
 } 
 
-.article .description{
+.articles .description{
     display: flex;
     position: relative;
-    width: 38rem;
-    height: 49rem;
-    left: 8rem;
+    margin-left: -5rem;
+    margin-right: 7rem;
+    width: 37rem;
+    height: 36rem;
+    left: 5rem;
     padding: 3rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: center;
     text-align-last: center;
     font-family: 'Poppins', sans-serif;
@@ -653,18 +685,18 @@ a:hover{
     border-radius: 50px;
 }
 
-.habitats .habitat:hover img {
+/*.habitats .habitat:hover img {
     -webkit-transform: scale(1.3);
     transform: scale(1.3);
     position: relative;
-}
+}*/
 
 .habitat .descriptifs {
     display: flex;
     position: relative;
-    width: 38rem;
-    height: 35rem;
-    left: 20rem;
+    width: 40rem;
+    height: 40rem;
+    left: 18rem;
     padding: 3rem;
     font-size: 2rem;
     text-align: center;
@@ -692,6 +724,16 @@ a:hover{
     display: flex;
     align-items: flex-start;
     margin-bottom: 20px;
+}
+
+.services .service h3 {
+    font-size: 2.5rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    margin-left: 8rem;
+    text-decoration: underline;
+    text-underline-position: under;
+    width: 35rem;
 }
 
 .services .service img {
@@ -773,9 +815,9 @@ header {
     color: white;
     position: relative;
     left: 2%;
-    top: 22%;
+    top: 34%;
     transform: translateY(-50%);
-    width: 50%;
+    width: 80%;
     }
         
 #avis-list {
@@ -789,7 +831,7 @@ header {
     left: 15rem;
     top: 6rem;
     border: 2px solid #fffefe;
-    border-radius: 50px;
+    border-radius: 15px;
     width: 10%;
     color: white;
     background-color: black;
@@ -799,8 +841,8 @@ header {
     
 .closepopup{    
     position: absolute;
-    top: 11rem;
-    left: 10px;
+    top: 10rem;
+    left: 8px;
     font-size: 3rem;
     cursor: pointer;
     }
@@ -872,7 +914,7 @@ header {
 .contacts{
     position: relative;
     text-align: center;
-    margin-top: -10rem;
+    bottom: 12rem;
 }
 
 .contacts h2{
@@ -900,9 +942,9 @@ header {
     position: relative;
     border: solid green;
     width: max-content;
-    margin-left: 12%;
+    margin-left: 28%;
     border-radius: 20px;
-    padding: 20px;
+    height: 40rem;
 }
 
 .form input{
@@ -950,6 +992,7 @@ header {
 /* --------- MEDIA CONNEXION ---------- */
 
 /*Mise en place du bouton connexion*/
+
 .containers{
     background-color: transparent;
     color: white;
@@ -957,7 +1000,7 @@ header {
     width: max-content;
     position: relative;
     left: 20%;
-    top: 15%;
+    margin-bottom: 10px;
     border-radius: 20px;
     padding: 4rem;
 }

@@ -36,45 +36,40 @@ try {
 } catch (PDOException $e) {
     die('Erreur de base de données : ' . $e->getMessage());
 }
+try {
+    // Connexion à la base de données
+    $conn = new PDO("mysql:host=localhost;dbname=ecf", "root", "");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$animal_filter = $_GET['animal'] ?? '';
-$habitat_filter = $_GET['habitat'] ?? '';
-$date_filter = $_GET['date'] ?? '';
+    // Récupérer tous les messages en attente
+    $sql = "SELECT * FROM question WHERE statut = 'en_attente'";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $questions = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Récupérer les données pour les filtres
-    $sql = "SELECT id_animal, espece FROM animal";
-    $stmt = $conn->query($sql);
-    $animaux = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    $sql = "SELECT id_habitat, nom FROM habitat";
-    $stmt = $conn->query($sql);
-    $habitats = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        // Préparer la requête pour récupérer les observations des employés et vétérinaires
-        $sql_observations_animal = "
-        SELECT observation_animal.date_observation, 
-            employe.nom AS employe, 
-            veterinaire.nom AS veterinaire, 
-            habitat.nom AS habitat, 
-            animal.espece AS animal, 
-            observation_animal.observation
-        FROM observation_animal
-        LEFT JOIN employe ON observation_animal.id_utilisateur = employe.id_employe
-        LEFT JOIN veterinaire ON observation_animal.id_utilisateur = veterinaire.id_veterinaire
-        JOIN animal ON observation_animal.id_animal = animal.id_animal
-        JOIN habitat ON animal.id_habitat = habitat.id_habitat
-        WHERE 1 = 1";
-
-    // Ajouter des conditions aux requêtes en fonction des filtres sélectionnés
-    if ($animal_filter != '') {
-        $sql_observations_animal .= " AND animal.id_animal = :animal_filter";
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (isset($_POST['valider'])) {
+            $id_question = $_POST['id_question'];
+            $sql = "UPDATE question SET statut = 'publié' WHERE id_question = :id_question";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':id_question', $id_question, PDO::PARAM_INT);
+            $stmt->execute();
+            header('Location: admin_messages.php');
+            exit();
+        } elseif (isset($_POST['supprimer'])) {
+            $id_question = $_POST['id_question'];
+            $sql = "DELETE FROM question WHERE id_question = :id_question";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':id_question', $id_question, PDO::PARAM_INT);
+            $stmt->execute();
+            header('Location: admin_messages.php');
+            exit();
+        }
     }
-    if ($habitat_filter != '') {
-        $sql_observations_animal .= " AND habitat.id_habitat = :habitat_filter";
-    }
-    if ($date_filter != '') {
-        $sql_observations_animal .= " AND DATE(observation_animal.date_observation) = :date_filter";
-    }
+} catch (PDOException $e) {
+    // Afficher une erreur en cas de problème de connexion ou d'exécution de la requête
+    echo "Erreur : " . $e->getMessage();
+}
 ?>
 
 <!DOCTYPE html>
@@ -130,17 +125,39 @@ $date_filter = $_GET['date'] ?? '';
             </ul>
         </div>
 </header>
-    <main>
-
-
-
-</main>
-
-
-    <footer>
-
-    </footer>
-    <!-- JAVASCRIPT  -->
-    <script src="../JAVASCRIPT/scripts.js"></script>
+<body>
+    <h1>Messages en attente</h1>
+    <?php if (!empty($questions)) : ?>
+        <table>
+            <thead>
+                <tr>
+                    <th>Pseudo</th>
+                    <th>Email</th>
+                    <th>Date</th>
+                    <th>Message</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($questions as $question) : ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($question['pseudo']); ?></td>
+                        <td><?php echo htmlspecialchars($question['adresse_mail']); ?></td>
+                        <td><?php echo htmlspecialchars($question['date_commentaire']); ?></td>
+                        <td><?php echo htmlspecialchars($question['message']); ?></td>
+                        <td>
+                            <form action="admin_messages.php" method="POST">
+                                <input type="hidden" name="id_question" value="<?php echo $question['id_question']; ?>">
+                                <button type="submit" name="valider">Valider</button>
+                                <button type="submit" name="supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce message ?')">Supprimer</button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php else : ?>
+        <p>Aucun message en attente.</p>
+    <?php endif; ?>
 </body>
 </html>
