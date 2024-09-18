@@ -153,7 +153,7 @@ npm install
 
 
 Importez la base de données :
-Utilisez le fichier DATABASE/ecf_arcadia_2024.sql pour créer la base de données.
+Utilisez le fichier DATABASE/2024-09-18.sql pour créer la base de données.
 
 
 
