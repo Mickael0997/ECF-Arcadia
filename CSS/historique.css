@@ -1,0 +1,103 @@
+.history-title{
+    font-size: 2.5rem;
+    font-weight: bold;
+    width: 60%;
+    cursor: default;
+    font-family: 'Poppins', sans-serif;
+}
+
+.history-title h2{
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.history-table{
+    width: 80%;
+    border-collapse: collapse;
+    margin-left: 10%;
+    margin-top: 3rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.history-table th,
+.history-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+.history-table th {
+    background-color: green;
+    color: white;
+}
+.history-table tbody {
+    display: table-cell;
+    font-size: 2rem;
+
+}
+
+.history-form{
+    display: grid;
+    justify-content: center;
+    position: relative;
+    border: solid green;
+    width: max-content;
+    margin-left: 15%;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+}
+
+.history textarea{
+    width: 50rem;
+    height: 100px;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid green;
+}
+
+.history label{
+    color: white;
+    font-size: 2rem;
+    margin: 10px;
+    font-family: 'Poppins', sans-serif;
+    gap: 1rem;
+    display: flex;
+}
+
+.history select{
+    width: 20rem;
+    height: 30px;
+    border-radius: 20px;
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid green;
+    text-align: center;
+    font-size: 20px;
+}
+
+.history input{
+    width: 20rem;
+    height: 30px;
+    border-radius: 20px;
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid green;
+    text-align: center;
+    font-size: 20px;
+}
+
+
+
+.history-button{
+    width: 10rem;
+    height: 35px;
+    border-radius: 20px;
+    border: 1px solid green;
+    background-color: green;
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+}

@@ -1,15 +1,25 @@
 <?php
+
+// Création d'une connexion
+
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "arcadia";
+$dbname = "ecf";
+$charset = "utf8";
 
-// Crée une connexion
-$conn = new mysqli($servername, $username, $password, $dbname);
+// Tentative pour établir une connexion
 
-// Vérifie la connexion
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+try {
+    $dsn = "mysql:host=$servername;dbname=$dbname;charset=$charset";
+    $conn = new PDO($dsn, $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
-echo "Connected successfully";
+
+// Si connexion échoue, un message s'affiche
+catch(PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+}
+
 ?>
+

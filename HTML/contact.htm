@@ -1,31 +1,95 @@
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le Zoo D'Arcadia</title>
-    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="../CSS/styles.css">
 </head>
 <body>
 
 <header> 
+    <a href="../PHP/index.php" id="logo-link">
+        <img src="../ASSETS/LogoArcadia2.png" alt="Logo du Zoo Écologique" id="logo">
+    </a>
 </header>  
-    <main>
-        <div id="form-contact" class="modal">
-            <div class="modal-content">
-                <span class="close" id="close-contact">&times;</span>
-                    <form>
-                        <label for="pseudo">Pseudo :</label>
-                        <input type="text" id="pseudo" name="pseudo" required>
-                        <label for="commentaire">Commentaire :</label>
-                        <textarea id="commentaire" name="commentaire" required></textarea>
-                        <button type="submit">Soumettre</button>
-                    </form>        
+<main>
+    <section class="contacts" id="contacts">
+        <h2>Contactez-nous</h2>
+        <p>Vous pouvez poser votre question ici.</p>
+        <form class="form" action="../PHP/contact_handler.php" method="POST">
+            <label for="name">Nom:</label>
+            <input type="text" name="pseudo" placeholder="Entrer votre nom..." required><br>
+            
+            <label for="email">Courriel:</label>
+            <input type="email" name="adresse_mail" placeholder="Entrer votre email..." required><br>
+            
+            <label for="commentaire">Questions :</label>
+            <textarea name="message" placeholder="Entrer votre message..." required></textarea><br>
+            
+            <label for="rating">Votre évaluation :</label>
+            <div class="rating" id="rating">
+                <span data-value="1" class="star">&#9733;</span>
+                <span data-value="2" class="star">&#9733;</span>
+                <span data-value="3" class="star">&#9733;</span>
+                <span data-value="4" class="star">&#9733;</span>
+                <span data-value="5" class="star">&#9733;</span>
             </div>
+            <input type="hidden" id="rating-value" name="rating" value="0"><!-- Valeur de la note -->
+            
+            <button type="submit">Soumettre</button>
+        </form>
+        <div>
+            <p>Nous vous reviendrons vers vous dans les plus bref délais.</p>
         </div>
-    </main>
+    </section> 
+</main>
 <footer>
-    
 </footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const stars = document.querySelectorAll('.star');
+    const ratingValue = document.getElementById('rating-value');
+
+    if (stars && ratingValue) {
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                const value = this.getAttribute('data-value');
+                ratingValue.value = value;
+
+                // Met à jour l'apparence des étoiles sélectionnées
+                stars.forEach(s => {
+                    if (s.getAttribute('data-value') <= value) {
+                        s.classList.add('selected');
+                    } else {
+                        s.classList.remove('selected');
+                    }
+                });
+            });
+
+            // Ajoute un effet de survol pour montrer la sélection potentielle
+            star.addEventListener('mouseover', function() {
+                const value = this.getAttribute('data-value');
+                stars.forEach(s => {
+                    if (s.getAttribute('data-value') <= value) {
+                        s.classList.add('hover');
+                    } else {
+                        s.classList.remove('hover');
+                    }
+                });
+            });
+
+            // Retire l'effet de survol lorsque la souris quitte les étoiles
+            star.addEventListener('mouseout', function() {
+                stars.forEach(s => {
+                    s.classList.remove('hover');
+                });
+            });
+        });
+    }
+});
+</script>
 </body>
 </html>
