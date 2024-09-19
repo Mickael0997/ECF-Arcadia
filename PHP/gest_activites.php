@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['id_admin'])) {
+if (!isset($_SESSION['id_admin']) || !isset($_SESSION['id_employe'])) {
     header('Location: login.php');
     exit;
 }

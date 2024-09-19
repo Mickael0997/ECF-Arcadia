@@ -1,12 +1,23 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['id_admin']) || !isset($_SESSION['id_employe'])) {
+// Vérifiez si l'utilisateur est inactif depuis plus de 5 minutes (300 secondes)
+if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 300)) {
+    session_unset();
+    session_destroy();
+    header("Location: login.php");
+    exit();
+}
+
+// Mettez à jour la dernière activité de l'utilisateur
+$_SESSION['last_activity'] = time();
+
+// Vérifiez si l'utilisateur est connecté en tant qu'administrateur
+if (!isset($_SESSION['id_admin'])) {
     header('Location: login.php');
     exit;
 }
 
-require 'database.php';
 
 // Récupération des données de la table animaux
 $query = $conn->query('SELECT * FROM animal');
