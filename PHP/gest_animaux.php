@@ -23,7 +23,7 @@ if (!isset($_SESSION['id_admin'])) {
 $query = $conn->query('SELECT * FROM animal');
 $animals = $query->fetchAll(PDO::FETCH_ASSOC);
 
-// ACCESSING THE TABLE
+// ACCES A LA TABLE ANIMAL
 $animalInfo = '';
 foreach ($animals as $animal) {
     if (is_array($animal)) {

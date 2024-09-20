@@ -79,8 +79,9 @@
 
 .admin-table{
     position: relative;
-    top: 15rem;
-    left: 10rem;
+    bottom: 4rem;
+    left: 1rem;
+    display: block;
 }
 
 .admin-table th,
