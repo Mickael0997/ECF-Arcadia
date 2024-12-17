@@ -1,0 +1,95 @@
+/* Styles pour la page mammiferes.php */
+body {
+    font-family: 'Comic Neue', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+h1 {
+    h1 {
+        text-align: center !important;
+        margin-bottom: 2rem !important;
+        margin-top: 10rem !important;
+    }
+}
+
+.background-gradient {
+    position: fixed;
+    top: 0%;
+    left: 0;
+    width: 100%;
+    height: 125vh;
+    background: linear-gradient(to bottom, #48831cc4, #725e23ad);
+    z-index: -2;
+}
+
+.infos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-top: 15rem;
+}
+
+.info {
+    width: 48%; /* Deux images par ligne avec un espace égal */
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.info img {
+    width: 30rem;
+    height: 30rem; /* Hauteur fixe pour toutes les images */
+    transition: transform 0.3s ease;
+}
+
+.info:hover img {
+    transform: scale(1.05); /* Agrandit l'image au survol */
+}
+
+.info .informations {
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: bisque;
+    height: 30rem;
+}
+
+.info .informations p {
+    margin: 10px 0;
+}
+
+.info .heart-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: grey;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Classe pour aligner l'image à gauche et le texte à droite */
+.info-left {
+    flex-direction: row;
+}
+
+/* Classe pour aligner l'image à droite et le texte à gauche */
+.info-right {
+    flex-direction: row-reverse;
+}

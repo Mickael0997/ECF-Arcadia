@@ -59,7 +59,7 @@ $activite4 = $stmt->fetch(PDO::FETCH_ASSOC);
         <p>Venez découvrir nos services du Zoo D'Arcadia<br></p>
 </div>
 
-        <divider class="divider"></divider>
+<div class="background-gradient"></div>
 
 <section class="services">
 

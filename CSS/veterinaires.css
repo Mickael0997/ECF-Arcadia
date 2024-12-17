@@ -9,20 +9,6 @@
     font-size: 25px;
 }
 
-.veterinaire_btn{
-    padding: 8px 16px;
-    background-color: green;
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin-top: 1rem;
-    height: 4rem;
-    width: 20rem;
-    left: 10rem;
-    position: relative;
-}
-
-
 /* ---------- EDIT VETERINAIRE ---------- */
 .veterinaires-form {
     width: 100%;

@@ -1,0 +1,52 @@
+/* Styles pour la page mammiferes.php */
+body {
+    font-family: 'Comic Neue', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+h1 {
+    text-align: center !important;
+    margin-bottom: 2rem !important;
+    margin-top: 10rem !important;
+}
+
+h2{
+    font-size: 2rem;
+    text-align: center;
+}
+
+.background-gradient {
+    position: fixed;
+    top: 0%;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to bottom, #48831cc4, #725e23ad);
+    z-index: -2;
+}
+
+.habitats{
+    display: flex;
+    margin-bottom: 15rem;
+    margin-top: 10rem;
+}
+
+.habitat{
+    margin: 10px;
+}
+
+.habitat, img{
+    width: 100%;
+    height: 50rem;
+}
+
+.descriptifs{
+    text-align: center;
+    font-size: 1.5rem;
+}

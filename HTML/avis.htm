@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/add-avis.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Poster un Avis</title>
+</head>
+<body>
+    <div class="background-gradient"></div>
+    <div class="container">
+        <h2>Poster un Avis</h2>
+        <form class="form" action="../PHP/avis_handler.php" method="POST" enctype="multipart/form-data">
+            <label for="photo">Photo:</label>
+            <input type="file" name="photo" accept="image/*" required><br>
+            
+            <label for="pseudo">Pseudo:</label>
+            <input type="text" name="pseudo" placeholder="Entrer votre pseudo..." required><br>
+            
+            <label for="message">Message:</label>
+            <textarea name="message" placeholder="Entrer votre message..." required></textarea><br>
+            
+            <label for="rating">Votre évaluation :</label>
+            <div class="rating" id="rating">
+                <span data-value="1" class="star">&#9733;</span>
+                <span data-value="2" class="star">&#9733;</span>
+                <span data-value="3" class="star">&#9733;</span>
+                <span data-value="4" class="star">&#9733;</span>
+                <span data-value="5" class="star">&#9733;</span>
+            </div>
+            <input type="hidden" id="rating-value" name="rating" value="0"><!-- Valeur de la note -->
+            
+            <button type="submit">Soumettre</button>
+        </form>
+    </div>
+    
+    <script src="../JAVASCRIPT/avis.js"></script>
+</body>
+</html>

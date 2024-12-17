@@ -1,0 +1,137 @@
+/* presentation.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    font-family: Arial, sans-serif;
+    transition: opacity 1s ease-out; /* Transition pour le fondu en sortie */
+}
+
+body.fade-in {
+    animation: fadeIn 1s forwards; /* Animation de fondu en entrée */
+}
+
+body.fade-out {
+    animation: fadeOut 1s forwards; /* Animation de fondu en sortie */
+}
+
+h1 {
+    font-size: 4rem;
+    font-style: oblique;
+    color: burlywood;
+}
+
+.presentation-container {
+    text-align: center;
+    position: relative;
+}
+
+.presentation-container h1 {
+    opacity: 0;
+    animation: fadeIn 2s forwards 4s; /* Apparaît après 4 secondes */
+}
+
+.presentation-container img {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+img.tigre {
+    animation: slideInFromLeft 2s forwards;
+}
+
+img.lion {
+    animation: slideInFromTop 2s forwards 1s; /* Apparaît après 1 seconde */
+}
+
+img.panthere {
+    animation: slideInFromRight 2s forwards 2s; /* Apparaît après 2 secondes */
+}
+
+.presentation-container button {
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 2s forwards 6s; /* Apparaît après 6 secondes */
+    background-color: burlywood;
+    border-radius: 1rem;
+    color: black;
+    cursor: pointer;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Conteneur pour les images */
+.format-display {
+    display: flex;
+    gap: 10px; /* Espace de 10px entre les images */
+    justify-content: center; /* Centrer les images horizontalement */
+}
+
+/* Style pour chaque image */
+.format-trio1 {
+    height: 500px; /* Hauteur de 500px */
+    width: 250px; /* Largeur de 250px */
+    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%); /* Forme de trapèze */
+}
+
+.format-trio2 {
+    height: 500px; /* Hauteur de 500px */
+    width: 250px; /* Largeur de 250px */
+    clip-path: polygon(100% 0%, 90% 100%, 10% 100%, 0% 0%); /* Forme de trapèze */
+}

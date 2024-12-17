@@ -26,29 +26,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $error = "Mot de passe incorrect pour l'administrateur.";
         }
     } else {
-        echo "Aucun administrateur trouvé avec cet email.";
-    }
+        // Si l'utilisateur n'est pas un administrateur, vérifier si c'est un employé
+        $sql = "SELECT * FROM employe WHERE adresse_mail = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$email]);
+        $employe = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Si l'utilisateur n'est pas un administrateur, vérifier si c'est un employé
-    $sql = "SELECT * FROM employe WHERE adresse_mail = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute([$email]);
-    $employe = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if ($employe) {
-        if ($password == $employe['mot_de_passe']) {
-            // Si l'employé est authentifié, démarrer la session d'employé
-            $_SESSION['loggedin'] = true;
-            $_SESSION['id_employe'] = $employe['id_employe'];
-            $_SESSION['name'] = $employe['prenom'] . ' ' . $employe['nom'];
-            $_SESSION['fonction'] = $employe['fonction'];  // Ajouter la fonction de l'employé pour d'éventuels usages
-            header('Location: dashboard.php');
-            exit;
+        if ($employe) {
+            if ($password == $employe['mot_de_passe']) {
+                // Si l'employé est authentifié, démarrer la session d'employé
+                $_SESSION['loggedin'] = true;
+                $_SESSION['id_employe'] = $employe['id_employe'];
+                $_SESSION['name'] = $employe['prenom'] . ' ' . $employe['nom'];
+                $_SESSION['fonction'] = $employe['fonction'];  // Ajouter la fonction de l'employé pour d'éventuels usages
+                header('Location: admin_dashboard.php');
+                exit;
+            } else {
+                $error = "Mot de passe incorrect pour l'employé.";
+            }
         } else {
-            $error = "Mot de passe incorrect pour l'employé.";
+            $error = "Aucun employé trouvé avec cet email.";
         }
-    } else {
-        echo "Aucun employé trouvé avec cet email.";
     }
 
     // Si aucune correspondance, afficher un message d'erreur
@@ -57,7 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -69,8 +66,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <header>
-        <a href="./index.php" id="logo-link">
-        <img src="../ASSETS/LogoArcadia2.png" alt="Logo du Zoo Écologique" id="logo">
+        <a href="../PHP/index.php" id="logo-link">
+        <img src="../ASSETS/Logo.png" alt="Logo du Zoo Écologique" id="logo">
         </a>
     </header>
     <h1 class="login">Espace réservé aux employé(e)s</h1>

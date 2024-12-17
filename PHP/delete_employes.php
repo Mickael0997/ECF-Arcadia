@@ -1,23 +1,17 @@
 <?php
-session_start();
-if (!isset($_SESSION['admin_id'])) {
-    header('Location: login.php');
-    exit;
-}
-
 require 'database.php';
 
-$employe_id = $_GET['id'];
+$id = $_GET['id'];
 
-$sql = "DELETE FROM employes WHERE id = ?";
-$stmt = $conn->prepare($sql);
+if ($id) {
+    $sql = "DELETE FROM employe WHERE id_employe = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$id]);
 
-if (!$stmt) {
-    die($conn->errorInfo());
+    header('Location: employes.php');
+    exit;
+} else {
+    header('Location: employes.php');
+    exit;
 }
-
-$stmt->execute([$employe_id]);
-
-header('Location: admin_dashboard.php');
-exit;
 ?>

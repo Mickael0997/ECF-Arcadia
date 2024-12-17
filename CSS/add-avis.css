@@ -1,0 +1,138 @@
+/*----------MISE EN FORME GENERALE----------*/
+
+/* ---------- FONT FAMILY ---------- */
+.comic-neue-regular {
+    font-family: "Comic Neue", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.comic-neue-bold {
+    font-family: "Comic Neue", cursive;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.comic-neue-light-italic {
+    font-family: "Comic Neue", cursive;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.comic-neue-regular-italic {
+    font-family: "Comic Neue", cursive;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.comic-neue-bold-italic {
+    font-family: "Comic Neue", cursive;
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* ---------- RESET STYLE ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Neue', sans-serif;
+}
+
+/* ---------- MISE EN FORME DU BODY ---------- */
+
+/* ---------- MISE EN FORME DU BODY ---------- */
+body {
+    font-family: 'Comic Neue', sans-serif;
+}
+
+.background-gradient {
+    position: fixed;
+    top: 0%;
+    left: 0;
+    width: 100%;
+    height: 125vh;
+    background: linear-gradient(to bottom, #48831cc4, #725e23ad);
+    z-index: -2;
+}
+
+.add_buttons{
+    display: flex;
+    gap: 10px;
+    background-color: #949563;
+    color: black;
+    border: 1px solid #759f51;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    outline: none;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    left: 90rem;
+    top: 10rem;
+}
+
+.add_buttons:hover{
+    color: white;
+    border: 1px solid white;
+}
+
+
+.container {
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.form input, .form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form button {
+    background-color: #949563;
+    color: black;
+    border: 1px solid #759f51;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    outline: none;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form button:hover {
+    color: white;
+    border: 1px solid white;
+}
+
+.rating {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.star {
+    font-size: 2rem;
+    color: grey;
+    cursor: pointer;
+}
+
+.star.selected {
+    color: gold;
+}

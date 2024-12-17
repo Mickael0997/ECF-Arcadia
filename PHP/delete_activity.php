@@ -1,24 +1,23 @@
 <?php
+require 'database.php';
 session_start();
-if (!isset($_SESSION['admin_id'])) {
+
+if (!isset($_SESSION['id_admin'])) {
     header('Location: login.php');
     exit;
 }
 
-require 'database.php';
+$id = $_GET['id'];
 
+if ($id) {
+    $sql = "DELETE FROM activite WHERE id_activite = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$id]);
 
-$activity_id = $_GET['id'];
-
-$sql = "DELETE FROM parc_activites WHERE id = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bindValue(1, $activity_id, PDO::PARAM_INT);
-$stmt->execute();
-
-if ($stmt === false) {
-    die($conn->errorInfo()[2]);
+    header('Location: gest_activites.php');
+    exit;
+} else {
+    header('Location: gest_activites.php');
+    exit;
 }
-
-header('Location: admin_dashboard.php');
-exit;
 ?>

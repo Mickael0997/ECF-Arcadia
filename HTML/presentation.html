@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/presentation.css">
+    <title>Présentation</title>
+</head>
+<body>
+    <div class="presentation-container">
+        <h1>Bienvenue au Zoo D'Arcadia</h1>
+        <div class="format-display">
+            <img class="tigre format-trio1" src="../ASSETS/tigreaccueuil.jpg" alt="Tigre">
+            <img class="lion format-trio2" src="../assets/lionaccueil.jpg" alt="Lion">
+            <img class="panthere format-trio1" src="../assets/panthereaccueil.jpg" alt="Panthère">
+        </div>
+        <button onclick="goToHomePage()">Cliquez ici pour accéder au site</button>
+
+    </div>
+
+    <script>
+        function goToHomePage() {
+            document.body.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = '../PHP/index.php';
+            }, 1000); // Durée de l'animation de fondu en sortie
+        }
+
+        window.addEventListener('load', () => {
+            document.body.classList.add('fade-in');
+        });
+    </script>
+</body>
+</html>

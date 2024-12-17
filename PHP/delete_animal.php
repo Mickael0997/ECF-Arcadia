@@ -1,23 +1,23 @@
 <?php
+require 'database.php';
 session_start();
-if (!isset($_SESSION['admin_id'])) {
+
+if (!isset($_SESSION['id_admin'])) {
     header('Location: login.php');
     exit;
 }
 
-require 'database.php';
+$id = $_GET['id'];
 
-$animal_id = $_GET['id'];
+if ($id) {
+    $sql = "DELETE FROM animal WHERE id_animal = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$id]);
 
-$sql = "DELETE FROM animaux WHERE id = ?";
-$stmt = $conn->prepare($sql);
-
-if (!$stmt) {
-    die($conn->errorInfo());
+    header('Location: gest_animaux.php');
+    exit;
+} else {
+    header('Location: gest_animaux.php');
+    exit;
 }
-
-$stmt->execute([$animal_id]);
-
-header('Location: admin_dashboard.php');
-exit;
 ?>

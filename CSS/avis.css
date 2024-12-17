@@ -1,0 +1,101 @@
+.bandeau-avis {
+    border: 2px solid #000;
+    padding: 10px;
+    margin: 20px;
+    background-color: #fff;
+    text-align: center;
+    position: relative;
+    left: 0rem;
+    bottom: 7rem;
+    width: 25%;
+    z-index: 2;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 10px 30px 10px 30px;
+}
+
+.bandeau-avis.closed {
+    transform: translateY(100%);
+}
+
+.bandeau-avis ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.bandeau-avis li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.bandeau-avis img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.toggle-avis-btn {
+    position: absolute;
+    top: -30px;
+    right: 10px;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    line-height: 1;
+}
+
+@keyframes defilement {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@media (max-width: 1903px) {
+
+    .bandeau-avis {
+        border: 2px solid #000;
+        padding: 10px;
+        margin: 20px;
+        background-color: #fff;
+        text-align: center;
+        position: relative;
+        left: 45rem;
+        bottom: 0;
+        width: 25%;
+        z-index: 2;
+        overflow: hidden;
+        transition: transform 0.3s ease-in-out;
+        border-radius: 10px 30px 10px 30px;
+    }
+
+    .bandeau-avis {
+        padding: 15px;
+        margin: 30px;
+    }
+
+    .bandeau-avis img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .toggle-avis-btn {
+        top: -35px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+}

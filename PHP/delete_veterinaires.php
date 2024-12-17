@@ -1,20 +1,17 @@
 <?php
 require 'database.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id = $_POST['id'];
+$id = $_GET['id'];
 
-    $sql = "DELETE FROM veterinaires WHERE id = ?";
+if ($id) {
+    $sql = "DELETE FROM veterinaire WHERE id_veterinaire = ?";
     $stmt = $conn->prepare($sql);
+    $stmt->execute([$id]);
 
-    if (!$stmt) {
-        die($conn->errorInfo());
-    }
-
-    if ($stmt->execute([$id])) {
-        header('Location: admin_dashboard.php');
-    } else {
-        echo "Erreur : " . implode(":", $conn->errorInfo());
-    }
+    header('Location: employes.php');
+    exit;
+} else {
+    header('Location: employes.php');
+    exit;
 }
 ?>

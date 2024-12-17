@@ -1,0 +1,281 @@
+
+/* ---------- FONT FAMILY ---------- */
+.comic-neue-regular {
+    font-family: "Comic Neue", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.comic-neue-bold {
+    font-family: "Comic Neue", cursive;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.comic-neue-light-italic {
+    font-family: "Comic Neue", cursive;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.comic-neue-regular-italic {
+    font-family: "Comic Neue", cursive;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.comic-neue-bold-italic {
+    font-family: "Comic Neue", cursive;
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* ---------- RESET STYLE ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Neue', sans-serif;
+}
+
+/* ---------- Mise en forme du header ---------- */
+header {
+    display: flex;
+    align-items: center;
+    position: fixed; /* Changez de relative à fixed */
+    top: 0; /* Assurez-vous qu'il reste en haut */
+    height: 5rem;
+    padding: 0 1rem;
+
+
+}
+
+/* ---------- MISE EN FORME DU LOGO IMG ---------- */
+.logo img {
+    position: relative !important;
+    left: 0rem !important;
+    top: 3.5rem !important;
+    border-radius: 30rem !important;
+    height: 10rem !important;
+}
+
+.image-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    height: 11rem;
+}
+
+.image-button img {
+    width: 100px;
+    height: 4rem;
+    border-radius: 0px 10px 10px 0px;
+}
+
+/* Application du Hover */
+.ref {
+    text-decoration: none;
+    color: rgb(219, 84, 84);
+    font-size: 20px;
+    outline: none;
+}
+
+/* ---------- MISE EN FORME DE LA NAVBAR ---------- */
+
+
+/* Mise en forme de la liste */
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 2.5rem;
+    right: -100%;
+    width: 65%;
+    height: 1%;
+    background-color: #a68a6759;
+    box-shadow: 0 0 10px rgb(0 0 0 / 50%);
+    transition: right 0.3s ease;
+    padding: 1rem;
+    z-index: 1000;
+    border-radius: 40px 0px 0px 40px;
+}
+.navbar a{
+    position: relative;
+    bottom: 1rem;
+}
+
+.navbar.show-navbar {
+    right: 0;
+}
+
+/* Navbar toggle */
+.navbar-toggle {
+    position: fixed;
+    top: 3rem;
+    right: 1rem;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/*Mise en forme de la liste*/
+.navbar .links{
+    position: relative;
+    display: flex;
+    bottom: 4.5rem;
+    gap: 4.5rem;
+    padding: 4rem;
+}
+
+#navbar-icon {
+    font-size: 1.5rem;
+}
+
+/* Liens du menu */
+.links {
+    list-style: none;
+    padding: 0;
+}
+
+.links li {
+    margin: 1rem 0;
+}
+
+.links li a {
+    text-decoration: none;
+    color: #fcfcfc;
+    font-size: 1.2rem;
+}
+
+.links li a:hover {
+    color: #2be2a0
+}
+.submenu {
+    display: none;
+    list-style: none;
+    padding: 0.5rem 0;
+}
+
+.submenu.show {
+    position: relative;
+    display: flex;
+    top: 0.60rem;
+    right: 1.5rem;
+    text-align: center;
+    gap: 0.5rem;
+    flex-direction: column;
+    border-radius: 0px 0px 20px 20px;
+    background: #40382496;
+}
+
+.show {
+    background-color: #0000008c;
+    width: 150%;
+}
+
+.submenu li a{
+    color: #fcfcfc;
+    cursor: pointer;
+}
+
+/* ---------- Boutons contact ---------- *
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* ---------- Burger Menu ---------- *
+.burger-menu {
+    display: none;
+    height: 0;
+    position: absolute;
+    right: 2rem;
+    top: 115px;
+    width: 220px;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 10%;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.burger-menu.open {
+    height: 170px;
+    width: 50%;
+}
+
+.burger-menu .action-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-burger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.burger-menu li {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.liste {
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.liste ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.liste ul li {
+    margin: 0;
+    padding: 0;
+    display: inline;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+/* ---------- Styles pour la modal ---------- */
+/* Modal du plan */
+#image-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fond semi-transparent */
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* Mettre un z-index élevé pour être au-dessus des autres éléments */
+}
+
+#modal imgage {
+    max-width: 80%;
+    max-height: 80%;
+    transition: transform 0.3s;
+}
+
+.modal img.zoomed {
+    transform: scale(2);
+}
+
+.close {
+    position: absolute;
+    top: 8.5rem;
+    right: 32rem;
+    color: #fff;
+    font-size: 4rem;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+

@@ -1,41 +1,86 @@
-.gest-act-tableaux {
-    width: 65%;
-    border-collapse: collapse;
-    background-color: rgba(24, 33, 4, 0.42);
-    position: relative;
-    left: 15%;
+/* GESTION DES ACTIVITEES */
+
+.activity_button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #48831cc4;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+    margin-left: 1rem;
 }
 
-.gest-act-tableaux th, .gest-act-tableaux td {
-    border: 1px solid #ccc;
-    padding: 10px;
+.activity_button:hover {
+    background-color: #725e23ad;
+}
+
+.admin_tableaux {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    margin-left: 1rem;
+    width: 95%;
+}
+
+.admin_tableau th, .admin_tableau td {
+    border: 1px solid #ddd;
+    padding: 8px;
     text-align: left;
 }
 
-.gest-act-tableaux th {
-    background-color: #4CAF50;
-    color: white;
+.admin_tableau th {
+    background-color: #f2f2f2;
+    color: black;
 }
 
-.gest-act-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
     text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    transition: all 0.5s;
+    cursor: pointer;
 }
 
-.gest-act-button:hover {
-    opacity: 0.8;
-}
-
-.gest-act-button:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
+.message {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
 }

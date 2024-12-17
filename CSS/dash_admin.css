@@ -1,35 +1,106 @@
 
+/*----------MISE EN FORME GENERALE----------*/
 
+/* ---------- FONT FAMILY ---------- */
+.comic-neue-regular {
+    font-family: "Comic Neue", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.comic-neue-bold {
+    font-family: "Comic Neue", cursive;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.comic-neue-light-italic {
+    font-family: "Comic Neue", cursive;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.comic-neue-regular-italic {
+    font-family: "Comic Neue", cursive;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.comic-neue-bold-italic {
+    font-family: "Comic Neue", cursive;
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* ---------- RESET STYLE ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Neue', sans-serif;
+}
+
+
+/* ---------- MISE EN FORME DU BODY ---------- */
+body {
+    font-family: 'Comic Neue', sans-serif;
+    height: 180vh;
+}
+
+.background-gradient {
+    position: fixed;
+    top: 0%;
+    left: 0;
+    width: 100%;
+    height: 125vh;
+    background: linear-gradient(to bottom, #48831cc4, #725e23ad);
+    z-index: -2;
+}
 
 
 
 /* ---------- MISE EN FORME DU DASHBOARD ADMIN ---------- */
-
-.admin-title h1{
-    color: white;
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 8rem;
-    font-family: 'Poppins', sans-serif;
-    width: 30rem;
+.title h1 {
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 5.5rem;
+    font-size: 4rem;
 }
 
-.admin-title h2{
+.title h6{
+    font-size: 10px;
+    position: relative;
+    right: 19rem;
+    width: 7.5rem;
+}
+
+.logo-title {
+    height: 10rem;
+    margin-right: 20px;
+}
+
+.title{
+    display: flex;
+    margin-left: 8rem;
+}
+
+.title-admin {
+    font-size: 3rem;
+    display: flex;
+    margin-top: 22rem;
+    margin-left: 8rem;
+}
+
+.admin-title {
     color: white;
     font-size: 3rem;
     text-align: center;
-    font-family: 'Poppins', sans-serif;
     margin: 5rem;
-    width: auto;
-}
-
-.admin-navbar{
-    width: 66%;
-    height: 5rem;
-    display: flex;
-    align-items: center;
-    color: white;
-    margin-bottom: 2rem;
+    width: 45%;
     position: relative;
     bottom: 0.5rem;
 }
@@ -42,33 +113,92 @@
     display: none;
 }
 
-.admin-navbar .links{
-    display: flex;
-    gap: 4rem;
-    padding: 4rem;
-    text-decoration: underline;
+.admin-navbar {
+    position: fixed;
+    top: 28%;
+    left: 92%; /* Positionné à droite de l'écran */
+    transform: translateY(-50%);
+    z-index: 1000;
+    padding: 10px;
 }
 
-.links li{
+.links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
-    gap: 10px;
+    flex-direction: column;
 }
 
-.links li a{
-    text-decoration: none;
-    font-size: 25px;
+.links li {
+    margin: 10px 0;
+}
+
+.links a {
+    display: block;
+    width: auto;
+    padding: 10px;
+    background: linear-gradient(45deg, #48831cc4, #725e23ad);
     color: white;
+    text-decoration: none;
+    border-radius: 5px 0 0 5px;
+    transition: transform 0.3s, background 0.3s;
+    position: relative;
+    right: -150px; /* Masqué à l'extérieur de l'écran */
 }
 
-.admin-buttons{
-    display: flex;
-    gap: 4px;
+.links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 30px;
+    height: 100%;
+    background: linear-gradient(45deg, #48831cc4, #725e23ad);
+    border-radius: 10px 0 0 10px;
 }
 
-.admin-action-button{
-    background-color: greenyellow;
-    color: black;
-    border: 1px solid greenyellow;
+.links a:hover {
+    transform: translateX(-150px); /* Glisse vers la gauche */
+    background: linear-gradient(45deg, #725e23ad 0%, #48831cc4 100%);
+}
+
+.admin-buttons {
+    display: block;
+    margin-top: 20px;
+    padding: 10px;
+    background: linear-gradient(45deg, #48831cc4, #725e23ad);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px 0 0 5px;
+    text-align: center;
+    transition: transform 0.3s, background 0.3s;
+    position: relative;
+    right: -150px; /* Masqué à l'extérieur de l'écran */
+}
+
+.admin-buttons::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(45deg, #48831cc4, #725e23ad);
+    border-radius: 5px 0 0 5px;
+}
+
+.admin-buttons:hover {
+    transform: translateX(-150px); /* Glisse vers la gauche */
+    background: linear-gradient(45deg, #725e23ad 0%, #48831cc4 100%);
+}
+
+.admin-action-button {
+    position: relative;
+    bottom: 5.5rem;
+    background-color: #749f51;
+    color: white;
+    border: 1px solid #fefffb;
     padding: 0.5rem 1.2rem;
     border-radius: 20px;
     outline: none;
@@ -95,23 +225,289 @@
     color: white;
 }
 
+/* Styles pour le conteneur du journal */
+.journal-container {
+    width: 70%;
+    margin-left: 2.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+}
 
+/* Styles pour chaque entrée du journal */
+.journal-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Styles pour la colonne de date et heure */
+.journal-entry .entry-date {
+    width: 20%;
+    font-size: 0.9rem;
+    color: #555;
+    text-align: left;
+}
+
+/* Styles pour la colonne de nom de l'utilisateur et rôle */
+.journal-entry .entry-user {
+    width: 20%;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+/* Styles pour la colonne des informations */
+.journal-entry .entry-details {
+    width: 60%;
+    font-size: 0.9rem;
+    color: #333;
+    text-align: left;
+}
+
+/* Styles pour les titres des sections */
+.journal-entry .entry-details strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #000;
+}
+
+/* Conteneur pour les boutons */
+.journal-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Styles pour les boutons */
+#add-entry-button, .search-button {
+    padding: 10px 20px;
+    background: linear-gradient(45deg,#48831cc4, #725e23ad);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 16rem;
+}
+
+#add-entry-button:hover, .search-button:hover {
+    background: linear-gradient(45deg, #725e23ad 0%, #48831cc4 100%);
+}
+
+#search-entry-button {
+    padding: 10px 20px;
+    background: linear-gradient(45deg,#48831cc4, #725e23ad);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 70px;
+    width: 16rem;
+}
+
+#search-entry-button:hover, .search-button:hover {
+    background: linear-gradient(45deg, #725e23ad 0%, #48831cc4 100%);
+}
+
+/* Styles supplémentaires */
+#journal-container {
+    width: 100%;
+    margin: 20px 0;
+}
+
+#journal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#journal-entries.collapsed .journal-entry:nth-child(n+4) {
+    display: none; /* Cache les entrées au-delà de la 3e */
+}
+
+#journal-entries {
+    max-height: 500px; /* Limite la hauteur */
+    overflow-y: auto;
+}
+
+.journal-entry {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#toggle-journal {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#toggle-journal:hover {
+    background-color: #0056b3;
+}
+
+#search-events {
+    padding: 5px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#entry-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#entry-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.sup-button{
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 10px;
+    width: 90px;
+}
+
+.edit-button{
+    padding: 10px 20px;
+    margin-bottom: 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 10px;
+    width: 90px;
+}
+/* Styles pour la fenêtre modale */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal.is-visible {
+    display: block;
+}
+
+.modal-overlay {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-wrapper {
+    position: absolute;
+    z-index: 9999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    background-color: #fff;
+    box-shadow: 0 0 1.5em rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+}
+
+.modal-content {
+    padding: 20px;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content form label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.modal-content form input,
+.modal-content form select,
+.modal-content form textarea {
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.modal-content form button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.modal-content form button:hover {
+    background-color: #45a049;
+}
+
+/* Masquer les options par défaut */
+.category-options {
+    display: none;
+}
 
 /* ---------- MISE EN FORME VIEW ---------- */
 
-.view-title{
-    color: white;
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 8rem;
-    font-family: 'Poppins', sans-serif;
-    width: 30rem;
+.vues {
+    justify-content: space-around;
+    display: flex;
+    position: absolute;
 }
 
 .vue {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
 }
 
 .image-container {
@@ -120,15 +516,24 @@
     align-items: center;
 }
 
+.animal-name {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
 .vue-image {
-    border-radius: 50%;
-    width: 20rem;
+    border-radius: 10px;
+    width: 15rem;
     height: 20rem;
+    border: 5px solid #48831cc4;
+    object-fit: cover;
 }
 
 .likes {
-    display: block ruby;
-    font-size: 3rem;
+    display: block;
+    font-size: 1.5rem;
+    margin-top: 10px;
 }
 
 .heart {

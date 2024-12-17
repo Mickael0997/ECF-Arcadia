@@ -1,0 +1,30 @@
+.title h6{
+    font-size: 10px;
+    position: relative;
+    right: 19rem;
+    width: 7.5rem;
+}
+
+.titre h3 {
+    font-size: 30px;
+    color: white;
+}
+
+.add-employe {
+    display: flex;
+    margin-left: 2rem;
+}
+
+.btn-edit {
+    background: linear-gradient(45deg, #725e23ad 0%, #48831cc4 100%);
+    padding: 4px 60px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    height: 1.5rem;
+    width: 10.5rem;
+    left: 4rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
